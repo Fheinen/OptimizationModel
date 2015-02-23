@@ -1,0 +1,569 @@
+AnyFolder &PelvisRef = Pelvis;
+PelvisRef = {
+  AnyVec3 HipJoint = {0,0,0}*.TF';
+  AnyVec3 HipJointTD = {-0.033798585820202,  -0.080669197951855,   0.084303560578942}*.TF';
+  AnyVec3 RASIS =  {0,   0,  0.117745962516916};
+  AnyVec3 LASIS =  {0,   0,  -0.117745962516916};
+  AnyVec3 LPSIS = {-0.122885680523436, 0,  -0.035247892048199};
+  AnyVec3 RPSIS = {-0.122885680523436,  0, 0.035247892048199};
+  //-->ABT_MJ
+  AnyVec3 PSIS_Mid = (LPSIS + RPSIS)*0.5;
+  //<--ABT_MJ
+};
+
+AnyFolder &ThighRef = Thigh;
+ThighRef = {
+  AnyFunTransform3D &Scale = ..Seg.Thigh.Scale;
+  AnyVec3 HipJoint = {-0,   0.359087741410625,   0}*.TF';
+  AnyVec3 KneeJoint = {-0.002171388819482938,   0.006685765711538283, 0}*.TF';
+//  AnyVec3 KneeJoint = {-0.008476314945586143,  -0.005337599135014870, 0}*.TF';
+  AnyVec3 KneeJointAxis = ..Sign*{0.048775498345200, -0.046316717062087, -0.997735291789244}*RotMat(0*-8*pi/180, y)*.TF'/vnorm({0.048775498345200, -0.046316717062087, -0.997735291789244});
+    
+  AnyVec3 PatellaFemurJoint ={ -0.001541778853818+0.007, 0.000741690515705+0.005,0}*.TF';
+  AnyVec3 PatellaFemurJointAxis = ..Sign*{0.113593837880629, -0.058156694290194, -0.991823693458059}*.TF'/vnorm({0.113593837880629  -0.058156694290194, -0.991823693458059});
+
+//// Neutral definition of HipJoint
+//  AnyVec3 HipsRelUnscaled = HipJoint;
+//  AnyMat33 HipARelUnscaled = RotMat(HipsRelUnscaled , ((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, HipsRelUnscaled  + ..Sign*((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(-pi/2,x)*RotMat(pi/2,z);
+//  
+//  AnyVec3 HipsRel = Scale(HipJoint);
+//  // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//  #ifndef USE_AMMR14_HIP_ROTATIONS
+//    // The orientation of the HipJoint coordinate system follows ISB recommendation. The y axis follows the 
+//    //    AnyMat33 HipARel = RotMat(HipsRel, HipsRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, (Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//    AnyMat33 HipARel = RotMat(HipsRel, (Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, HipsRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(-pi/2,x)*RotMat(pi/2,z);
+//    #else
+//    AnyMat33 HipARel = RotMat(..Sign*-30*pi/180,y) * RotMat(-18*pi/180,z);
+//  #endif
+//
+//  // Neutral definition of the patella-femur joint
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 PFLateralControlPoint = Scale(PatellaFemurJoint + (..Seg.Thigh.StdPar.EpicondylusFemorisLateralis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 PFMedialControlPoint = Scale(PatellaFemurJoint + (..Seg.Thigh.StdPar.EpicondylusFemorisMedialis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  AnyVec3 PatellaFemursRel = Scale(PatellaFemurJoint);
+//  // PatellaFemurJoint Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 PatellaFemurARel = RotMat( 0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)),  0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(PFLateralControlPoint-PFMedialControlPoint ), Scale(HipJoint))*RotMat(pi/2,y);
+//    
+//  // Neutral definition of the knee joint
+//  // This can be used for controlling varus valgus the varible can be linked to a design varible and changed,
+//  AnyVar AxisRot=0;  
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//    AnyVec3 KneesRelUnscaled = 0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis);
+//    AnyMat33 KneeARelUnscaled = RotMat(KneesRelUnscaled , KneesRelUnscaled + ..Sign*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis -..Seg.Thigh.StdPar.EpicondylusFemorisMedialis), HipJoint)*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//    // Knee joint is defined from the two epicondyle bony landmarks
+//    AnyVec3 KneesRel =0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis));
+//    // Knee joint axis is defined from the two epicondyle bony landmarks
+//    AnyMat33 KneeARel = RotMat(KneesRel, KneesRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) - Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)), Scale(HipJoint))*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//  #else
+//    AnyVec3 KneesRelUnscaled = KneeJoint;
+//    AnyMat33 KneeARelUnscaled = RotMat(0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis), 0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis) + ..Sign*(KneeLateralControlPoint-KneeMedialControlPoint ), HipJoint)*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//    // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//    // knee axis from the cadaver data set. Thus, scaling which moves the control points will also scale the Knee joint axis
+//    AnyVec3 KneeLateralControlPoint = KneeJoint + ((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis - KneeJoint)*KneeJointAxis')*KneeJointAxis;
+//    // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//    // knee axis from the cadaver data set. Thus, scaling which moves the control points will also scale the Knee joint axis
+//    AnyVec3 KneeMedialControlPoint = KneeJoint + ((..Seg.Thigh.StdPar.EpicondylusFemorisMedialis - KneeJoint)*KneeJointAxis')*KneeJointAxis;
+//    AnyVec3 KneesRel = Scale(KneeJoint);
+//    // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//    #ifndef USE_AMMR14_HIP_ROTATIONS
+//      // Knee Joint orientation is calculated based on the direction between the two control points.   
+//    //AnyMat33 KneeARel = RotMat(0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)), 0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(Scale(KneeLateralControlPoint)-Scale(KneeMedialControlPoint)), Scale(HipJoint))*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//        AnyMat33 KneeARel = RotMat(KneesRel, KneesRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) - Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)), Scale(HipJoint))*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//  #else
+//      AnyMat33 KneeARel = RotMat(..Sign*7.46*pi/180,x) * RotMat(..Sign*-32.25*pi/180,y)*RotMat(..Sign*AxisRot*pi/180,x);
+//    #endif
+//  #endif
+};
+
+AnyFolder &PatellaRef = Patella;
+PatellaRef = {
+  AnyFunTransform3D &Scale = ..Seg.Patella.Scale;
+  AnyVec3 PatellaFemurJoint = {-0.043634755028740+0.007, -0.012972708117880+0.007, 0.002046017418767}*.TF';
+  AnyVec3 PatellaFemurJointAxis = ..Sign*{0.113593837880629, -0.058156694290194, -0.991823693458059}*.TF'/vnorm({0.113593837880629  -0.058156694290194, -0.991823693458059});
+
+  AnyVec3 HipJoint = {0.0, 0.0, 0.0}*.TF';
+
+//  AnyVec3 LateralControlPoint = Scale(PatellaFemurJoint + (..Seg.Patella.StdPar.EpicondylusFemorisLateralis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 MedialControlPoint = Scale(PatellaFemurJoint + (..Seg.Patella.StdPar.EpicondylusFemorisMedialis - PatellaFemurJoint )*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  AnyVec3 PatellasRel = Scale(PatellaFemurJoint );
+//  // PatellaFemurJoint Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 PatellaARel = RotMat(  0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)),   0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(LateralControlPoint-MedialControlPoint ), Scale(HipJoint))*RotMat(-pi/2,y);
+};
+
+AnyFolder &ShankRef = Shank;
+ShankRef = {
+  AnyFunTransform3D &Scale = ..Seg.Shank.Scale;
+  //AnyVec3 KneeJoint = { -0.005213311154376-0.005, 0.356971998210494-0.001, -0.005585395876076+0.004}*.TF';
+  AnyVec3 KneeJoint = { -0.005213311154376-0.005, 0.356971998210494+0.01, -0.005585395876076+0.004}*.TF';
+//  AnyVec3 KneeJoint = ({  0.001455978621997 ,  0.3687983196300992,  -0.007290666111105}+{0, -0.000, 0.004})*.TF';
+AnyVec3 KneeJointAxis = ..Sign*{-0.048775494126362  , 0.046316712181702 ,  0.997735328033136}*RotMat(1*pi/180, x)*RotMat(-8*pi/180, y)*.TF';
+ //AnyVec3 KneeJointAxis = ..Sign*{-0.024683490700272  , 0.011649694681074 ,  0.999627435548209}*.TF';
+  
+
+  AnyVec3 AnkleJoint =   {0.005204087300036, -0.014676138167980, 0}*.TF';
+  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+//  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  AnyVec3 AnkleJointAxis = ..Sign*{0.362798983319139, 0.130490601661148, -0.922685808160454}*.TF'/vnorm({0.362798983319139, 0.130490601661148, -0.922685808160454});
+
+//  // Neutral definition of talocrural joint
+//  // Switch to change the joint definition to follow bony landmarks instead of the original dataset 
+//  // Default is the orginal dataset. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 TalocruralsRelUnscaled =  0.5*(..ModelParameters.Shank.LateralAnkleAxisMarker+..ModelParameters.Shank.MedialAnkleAxisMarker);
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2, ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2  + ...Sign*(..ModelParameters.Shank.LateralAnkleAxisMarker -..ModelParameters.Shank.MedialAnkleAxisMarker ), ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  // Ankle joint is defined from the two malleolus bony landmarks
+//  
+//  AnyVec3 TalocruralsRel = 0.5*(Scale(..ModelParameters.Shank.LateralAnkleAxisMarker)+Scale(..ModelParameters.Shank.MedialAnkleAxisMarker));
+//  // Ankle joint axis is defined from the two malleolus bony landmarks
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2, (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2  + ...Sign*(Scale(..ModelParameters.Shank.LateralAnkleAxisMarker) -Scale(..ModelParameters.Shank.MedialAnkleAxisMarker)), (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #else
+//  AnyVec3 TalocruralsRelUnscaled = AnkleJoint;
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2, ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*((LateralControlPoint)-(MedialControlPoint)), ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 LateralControlPoint = (AnkleJoint + (..Seg.Shank.StdPar.LateralMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis);
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 MedialControlPoint = (AnkleJoint + (..Seg.Shank.StdPar.MedialMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis );
+//  // Ankle Joint defined directly from the cadaver dataset. 
+//  AnyVec3 TalocruralsRel = Scale(AnkleJoint);
+//  // Ankle Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2, (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*(Scale(LateralControlPoint)-Scale(MedialControlPoint)), (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #endif
+  
+  // Neutral definition of the knee joint
+  // Bony Landmarks transformed transformed to the shank coordinate system in the neutral configuration
+  AnyVec3 LateralFemuralCondyleInNeutralConf = ..Seg.Shank.StdPar.EpicondylusFemorisLateralis;                                                                  
+  // Bony Landmarks transformed transformed to the shank coordinate system in the neutral configuration
+  AnyVec3 MedialFemuralCondyleInNeutralConf = ..Seg.Shank.StdPar.EpicondylusFemorisMedialis;
+//  // This switch is used to control two definition of the joint axis. One specified by the original cadaver data set (default),
+//  // and one where the joint is defined to through the bony landmarks. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 KneesRelUnscaled = 0.5*(LateralFemuralCondyleInNeutralConf + MedialFemuralCondyleInNeutralConf);
+//  AnyMat33 KneeARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(LateralFemuralCondyleInNeutralConf - MedialFemuralCondyleInNeutralConf), ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//  // Knee joint is defined from the two epicondyle bony landmarks
+//  AnyVec3 KneesRel = 0.5*(Scale(LateralFemuralCondyleInNeutralConf )+Scale( MedialFemuralCondyleInNeutralConf));
+//  // Knee joint axis is defined from the two epicondyle bony landmarks
+//  AnyMat33 KneeARel = RotMat((Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(Scale(LateralFemuralCondyleInNeutralConf) - Scale(MedialFemuralCondyleInNeutralConf)), (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//  #else
+//  AnyVec3 KneesRelUnscaled = KneeJoint;
+//  AnyMat33 KneeARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(LateralControlPointKnee-MedialControlPointKnee), ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//
+//  // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // knee axis from the cadaver data set. Thus, scaling the control points will also scale the Knee joint axis
+//  AnyVec3 LateralControlPointKnee = KneeJoint + (LateralFemuralCondyleInNeutralConf - KneeJoint)*KneeJointAxis'*KneeJointAxis;
+//  // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // knee axis from the cadaver data set. Thus, scaling the control points will also scale the Knee joint axis
+//  AnyVec3 MedialControlPointKnee = KneeJoint + (MedialFemuralCondyleInNeutralConf - KneeJoint)*KneeJointAxis'*KneeJointAxis;
+//  AnyVec3 KneesRel = Scale(KneeJoint);
+//  
+////  // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//  #ifdef USE_AMMR14_HIP_ROTATIONS
+//  AnyMat33 KneeARel = RotMat(..Sign*7.46*pi/180,x) * RotMat(..Sign*-32.25*pi/180,y);
+//  #else
+//  // Knee Joint orientation is calculated based on the direction between the two control points.   
+//  //AnyMat33 KneeARel = RotMat(0.5*(Scale(..Seg.Shank.StdPar.MedialMalleolus) + Scale(..Seg.Shank.StdPar.LateralMalleolus)), 0.5*(Scale(..Seg.Shank.StdPar.MedialMalleolus) + Scale(..Seg.Shank.StdPar.LateralMalleolus)) + ..Sign*(Scale(LateralControlPointKnee-MedialControlPointKnee)), 0.5*(Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle)))*RotMat(pi/2,y);
+//  AnyMat33 KneeARel = RotMat((Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(Scale(LateralFemuralCondyleInNeutralConf) - Scale(MedialFemuralCondyleInNeutralConf)), (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//  #endif
+//  #endif
+};
+
+AnyFolder &TalusRef = Talus;
+TalusRef = {
+  AnyFunTransform3D &Scale = ..Seg.Talus.Scale; 
+  AnyFunTransform3D &FootScale = ..Seg.Foot.Scale; 
+  
+  AnyFunTransform3D &ShankScale = ..Seg.Shank.Scale;   
+//  AnyVec3 ATA = FootScale(..Seg.Foot.StdPar.TendonCalcaneousNode)-Scale(SubTalarJoint2)*SubTalarARel;
+ // AnyVec3 SJA = Scale(SubTalarJoint2)*SubTalarARel;
+//  AnyVec3 SJ = {SJA[0], SJA[1], ATA[2]}*SubTalarARel';
+  
+  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+  //AnyVec3 AnkleJoint = {0,0,0}; 
+  //AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  //AnyVec3 SubTalarJoint_KH = {0.0083, 0.0116, -0.0016}*.TF';
+  // Make sure the X-coordinate of the subtalar joint coincides with the intermalleolar X-coordinate
+//  AnyVec3 SubTalarJoint2 = SubTalarJoint_KH + SubTalarJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[0]+..Seg.Shank.StdPar.LateralMalleolus[0])/2-SubTalarJoint_KH[0])/SubTalarJointAxis[0];
+//  AnyVec3 SubTalarJoint = SJ;
+//  AnyVec3 SubTalarJoint = { 0.014922985094467, -0.033112203386154, -0.001359618011284}*.TF';
+//  AnyVec3 SubTalarJoint = {0.020602888534779,  -0.040211857655424,  -0.000130353372897}*.TF';
+//  AnyVec3 SubTalarJoint = {  0.019581871535602, -0.045845718442236,  -0.001552337470479}*.TF';
+//  AnyVec3 SubTalarJoint = {0, -0.027755663855748, ..Sign*0.001377080467602};
+  AnyVec3 SubTalarJoint = ({-0.011535063266336,  -0.024341525975544 , -0.000175257002877}+{0.005,0.00,0.006})*.TF';
+  
+  //  AnyVec3 AnkleJoint =   {-0.012010879406611 , -0.004162346018506,  -0.002781602108866}*.TF';
+//  AnyVec3 AnkleJoint =   ({-0.006330975966300, -0.011262000287775,  -0.001552337470479}+{0.005,0.003,0.003})*.TF';
+  AnyVec3 AnkleJoint =   ({-0.006330975966300, -0.011262000287775,  -0.001552337470479}+{0.005,0.00,0.003})*.TF';
+
+  
+//   AnyVec3 AnkleJoint =   { 0.000120748861872,  -0.012990824297198,   0.000739974716891}*.TF';
+   // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+//  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  AnyVec3 AnkleJointAxis = ..Sign*{0.362798983319139, 0.130490601661148, -0.922685808160454}*.TF'/vnorm({0.362798983319139, 0.130490601661148, -0.922685808160454});
+
+  
+  
+//  AnyVec3 SubTalarJointAxis = ..Sign*{0.9840, 0.1538, 0.0896}*.TF'/vnorm({0.9840, 0.1538, 0.0896});
+//  AnyVec3 SubTalarJointAxis = ..Sign*  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478}*.TF'/vnorm(  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478});
+    AnyVec3 SubTalarJointAxis = { 0.878425439646641 ,  0.463778658743898, 0.115230649895397}*.TF';
+
+
+  // Neutral definition of subtalar joint
+  AnyVec3 KneeJointInNeutralConfig = ..Seg.Shank.StdPar.KneeJoint;
+//  AnyVec3 SubTalarsRelUnscaled = SubTalarJoint;
+//  AnyVec3 SubTalarsRel = Scale(SubTalarJoint);
+//  AnyMat33 SubTalarARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  AnyMat33 SubTalarARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,(ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+  
+//  // Neutral definition of talocrural joint
+//  // Switch to change the joint definition to follow bony landmarks instead of the original dataset 
+//  // Default is the orginal dataset. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 TalocruralsRelUnscaled =  0.5*(..Seg.Talus.StdPar.LateralAnkleAxisMarker+....Seg.Talus.StdPar.MedialAnkleAxisMarker);
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2  + ...Sign*(..Seg.Talus.StdPar.LateralAnkleAxisMarker -..Seg.Talus.StdPar.MedialAnkleAxisMarker ), ((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  // Ankle joint is defined from the two malleolus bony landmarks
+//
+//  AnyVec3 TalocruralsRel = 0.5*(Scale(..Seg.Talus.StdPar.LateralAnkleAxisMarker)+Scale(..Seg.Talus.StdPar.MedialAnkleAxisMarker));
+//  // Ankle joint axis is defined from the two malleolus bony landmarks
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2, (Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2  + ...Sign*(Scale(..Seg.Talus.StdPar.LateralAnkleAxisMarker) -Scale(..Seg.Talus.StdPar.MedialAnkleAxisMarker)), (Scale(..Seg.Talus.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #else
+//  AnyVec3 TalocruralsRelUnscaled = AnkleJoint;
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2  +..Sign*((LateralControlPoint)-(MedialControlPoint)), ((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 LateralControlPoint = (AnkleJoint + (..Seg.Talus.StdPar.LateralMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis);
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 MedialControlPoint = (AnkleJoint + (..Seg.Talus.StdPar.MedialMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis );
+//  // Ankle Joint defined directly from the cadaver dataset. 
+//  AnyVec3 TalocruralsRel = Scale(AnkleJoint);
+//  // Ankle Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 TalocruralARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*(ShankScale(LateralControlPoint)-ShankScale(MedialControlPoint)), (ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//
+////  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2, (Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2  +..Sign*(Scale(LateralControlPoint)-Scale(MedialControlPoint)), (Scale(..Seg.Talus.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #endif
+};
+
+AnyFolder &FootRef = Foot;
+FootRef = {
+  AnyFunTransform3D &Scale = ..Seg.Foot.Scale; 
+  AnyFunTransform3D &ShankScale = ..Seg.Shank.Scale; 
+  
+ // AnyVec3 SubTalarJoint = {-0.010,-0.023,..Sign*-0.01};
+  AnyVec3 SubTalarJoint = {0,0,0};
+
+ // AnyVec3 SubTalarJointAxis = ..Sign*({-0.290279956764956 ,  0.873880154991331,  -0.389962846195458})*.TF/vnorm({-0.290279956764956, 0.873880154991331, -0.389962846195458});
+ // AnyVec3 SubTalarJointAxis = ..Sign*({-0.290279956764956 , -0.873880154991331,  -0.389962846195458})*.TF/vnorm({-0.290279956764956, 0.873880154991331, -0.389962846195458});
+
+   
+//-0.290279956764956   0.873880154991331  -0.389962846195458
+//  AnyVec3 SubTalarJointAxis = ..Sign*  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478}*.TF'/vnorm(  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478});
+  AnyVec3 SubTalarJointAxis = { 0.878425439646641 ,  0.463778658743898, 0.115230649895397}*RotMat(0*pi/180,y)*.TF';
+
+  
+//   AnyVec3 SubTalarJointAxis = ..Sign*  { -0.290279956764956 ,  0.873880154991331 , -0.389962846195458});
+
+
+
+  //AnyVec3 SubTalarJointAxis = ..Sign*({0.9840, 0.1538, 0.0896})*.TF'*..Seg.Foot.StdPar.NeutralRot2/vnorm({0.9840, 0.1538, 0.0896});
+  
+//  AnyVec3 SubTalarsRel = Scale(SubTalarJoint);
+//  AnyMat33 SubTalarARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,(ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+  
+  
+
+  // Not yet in local ref frame, but these were also not measured by Martijn-Klein Horsman.
+  AnyVec3 MetatarsalJoint1Node ={0.18, -0.9600, 0.05}*.TF';
+  AnyVec3 MetatarsalJoint2Node = {0.1650, -0.9600, 0.065}*.TF';
+  AnyVec3 MetatarsalJoint3Node = {0.1450, -0.9600,0.0700  }*.TF';
+  AnyVec3 MetatarsalJoint4Node = {0.1350, -0.9600, 0.0800 }*.TF';
+  AnyVec3 MetatarsalJoint5Node = {0.12, -0.95500, 0.095 }*.TF';
+  AnyVec3 ToeJoint = {0.18, -0.94, 0.05}*.TF';
+};
+
+
+//AnyFolder &PelvisRef = Pelvis;
+//PelvisRef = {
+//  AnyVec3 HipJoint = {0,0,0}*.TF';
+//  AnyVec3 HipJointTD = {-0.033798585820202,  -0.080669197951855,   0.084303560578942}*.TF';
+//  AnyVec3 RASIS =  {0,   0,  0.117745962516916};
+//  AnyVec3 LASIS =  {0,   0,  -0.117745962516916};
+//  AnyVec3 LPSIS = {-0.122885680523436, 0,  -0.035247892048199};
+//  AnyVec3 RPSIS = {-0.122885680523436,  0, 0.035247892048199};
+//};
+//
+//AnyFolder &ThighRef = Thigh;
+//ThighRef = {
+//  AnyFunTransform3D &Scale = ..Seg.Thigh.Scale;
+//  AnyVec3 HipJoint = {-0,   0.359087741410625,   0}*.TF';
+////  AnyVec3 KneeJoint = {-0.002171388819482938,   0.006685765711538283, 0}*.TF';
+//  AnyVec3 KneeJoint = {-0.008476314945586143,  -0.005337599135014870, 0}*.TF';
+//  AnyVec3 KneeJointAxis = ..Sign*{0.048775498345200, -0.046316717062087, -0.997735291789244}*RotMat(-8*pi/180, y)*.TF'/vnorm({0.048775498345200, -0.046316717062087, -0.997735291789244});
+//    
+//  AnyVec3 PatellaFemurJoint ={ -0.001541778853818+0.007, 0.000741690515705+0.005,0}*.TF';
+//  AnyVec3 PatellaFemurJointAxis = ..Sign*{0.113593837880629, -0.058156694290194, -0.991823693458059}*.TF'/vnorm({0.113593837880629  -0.058156694290194, -0.991823693458059});
+//
+//// Neutral definition of HipJoint
+//  AnyVec3 HipsRelUnscaled = HipJoint;
+//  AnyMat33 HipARelUnscaled = RotMat(HipsRelUnscaled , ((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, HipsRelUnscaled  + ..Sign*((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(-pi/2,x)*RotMat(pi/2,z);
+//  
+//  AnyVec3 HipsRel = Scale(HipJoint);
+//  // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//  #ifndef USE_AMMR14_HIP_ROTATIONS
+//    // The orientation of the HipJoint coordinate system follows ISB recommendation. The y axis follows the 
+//    //    AnyMat33 HipARel = RotMat(HipsRel, HipsRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, (Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//    AnyMat33 HipARel = RotMat(HipsRel, (Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)+Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2, HipsRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis)-Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis))/2)*RotMat(-pi/2,x)*RotMat(pi/2,z);
+//    #else
+//    AnyMat33 HipARel = RotMat(..Sign*-30*pi/180,y) * RotMat(-18*pi/180,z);
+//  #endif
+//
+//  // Neutral definition of the patella-femur joint
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 PFLateralControlPoint = Scale(PatellaFemurJoint + (..Seg.Thigh.StdPar.EpicondylusFemorisLateralis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 PFMedialControlPoint = Scale(PatellaFemurJoint + (..Seg.Thigh.StdPar.EpicondylusFemorisMedialis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  AnyVec3 PatellaFemursRel = Scale(PatellaFemurJoint);
+//  // PatellaFemurJoint Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 PatellaFemurARel = RotMat( 0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)),  0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(PFLateralControlPoint-PFMedialControlPoint ), Scale(HipJoint))*RotMat(pi/2,y);
+//    
+//  // Neutral definition of the knee joint
+//  // This can be used for controlling varus valgus the varible can be linked to a design varible and changed,
+//  AnyVar AxisRot=0;  
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//    AnyVec3 KneesRelUnscaled = 0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis);
+//    AnyMat33 KneeARelUnscaled = RotMat(KneesRelUnscaled , KneesRelUnscaled + ..Sign*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis -..Seg.Thigh.StdPar.EpicondylusFemorisMedialis), HipJoint)*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//    // Knee joint is defined from the two epicondyle bony landmarks
+//    AnyVec3 KneesRel =0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.Thigh.EpicondylusFemorisMedialis));
+//    // Knee joint axis is defined from the two epicondyle bony landmarks
+//    AnyMat33 KneeARel = RotMat(KneesRel, KneesRel + ..Sign*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) - Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)), Scale(HipJoint))*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//  #else
+//    AnyVec3 KneesRelUnscaled = KneeJoint;
+//    AnyMat33 KneeARelUnscaled = RotMat(0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis), 0.5*(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis +..Seg.Thigh.StdPar.EpicondylusFemorisMedialis) + ..Sign*(KneeLateralControlPoint-KneeMedialControlPoint ), HipJoint)*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//    // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//    // knee axis from the cadaver data set. Thus, scaling which moves the control points will also scale the Knee joint axis
+//    AnyVec3 KneeLateralControlPoint = KneeJoint + ((..Seg.Thigh.StdPar.EpicondylusFemorisLateralis - KneeJoint)*KneeJointAxis')*KneeJointAxis;
+//    // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//    // knee axis from the cadaver data set. Thus, scaling which moves the control points will also scale the Knee joint axis
+//    AnyVec3 KneeMedialControlPoint = KneeJoint + ((..Seg.Thigh.StdPar.EpicondylusFemorisMedialis - KneeJoint)*KneeJointAxis')*KneeJointAxis;
+//    AnyVec3 KneesRel = Scale(KneeJoint);
+//    // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//    #ifndef USE_AMMR14_HIP_ROTATIONS
+//      // Knee Joint orientation is calculated based on the direction between the two control points.   
+//    AnyMat33 KneeARel = RotMat(0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)), 0.5*(Scale(..Seg.Thigh.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Thigh.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(Scale(KneeLateralControlPoint)-Scale(KneeMedialControlPoint)), Scale(HipJoint))*RotMat(pi/2,y)*RotMat(AxisRot,x);
+//      #else
+//      AnyMat33 KneeARel = RotMat(..Sign*7.46*pi/180,x) * RotMat(..Sign*-32.25*pi/180,y)*RotMat(..Sign*AxisRot*pi/180,x);
+//    #endif
+//  #endif
+//};
+//
+//AnyFolder &PatellaRef = Patella;
+//PatellaRef = {
+//  AnyFunTransform3D &Scale = ..Seg.Patella.Scale;
+//  AnyVec3 PatellaFemurJoint = {-0.043634755028740+0.007, -0.012972708117880+0.007, 0.002046017418767}*.TF';
+//  AnyVec3 PatellaFemurJointAxis = ..Sign*{0.113593837880629, -0.058156694290194, -0.991823693458059}*.TF'/vnorm({0.113593837880629  -0.058156694290194, -0.991823693458059});
+//
+//  AnyVec3 HipJoint = {0.0, 0.0, 0.0}*.TF';
+//
+//  AnyVec3 LateralControlPoint = Scale(PatellaFemurJoint + (..Seg.Patella.StdPar.EpicondylusFemorisLateralis - PatellaFemurJoint)*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  // Control point for the PatellaFemurJoint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // PatellaFemurJoint axis from the cadaver data set. Thus, scaling which moves the control points will also scale the PatellaFemurJointjoint axis
+//  AnyVec3 MedialControlPoint = Scale(PatellaFemurJoint + (..Seg.Patella.StdPar.EpicondylusFemorisMedialis - PatellaFemurJoint )*PatellaFemurJointAxis'*PatellaFemurJointAxis);
+//  AnyVec3 PatellasRel = Scale(PatellaFemurJoint );
+//  // PatellaFemurJoint Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 PatellaARel = RotMat(  0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)),   0.5*(Scale(..Seg.Patella.StdPar.EpicondylusFemorisLateralis) + Scale(..Seg.Patella.StdPar.EpicondylusFemorisMedialis)) + ..Sign*(LateralControlPoint-MedialControlPoint ), Scale(HipJoint))*RotMat(-pi/2,y);
+//};
+//
+//AnyFolder &ShankRef = Shank;
+//ShankRef = {
+//  AnyFunTransform3D &Scale = ..Seg.Shank.Scale;
+//  AnyVec3 KneeJoint = { -0.005213311154376, 0.356971998210494-0.003, -0.005585395876076+0.004}*.TF';
+////  AnyVec3 KneeJoint = ({  0.001455978621997 ,  0.3687983196300992,  -0.007290666111105}+{0, -0.000, 0.004})*.TF';
+//AnyVec3 KneeJointAxis = ..Sign*{-0.048775494126362  , 0.046316712181702 ,  0.997735328033136}*RotMat(1*pi/180, x)*RotMat(-8*pi/180, y)*.TF';
+// //AnyVec3 KneeJointAxis = ..Sign*{-0.024683490700272  , 0.011649694681074 ,  0.999627435548209}*.TF';
+//  
+//
+//  AnyVec3 AnkleJoint =   {0.005204087300036, -0.014676138167980, 0}*.TF';
+//  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+////  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+//  AnyVec3 AnkleJointAxis = ..Sign*{0.362798983319139, 0.130490601661148, -0.922685808160454}*.TF'/vnorm({0.362798983319139, 0.130490601661148, -0.922685808160454});
+//
+//  // Neutral definition of talocrural joint
+//  // Switch to change the joint definition to follow bony landmarks instead of the original dataset 
+//  // Default is the orginal dataset. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 TalocruralsRelUnscaled =  0.5*(..ModelParameters.Shank.LateralAnkleAxisMarker+..ModelParameters.Shank.MedialAnkleAxisMarker);
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2, ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2  + ...Sign*(..ModelParameters.Shank.LateralAnkleAxisMarker -..ModelParameters.Shank.MedialAnkleAxisMarker ), ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  // Ankle joint is defined from the two malleolus bony landmarks
+//  
+//  AnyVec3 TalocruralsRel = 0.5*(Scale(..ModelParameters.Shank.LateralAnkleAxisMarker)+Scale(..ModelParameters.Shank.MedialAnkleAxisMarker));
+//  // Ankle joint axis is defined from the two malleolus bony landmarks
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2, (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2  + ...Sign*(Scale(..ModelParameters.Shank.LateralAnkleAxisMarker) -Scale(..ModelParameters.Shank.MedialAnkleAxisMarker)), (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #else
+//  AnyVec3 TalocruralsRelUnscaled = AnkleJoint;
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2, ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*((LateralControlPoint)-(MedialControlPoint)), ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 LateralControlPoint = (AnkleJoint + (..Seg.Shank.StdPar.LateralMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis);
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 MedialControlPoint = (AnkleJoint + (..Seg.Shank.StdPar.MedialMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis );
+//  // Ankle Joint defined directly from the cadaver dataset. 
+//  AnyVec3 TalocruralsRel = Scale(AnkleJoint);
+//  // Ankle Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2, (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*(Scale(LateralControlPoint)-Scale(MedialControlPoint)), (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #endif
+//  
+//  // Neutral definition of the knee joint
+//  // Bony Landmarks transformed transformed to the shank coordinate system in the neutral configuration
+//  AnyVec3 LateralFemuralCondyleInNeutralConf = ..Seg.Shank.StdPar.EpicondylusFemorisLateralis;                                                                  
+//  // Bony Landmarks transformed transformed to the shank coordinate system in the neutral configuration
+//  AnyVec3 MedialFemuralCondyleInNeutralConf = ..Seg.Shank.StdPar.EpicondylusFemorisMedialis;
+//  // This switch is used to control two definition of the joint axis. One specified by the original cadaver data set (default),
+//  // and one where the joint is defined to through the bony landmarks. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 KneesRelUnscaled = 0.5*(LateralFemuralCondyleInNeutralConf + MedialFemuralCondyleInNeutralConf);
+//  AnyMat33 KneeARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(LateralFemuralCondyleInNeutralConf - MedialFemuralCondyleInNeutralConf), ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//  // Knee joint is defined from the two epicondyle bony landmarks
+//  AnyVec3 KneesRel = 0.5*(Scale(LateralFemuralCondyleInNeutralConf )+Scale( MedialFemuralCondyleInNeutralConf));
+//  // Knee joint axis is defined from the two epicondyle bony landmarks
+//  AnyMat33 KneeARel = RotMat((Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, (Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(Scale(LateralFemuralCondyleInNeutralConf) - Scale(MedialFemuralCondyleInNeutralConf)), (Scale(..Seg.Shank.StdPar.MedialMalleolus)+Scale(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//  #else
+//  AnyVec3 KneesRelUnscaled = KneeJoint;
+//  AnyMat33 KneeARelUnscaled = RotMat(((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2, ((..Seg.Shank.StdPar.MedialTibialEpicondyle)+(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2 + ..Sign*(LateralControlPointKnee-MedialControlPointKnee), ((..Seg.Shank.StdPar.MedialMalleolus)+(..Seg.Shank.StdPar.LateralMalleolus))/2)*RotMat(pi,z)*RotMat(-pi/2,y);
+//
+//  // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // knee axis from the cadaver data set. Thus, scaling the control points will also scale the Knee joint axis
+//  AnyVec3 LateralControlPointKnee = KneeJoint + (LateralFemuralCondyleInNeutralConf - KneeJoint)*KneeJointAxis'*KneeJointAxis;
+//  // Control point for the knee joint. Found by projecting the EpicondylusFemoris bony landmarks onto the 
+//  // knee axis from the cadaver data set. Thus, scaling the control points will also scale the Knee joint axis
+//  AnyVec3 MedialControlPointKnee = KneeJoint + (MedialFemuralCondyleInNeutralConf - KneeJoint)*KneeJointAxis'*KneeJointAxis;
+//  AnyVec3 KneesRel = Scale(KneeJoint);
+//  
+////  // Setting the USE_AMMR14_HIP_ROTATIONS flag will imitate AMMR1.4 behaviour
+//  #ifdef USE_AMMR14_HIP_ROTATIONS
+//  AnyMat33 KneeARel = RotMat(..Sign*7.46*pi/180,x) * RotMat(..Sign*-32.25*pi/180,y);
+//  #else
+//  // Knee Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 KneeARel = RotMat(0.5*(Scale(..Seg.Shank.StdPar.MedialMalleolus) + Scale(..Seg.Shank.StdPar.LateralMalleolus)), 0.5*(Scale(..Seg.Shank.StdPar.MedialMalleolus) + Scale(..Seg.Shank.StdPar.LateralMalleolus)) + ..Sign*(Scale(LateralControlPointKnee-MedialControlPointKnee)), 0.5*(Scale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Shank.StdPar.LateralTibialEpicondyle)))*RotMat(pi/2,y);
+//  #endif
+//  #endif
+//};
+//
+//AnyFolder &TalusRef = Talus;
+//TalusRef = {
+//  AnyFunTransform3D &Scale = ..Seg.Talus.Scale; 
+//  AnyFunTransform3D &FootScale = ..Seg.Foot.Scale; 
+//  
+//  AnyFunTransform3D &ShankScale = ..Seg.Shank.Scale;   
+//  AnyVec3 ATA = FootScale(..Seg.Foot.StdPar.TendonCalcaneousNode)-Scale(SubTalarJoint2)*SubTalarARel;
+//  AnyVec3 SJA = Scale(SubTalarJoint2)*SubTalarARel;
+//  AnyVec3 SJ = {SJA[0], SJA[1], ATA[2]}*SubTalarARel';
+//  
+//  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+//  //AnyVec3 AnkleJoint = {0,0,0}; 
+//  //AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+//  AnyVec3 SubTalarJoint_KH = {0.0083, 0.0116, -0.0016}*.TF';
+//  // Make sure the X-coordinate of the subtalar joint coincides with the intermalleolar X-coordinate
+//  AnyVec3 SubTalarJoint2 = SubTalarJoint_KH + SubTalarJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[0]+..Seg.Shank.StdPar.LateralMalleolus[0])/2-SubTalarJoint_KH[0])/SubTalarJointAxis[0];
+////  AnyVec3 SubTalarJoint = SJ;
+////  AnyVec3 SubTalarJoint = { 0.014922985094467, -0.033112203386154, -0.001359618011284}*.TF';
+////  AnyVec3 SubTalarJoint = {0.020602888534779,  -0.040211857655424,  -0.000130353372897}*.TF';
+//  AnyVec3 SubTalarJoint = {  0.019581871535602, -0.045845718442236,  -0.001552337470479}*.TF';
+//
+////  AnyVec3 AnkleJoint =   {-0.012010879406611 , -0.004162346018506,  -0.002781602108866}*.TF';
+//  AnyVec3 AnkleJoint =   ({-0.006330975966300+0.005, -0.011262000287775,  -0.001552337470479}+{0.00,0.003,0.003})*.TF';
+//
+////   AnyVec3 AnkleJoint =   { 0.000120748861872,  -0.012990824297198,   0.000739974716891}*.TF';
+//   // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+////  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((..Seg.Shank.StdPar.MedialMalleolus[2]+..Seg.Shank.StdPar.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+//  AnyVec3 AnkleJointAxis = ..Sign*{0.362798983319139, 0.130490601661148, -0.922685808160454}*.TF'/vnorm({0.362798983319139, 0.130490601661148, -0.922685808160454});
+//
+//  
+//  
+////  AnyVec3 SubTalarJointAxis = ..Sign*{0.9840, 0.1538, 0.0896}*.TF'/vnorm({0.9840, 0.1538, 0.0896});
+//  AnyVec3 SubTalarJointAxis = ..Sign*  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478}*.TF'/vnorm(  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478});
+//
+//
+//  // Neutral definition of subtalar joint
+//  AnyVec3 KneeJointInNeutralConfig = ..Seg.Shank.StdPar.KneeJoint;
+//  AnyVec3 SubTalarsRelUnscaled = SubTalarJoint;
+//  AnyVec3 SubTalarsRel = Scale(SubTalarJoint);
+//  //AnyVec3 SubTalarsRel2 = Scale(SubTalarJoint2);
+//  AnyMat33 SubTalarARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  AnyMat33 SubTalarARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,(ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  
+//  // Neutral definition of talocrural joint
+//  // Switch to change the joint definition to follow bony landmarks instead of the original dataset 
+//  // Default is the orginal dataset. 
+//  #ifdef BONY_LANDMARK_DEFINED_JOINTAXIS
+//  AnyVec3 TalocruralsRelUnscaled =  0.5*(..Seg.Talus.StdPar.LateralAnkleAxisMarker+....Seg.Talus.StdPar.MedialAnkleAxisMarker);
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2  + ...Sign*(..Seg.Talus.StdPar.LateralAnkleAxisMarker -..Seg.Talus.StdPar.MedialAnkleAxisMarker ), ((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  // Ankle joint is defined from the two malleolus bony landmarks
+//
+//  AnyVec3 TalocruralsRel = 0.5*(Scale(..Seg.Talus.StdPar.LateralAnkleAxisMarker)+Scale(..Seg.Talus.StdPar.MedialAnkleAxisMarker));
+//  // Ankle joint axis is defined from the two malleolus bony landmarks
+//  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2, (Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2  + ...Sign*(Scale(..Seg.Talus.StdPar.LateralAnkleAxisMarker) -Scale(..Seg.Talus.StdPar.MedialAnkleAxisMarker)), (Scale(..Seg.Talus.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #else
+//  AnyVec3 TalocruralsRelUnscaled = AnkleJoint;
+//  AnyMat33 TalocruralARelUnscaled = RotMat(((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2, ((..Seg.Talus.StdPar.MedialMalleolus)+(..Seg.Talus.StdPar.LateralMalleolus))/2  +..Sign*((LateralControlPoint)-(MedialControlPoint)), ((..Seg.Talus.StdPar.MedialTibialEpicondyle)+(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 LateralControlPoint = (AnkleJoint + (..Seg.Talus.StdPar.LateralMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis);
+//  // Control point for the Ankle joint. Found by projecting the malleolus bony landmarks onto the 
+//  // ankle axis from the cadaver data set. Thus, scaling that moves the control points will also scale the ankle joint axis
+//  AnyVec3 MedialControlPoint = (AnkleJoint + (..Seg.Talus.StdPar.MedialMalleolus - AnkleJoint)*AnkleJointAxis'*AnkleJointAxis );
+//  // Ankle Joint defined directly from the cadaver dataset. 
+//  AnyVec3 TalocruralsRel = Scale(AnkleJoint);
+//  // Ankle Joint orientation is calculated based on the direction between the two control points.   
+//  AnyMat33 TalocruralARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2  +..Sign*(ShankScale(LateralControlPoint)-ShankScale(MedialControlPoint)), (ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//
+////  AnyMat33 TalocruralARel = RotMat((Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2, (Scale(..Seg.Talus.StdPar.MedialMalleolus)+Scale(..Seg.Talus.StdPar.LateralMalleolus))/2  +..Sign*(Scale(LateralControlPoint)-Scale(MedialControlPoint)), (Scale(..Seg.Talus.StdPar.MedialTibialEpicondyle)+Scale(..Seg.Talus.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  #endif
+//};
+//
+//AnyFolder &FootRef = Foot;
+//FootRef = {
+//  AnyFunTransform3D &Scale = ..Seg.Foot.Scale; 
+//  AnyFunTransform3D &ShankScale = ..Seg.Shank.Scale; 
+//  
+//  AnyVec3 SubTalarJoint = {-0.010,-0.023,-0.01*..Sign};
+////  AnyVec3 SubTalarJoint = {0,0,0};
+//
+// // AnyVec3 SubTalarJointAxis = ..Sign*({-0.290279956764956 ,  0.873880154991331,  -0.389962846195458})*.TF/vnorm({-0.290279956764956, 0.873880154991331, -0.389962846195458});
+// // AnyVec3 SubTalarJointAxis = ..Sign*({-0.290279956764956 , -0.873880154991331,  -0.389962846195458})*.TF/vnorm({-0.290279956764956, 0.873880154991331, -0.389962846195458});
+//
+//   
+////-0.290279956764956   0.873880154991331  -0.389962846195458
+//  AnyVec3 SubTalarJointAxis = ..Sign*  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478}*.TF'/vnorm(  { 0.173066402481981 ,  0.954961591476525,   0.241031904810478});
+//
+//
+////   AnyVec3 SubTalarJointAxis = ..Sign*  { -0.290279956764956 ,  0.873880154991331 , -0.389962846195458});
+//
+//
+//
+//  //AnyVec3 SubTalarJointAxis = ..Sign*({0.9840, 0.1538, 0.0896})*.TF'*..Seg.Foot.StdPar.NeutralRot2/vnorm({0.9840, 0.1538, 0.0896});
+//  
+//  AnyVec3 SubTalarsRel = Scale(SubTalarJoint);
+//  AnyMat33 SubTalarARel = RotMat((ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2, (ShankScale(..Seg.Shank.StdPar.MedialMalleolus)+ShankScale(..Seg.Shank.StdPar.LateralMalleolus))/2 + SubTalarJointAxis,(ShankScale(..Seg.Shank.StdPar.MedialTibialEpicondyle)+ShankScale(..Seg.Shank.StdPar.LateralTibialEpicondyle))/2)*RotMat(pi/2,y);
+//  
+//  
+//
+//  // Not yet in local ref frame, but these were also not measured by Martijn-Klein Horsman.
+//  AnyVec3 MetatarsalJoint1Node ={0.18, -0.9600, 0.05}*.TF';
+//  AnyVec3 MetatarsalJoint2Node = {0.1650, -0.9600, 0.065}*.TF';
+//  AnyVec3 MetatarsalJoint3Node = {0.1450, -0.9600,0.0700  }*.TF';
+//  AnyVec3 MetatarsalJoint4Node = {0.1350, -0.9600, 0.0800 }*.TF';
+//  AnyVec3 MetatarsalJoint5Node = {0.12, -0.95500, 0.095 }*.TF';
+//  AnyVec3 ToeJoint = {0.18, -0.94, 0.05}*.TF';
+//};

@@ -1,0 +1,669 @@
+ 
+BodyModelRef.Left.ShoulderArm = {
+  // Create a folder with references to the necessary muscles.
+  AnyFolder EvaluateJointStrengthMusRef = {
+    #if BM_ARM_MUSCLES_LEFT == CONST_MUSCLES_SIMPLE | BM_ARM_MUSCLES_LEFT == CONST_MUSCLES_3E_HILL  | ( BM_ARM_MUSCLES_LEFT == BM_ARM_MUSCLES_BOTH & (BM_ARM_MUSCLES_BOTH  == CONST_MUSCLES_SIMPLE  | BM_ARM_MUSCLES_BOTH  == CONST_MUSCLES_3E_HILL))  
+    AnyFolder &ArmMuscles = .Mus;
+    #endif
+  };
+};  
+
+Left = {
+  
+  AnyFolder Arm = {
+    AnyFolder SCPronation={
+      
+      // Change the following variables to adjust the joint strength study
+      AnyVector RangeOfMotion = DesignVar({-19,19});
+      //AnyVar ScapulaThoraxProtraction = DesignVar(0);
+      //AnyVar ScapulaThoraxElevation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCPronation.csv";      
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = {  ...RangeOfMotion[0], ...SCElevation, ...SCAxialRotation, ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { Off, On, On, On, On, On, On, On, On, On};
+        };        
+      };
+    };
+    
+    AnyFolder SCSupination={
+      
+      // Change the following variables to adjust the joint strength study
+      AnyVector RangeOfMotion = DesignVar({19,-19});
+      //AnyVar ScapulaThoraxProtraction = DesignVar(0);
+      //AnyVar ScapulaThoraxElevation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCSupination.csv";      
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = {  ...RangeOfMotion[0], ...SCElevation, ...SCAxialRotation, ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { Off, On, On, On, On, On, On, On, On, On};
+        };        
+      };
+    };
+    
+    AnyFolder SCElevation={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-20,20});
+      //      AnyVar ScapulaThoraxProtraction = DesignVar(0);
+      //      AnyVar ScapulaThoraxElevation = DesignVar(0);
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCElevation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...RangeOfMotion[0], ...SCAxialRotation, ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0,0}*pi/180;            
+          Reaction.Type = { On, Off, On, On, On, On, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder SCDepression={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({20,-20});
+      //      AnyVar ScapulaThoraxProtraction = DesignVar(0);
+      //      AnyVar ScapulaThoraxElevation = DesignVar(0);
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCDepression";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...RangeOfMotion[0], ...SCAxialRotation, ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0,0}*pi/180;            
+          Reaction.Type = { On, Off, On, On, On, On, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder SCAxialRotation={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-20,20});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCAxialRotation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...RangeOfMotion[0], ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, Off, On, On, On, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder SCAxialRotationDown={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({20,-20});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_SCAxialRotation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...RangeOfMotion[0], ...GHFlexion, ...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, Off, On, On, On, On, On, On, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder GHFlexion={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-50,89});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_GHFlexion";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...RangeOfMotion[0],...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, Off, On, On, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder GHExtension={
+      
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({89,-50});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////
+      
+      // The following should not be changed
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFileName =  "JointStrength_Arm_Left_GHExtension";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...RangeOfMotion[0],...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, ...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, Off, On, On, On, On, On, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder GHAbduction={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-10,90});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////////////////////////
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_GHAbduction";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...RangeOfMotion[0],...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, Off, On, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder GHAdduction={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-10,90});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      /////////////////////////////////////////////////////////////
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_GHAdduction";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...RangeOfMotion[0],...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, Off, On, On, On, On, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder GHExternalRotation={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-40,40});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_GHExternalRotation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction,...RangeOfMotion[0],...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, Off, On, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder GHInternalRotation={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-40,40});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_GHInternalRotation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction,...RangeOfMotion[0],...ElbowFlexion, ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, Off, On, On, On, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder ElbowFlexion={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({0,110});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////////      
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_ElbowFlexion";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...RangeOfMotion[0], ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, Off, On, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder ElbowExtension={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({0,110});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////////      
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_ElbowExtension";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...RangeOfMotion[0], ...ElbowPronation, ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, Off, On, On, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder ElbowPronation={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-40,40});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////////      
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_ElbowPronation";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation , ...ElbowFlexion, ...RangeOfMotion[0], ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, Off, On, On};
+
+        };
+      };
+    };
+    
+    AnyFolder ElbowSupination={
+      // Change the following variables to adjust the moment arm study
+      AnyVector RangeOfMotion = DesignVar({-40,40});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      ////////////////////////////////////////////////////////////////////      
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_ElbowSpupination";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation , ...ElbowFlexion, ...RangeOfMotion[0], ...WristFlexion ,...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0,0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, Off, On, On};
+
+        };
+      };
+    };
+
+    
+    
+    AnyFolder WristFlexion ={
+      AnyVector RangeOfMotion = DesignVar({-30,90});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_WristFlexion";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...RangeOfMotion[0],...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, On, Off, On};
+
+        };
+      };
+    };
+    
+    AnyFolder WristExtension ={
+      AnyVector RangeOfMotion = DesignVar({-30,90});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristAbduction = DesignVar(0);
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_WristExtension";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation, ...RangeOfMotion[0],...WristAbduction }*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, On, Off, On};
+
+        };
+      };
+    };
+
+    
+    AnyFolder WristAbduction ={
+      AnyVector RangeOfMotion = DesignVar({-20,20});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_WristAbduction";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation,...WristFlexion,...RangeOfMotion[0]}*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0]}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, On, On, Off};
+
+        };
+      };
+    };    
+    
+    AnyFolder WristAdduction ={
+      AnyVector RangeOfMotion = DesignVar({-20,20});
+      
+      AnyVar SCPronation = DesignVar(0);
+      AnyVar SCElevation = DesignVar(0);
+      AnyVar SCAxialRotation = DesignVar(0);
+      AnyVar GHFlexion = DesignVar(0);
+      AnyVar GHAbduction = DesignVar(0);
+      AnyVar GHExternalRotation = DesignVar(0);
+      AnyVar ElbowFlexion = DesignVar(0);
+      AnyVar ElbowPronation = DesignVar(0);
+      AnyVar WristFlexion = DesignVar(0);
+      
+      AnyFolder &SideBodyModelRef=...BodyModelRef.Left;
+      AnyFolder &SideBodyInterfaceRef = ...BodyModelRef.Interface.Left;
+      AnyFolder &SideTrunkMusRef = ....HumanFolderRef.Trunk.MusclesSpineLeft;
+      #include "EvaluateJointStrengthStudy.any"
+      AnyString OutputFile =  "JointStrength_LegTD_Left_WristAdduction";
+      Model.Drivers = {
+        AnyKinEqSimpleDriver ArmDriver= {
+          AnyKinMeasure &ref = .ArmMeasure;
+          DriverPos = { ...SCPronation, ...SCElevation, ...SCAxialRotation, ...GHFlexion,...GHAbduction ,...GHExternalRotation ,...ElbowFlexion, ...ElbowPronation,...WristFlexion,...RangeOfMotion[0]}*pi/180;
+          DriverVel = { 0, 0, 0, 0,0,0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0]}*pi/180;  
+          Reaction.Type = { On, On, On, On, On, On, On, On, On, Off};
+
+        };
+      };
+    };    
+
+    
+  };//Arm
+};//Left
+
+
+// Run_all_studies ={   
+//   AnyOperation &RHipFlexion= .Left.Leg.HipFlexion.MacroCmd;
+//   AnyOperation &RHipExtension= .Left.Leg.HipExtension.MacroCmd;
+//   AnyOperation &RHipAbduction= .Left.Leg.HipAbduction.MacroCmd;
+//   AnyOperation &RHipAdduction= .Left.Leg.HipAdduction.MacroCmd;
+//   AnyOperation &RHipExternalRotation = .Left.Leg.HipExternalRotation.MacroCmd;
+//   AnyOperation &RHipInternalRotation = .Left.Leg.HipInternalRotation.MacroCmd;
+//   AnyOperation &RKneeFlexion = .Left.Leg.KneeFlexion.MacroCmd;
+//   AnyOperation &RKneeExtension = .Left.Leg.KneeExtension.MacroCmd;
+//   AnyOperation &RAnklePlantarFlexion = .Left.Leg.AnklePlantarFlexion.MacroCmd;
+//   AnyOperation &RAnkleDorsiFlexion = .Left.Leg.AnkleDorsiFlexion.MacroCmd;
+//   AnyOperation &RSubTalarEversion= .Left.Leg.SubTalarEversion.MacroCmd; 
+//   AnyOperation &RSubTalarInversion= .Left.Leg.SubTalarInversion.MacroCmd; 
+// };
+

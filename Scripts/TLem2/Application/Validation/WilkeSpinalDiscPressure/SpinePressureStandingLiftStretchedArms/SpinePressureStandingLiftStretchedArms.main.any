@@ -1,0 +1,77 @@
+#include "../../libdef.any"/**
+This application can be a good starting point for new applications involving 
+the entire body, doing lifts from a standing posture. The model uses artificial 
+muscles between the feet and the floor for creating non-sticking boundary conditions.
+Similarly there are non-sticking boundary conditions between the hands and the box.
+The drivers for the model are listed in the file "JointsAndDrivers.any".
+*/
+Main = {
+  
+  /**Execute this operation to run the model in the intended operation sequence.  
+  It is also possible to run operations seperately, by manual selections in the operation tree*/
+  AnyOperationSequence RunApplication = {
+
+    /**This operation calibrates the muscles in the model if these are of the type AnyMuscleModel3E.
+    This will just be an empty operation if the model is using a muscle type that does not require calibration.*/
+    AnyOperation &CalibrationAnal = Main.HumanModel.Calibration.CalibrationSequence;  
+
+    ///This operation is the inverse dynamic analysis
+    AnyOperation &InvAnal=Main.Study.InverseDynamics;
+  };
+
+  // ----------------------------------------------------------
+  // Draw settings
+  // ----------------------------------------------------------
+  #path BM_DRAWSETTINGS_FILE "DrawSettings.any"
+  // ----------------------------------------------------------
+  // Definition of the path for Mannequin.any file
+  // ----------------------------------------------------------  
+  #path BM_MANNEQUIN_FILE "Mannequin.any"
+  // ----------------------------------------------------------
+  // Definition of the path for anthropometric data
+  // ----------------------------------------------------------   
+  #path BM_SCALING_ANTHRO_FILE "AnyManUniform.any"
+  // ----------------------------------------------------------
+  // Scaling method settings
+  // ----------------------------------------------------------    
+  #define BM_SCALING CONST_SCALING_UNIFORM
+  // ----------------------------------------------------------
+  // BM statements which configure the structure of human model
+  // ----------------------------------------------------------  
+  #define BM_LEG_LEFT CONST_LEG_MODEL_Leg
+  #define BM_LEG_RIGHT CONST_LEG_MODEL_Leg  
+  
+  #include "<ANYBODY_PATH_BODY>/HumanModel.any"
+  
+  // This folder collects the elements of the model. It is referred by the
+  // study section below as the target of the analyses.  
+  AnyFolder Model={
+    
+    AnyFolder &HumanModel=.HumanModel.BodyModel;
+    
+    #include "Environment.any"   
+    
+    // The Mannequin file specifies load-time positions for all the segments
+    // in the HumanModel. This is important for the model's ablity to resolve
+    // all the kinematic constraints when the model is analyzed.
+    // The mannequin file also drives those degrees of freedom of the human 
+    // model that are not governed by problem-specific drivers at run time.    
+    #include "Mannequin.any"   
+    
+    AnyFolder ModelEnvironmentConnection = {
+      #include "JointsAndDrivers.any"
+    };
+    
+  };
+  AnyBodyStudy Study = {
+    AnyFolder &Model = .Model;
+   
+    tEnd = 1.0;
+    Gravity = {0.0001, -9.81, 0.0001};
+    nStep = 1;
+   
+    
+  }; // End of study
+  
+}; //Main
+

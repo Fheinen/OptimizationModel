@@ -1,0 +1,44 @@
+AnyFolder &PelvisSegRef = Pelvis;
+PelvisSegRef = {
+  AnyMat33 RotNeutral = .TF*{{1,0,0},{0,1,0},{0,0,1}}*.TF';
+};
+
+AnyFolder &ThighSegRef = Thigh;
+ThighSegRef = {
+  AnyVar Mass = 7;
+  AnyVar Density = 1000;
+  AnyVar Length = vnorm(.Thigh.HipJoint-.Thigh.KneeJoint);
+  AnyVec3 CoM = { 0.0370, -0.1562, -0.0044 }*.TF';
+  AnyVar KneeWidth =  0.0975;
+};
+
+AnyFolder &PatellaSegRef = Patella;
+PatellaSegRef = {
+  AnyVar Mass = 0;  
+  AnyVar Density = 1000;
+  AnyVar Length = 0;
+};
+
+AnyFolder &ShankSegRef = Shank;
+ShankSegRef = {
+  AnyVar Mass = 4.00;
+  AnyVar Density = 1000;
+  AnyVar Length = vnorm(.Shank.KneeJoint-.Shank.AnkleJoint);
+  AnyVec3 CoM = { 0.0757, -0.5700, 0.0175}*.TF';
+  AnyVar AnkleWidth =  0.0753;
+};
+ 
+AnyFolder &TalusSegRef = Talus;
+TalusSegRef = {
+  AnyVar Mass = 0.2*1.3;
+  AnyVar Density = 1000;
+  AnyVar Length = vnorm(.Talus.SubTalarJoint-.Talus.AnkleJoint);
+};
+
+AnyFolder &FootSegRef = Foot;
+FootSegRef = {
+  AnyVar Mass = 0.8*1.3;  
+  AnyVar Density = 1000;
+  AnyVar Length = vnorm(.Foot.OriginalHeelNode-.Foot.BigToeNode);
+  AnyVec3 CoM = { 0.1048, -0.8814, 0.0114}*.TF';
+};
