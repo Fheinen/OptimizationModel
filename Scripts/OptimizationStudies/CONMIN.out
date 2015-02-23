@@ -1,0 +1,196 @@
+1
+
+
+
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+            *                                                   *
+            *                    C O N M I N                    *
+            *                                                   *
+            *                FORTRAN PROGRAM FOR                *
+            *                                                   *
+            *         CONSTRAINED FUNCTION MINIMIZATION         *
+            *                                                   *
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+
+
+     CONSTRAINED FUNCTION MINIMIZATION
+
+     CONTROL PARAMETERS
+
+     IPRINT  NDV    ITMAX    NCON    NSIDE  ICNDIR   NSCAL   NFDG
+       2       4   10000       3       0       5       0       1
+
+     LINOBJ  ITRM     N1      N2      N3      N4      N5
+       0       2       6      11      11      11      22
+
+         CT              CTMIN           CTL             CTLMIN
+     -0.10000E+00     0.40000E-02    -0.10000E-01     0.10000E-02
+
+         THETA           PHI             DELFUN          DABFUN
+      0.10000E+01     0.50000E+01     0.10000E-05     0.25250E-04
+
+         FDCH            FDCHM           ALPHAX          ABOBJ1
+      0.10000E-01     0.10000E-01     0.10000E+00     0.10000E+00
+
+     ALL CONSTRAINTS ARE NON-LINEAR
+
+
+     INITIAL FUNCTION INFORMATION
+
+     OBJ =   0.252500E+02
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.15000E+01  0.15000E+01  0.15000E+01  0.15000E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.10000E+01  0.50000E+00  0.40000E+01
+ 
+
+
+
+
+     ITER =    1     OBJ =   0.29016E+02
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.11123E+01  0.13225E+01  0.12955E+01  0.14297E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.16359E+01 -0.20402E+01  0.37398E+00
+
+
+
+
+     ITER =    2     OBJ =   0.29545E+02
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.10652E+01  0.13105E+01  0.12767E+01  0.14369E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.18584E+01 -0.21728E+01  0.63100E-04
+
+
+
+
+     ITER =    3     OBJ =   0.14926E+02
+
+     DECISION VARIABLES (X-VECTOR)
+       1)   -0.73925E+00  0.10521E+01  0.24196E+01  0.52361E+00
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.11350E+00 -0.62143E+00  0.26645E-14
+
+
+
+
+     ITER =    4     OBJ =   0.97308E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.29033E+00  0.10030E+01  0.20543E+01 -0.27695E-01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.13196E+01 -0.39446E+01 -0.88818E-15
+
+
+
+
+     ITER =    5     OBJ =   0.76654E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)   -0.42344E+00  0.10172E+01  0.21967E+01 -0.64510E+00
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.14297E+00 -0.10248E+01  0.00000E+00
+
+
+
+
+     ITER =    6     OBJ =   0.63330E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.71656E-01  0.97832E+00  0.19926E+01 -0.89735E+00
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)   -0.27899E+00 -0.16742E+01 -0.17764E-14
+
+
+
+
+     ITER =    7     OBJ =   0.61140E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)   -0.43611E-01  0.97938E+00  0.20141E+01 -0.99706E+00
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.00000E+00 -0.99419E+00 -0.49947E-01
+
+
+
+
+     ITER =    8     OBJ =   0.60960E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.36640E-01  0.10096E+01  0.19548E+01 -0.10577E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.18289E-03 -0.88037E+00 -0.35420E-01
+
+
+
+
+     ITER =    9     OBJ =   0.60960E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.36640E-01  0.10096E+01  0.19548E+01 -0.10577E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.18289E-03 -0.88037E+00 -0.35420E-01
+
+
+
+
+     ITER =   10     OBJ =   0.60960E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.36640E-01  0.10096E+01  0.19548E+01 -0.10577E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.17809E-03 -0.88038E+00 -0.35421E-01
+1
+
+
+
+    FINAL OPTIMIZATION INFORMATION
+
+     OBJ =   0.609596E+01
+
+     DECISION VARIABLES (X-VECTOR)
+       1)    0.36640E-01  0.10096E+01  0.19548E+01 -0.10577E+01
+
+     CONSTRAINT VALUES (G-VECTOR)
+       1)    0.17809E-03 -0.88038E+00 -0.35421E-01
+
+     THERE ARE    1 ACTIVE CONSTRAINTS
+     CONSTRAINT NUMBERS ARE
+         1
+
+     THERE ARE    0 VIOLATED CONSTRAINTS
+
+     TERMINATION CRITERION
+          ABS(1-OBJ(I-1)/OBJ(I)) LESS THAN DELFUN FOR  2 ITERATIONS
+          ABS(OBJ(I)-OBJ(I-1))   LESS THAN DABFUN FOR  2 ITERATIONS
+
+     NUMBER OF ITERATIONS =   10
+
+     OBJECTIVE FUNCTION WAS EVALUATED           28  TIMES
+
+     CONSTRAINT FUNCTIONS WERE EVALUATED        28  TIMES
+
+     GRADIENT OF OBJECTIVE WAS CALCULATED       10  TIMES
+
+     GRADIENTS OF CONSTRAINTS WERE CALCULATED   10  TIMES
+
+
+        NUMBER OF FUNC-CALLS:  NFUN =   28
+        NUMBER OF GRAD-CALLS:  NGRD =   10

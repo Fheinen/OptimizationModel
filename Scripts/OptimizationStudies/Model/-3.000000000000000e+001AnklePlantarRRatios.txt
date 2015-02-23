@@ -1,0 +1,33 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study
+Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.InverseDynamics
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.FileName = "-3.000000000000000e+001AnklePlantarRRatios.txt"
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.NumberFormat.Digits = 15
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.NumberFormat.Width = 22
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.NumberFormat.Style = ScientificNumber
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Search = 
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.SepSign = ","
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.LineSepSign = ""
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Header.TitleSectionOnOff = On
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Header.ConstSectionOnOff = On
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Header.VarSectionOnOff = On
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Header.ColumnNamesOnOff = On
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.Header.LinePrefix = ""
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.t
+col1  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[0][0]
+col2  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[1][0]
+col3  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[2][0]
+col4  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[3][0]
+col5  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[4][0]
+col6  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[5][0]
+col7  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[6][0]
+col8  Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[7][0]
+----------------------------------------------------------
+Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.t,Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[0][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[1][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[2][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[3][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[4][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[5][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[6][0],Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.AnklePlantarRRatios.RRatios[7][0]
+0.000000000000000e+000,2.047102908797623e-001,2.249235783992697e-001,2.388125621804746e-001,2.661235461051948e-001,2.936697552378235e-001,3.337101665705269e-001,-1.937051702136620e-001,-1.907946230518769e-001

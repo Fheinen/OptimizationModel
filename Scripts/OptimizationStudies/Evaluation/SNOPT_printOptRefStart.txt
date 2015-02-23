@@ -1,0 +1,203 @@
+
+         ==============================
+         S N O P T  7.2-8    (Apr 2008)
+         ==============================
+1
+ 
+ SNMEMB EXIT 100 -- finished successfully
+ SNMEMB INFO 104 -- memory requirements estimated
+
+         ==============================
+         S N O P T  7.2-8    (Apr 2008)
+         ==============================
+      Major optimality tolerance  1.00000000E-03
+      Major feasibility tolerance  1.00000000E-03
+1
+ 
+ Parameters
+ ==========
+
+ Files
+ -----
+ Solution file..........         0       Old basis file ........         0       Standard input.........         5
+ Insert file............         0       New basis file ........         0       (Printer)..............        18
+ Punch file.............         0       Backup basis file......         0       (Specs file)...........         0
+ Load file..............         0       Dump file..............         0       Standard output........         6
+
+ Frequencies
+ -----------
+ Print frequency........       100       Check frequency........        60       Save new basis map.....       100
+ Summary frequency......       100       Factorization frequency        50       Expand frequency.......     10000
+
+ QP subproblems
+ --------------
+ QPsolver Cholesky......
+ Scale tolerance........     0.900       Minor feasibility tol..  1.00E-06       Iteration limit........     10000
+ Scale option...........         0       Minor optimality  tol..  1.00E-06       Minor print level......         1
+ Crash tolerance........     0.100       Pivot tolerance........  3.25E-11       Partial price..........         1
+ Crash option...........         3       Elastic weight.........  1.00E+04       Prtl price section ( A)         6
+                                         New superbasics........        99       Prtl price section (-I)         1
+
+ The SQP Method
+ --------------
+ Minimize...............                 Cold start.............                 Proximal Point method..         1
+ Nonlinear objectiv vars         6       Major optimality tol...  1.00E-03       Function precision.....  3.00E-13
+ Unbounded step size....  1.00E+20       Superbasics limit......         6       Difference interval....  5.48E-07
+ Unbounded objective....  1.00E+15       Reduced Hessian dim....         6       Central difference int.  6.70E-05
+ Major step limit.......  2.00E+00       Derivative linesearch..                 Derivative level.......         3
+ Major iterations limit.      1000       Linesearch tolerance...   0.90000       Verify level...........         0
+ Minor iterations limit.       500       Penalty parameter......  0.00E+00       Major Print Level......         1
+
+ Hessian Approximation
+ ---------------------
+ Full-Memory Hessian....                 Hessian updates........  99999999       Hessian frequency......  99999999
+                                                                                 Hessian flush..........  99999999
+
+ Nonlinear constraints
+ ---------------------
+ Nonlinear constraints..         1       Major feasibility tol..  1.00E-03       Violation limit........  1.00E+06
+ Nonlinear Jacobian vars         6
+
+ Miscellaneous
+ -------------
+ LU factor tolerance....      3.99       LU singularity tol.....  3.25E-11       Timing level...........         3
+ LU update tolerance....      3.99       LU swap tolerance......  1.22E-04       Debug level............         0
+ LU partial  pivoting...                 eps (machine precision)  2.22E-16       System information.....        No
+                                                                                 Sticky parameters......        No
+1
+ 
+
+ 
+
+ Matrix statistics
+ -----------------
+               Total      Normal        Free       Fixed     Bounded
+ Rows              1           0           1           0           0
+ Columns           6           0           0           0           6
+
+ No. of matrix elements                    6     Density     100.000
+ Biggest                          0.0000E+00  (excluding fixed columns,
+ Smallest                         0.0000E+00   free rows, and RHS)
+
+ No. of objective coefficients             0
+
+ Nonlinear constraints       1     Linear constraints       0
+ Nonlinear variables         6     Linear variables         0
+ Jacobian  variables         6     Objective variables      6
+ Total constraints           1     Total variables          6
+1
+ 
+
+ 
+ The user has defined       0   out of       6   constraint gradients.
+ ==>  Some constraint derivatives are missing,  assumed constant.
+ 
+ The user has defined       6   out of       6   objective  gradients.
+
+ Cheap test of user-supplied problem derivatives...
+
+ The constraint gradients seem to be OK.
+
+ -->  The largest discrepancy was    0.00E+00  in constraint     7
+ 
+
+ XXX  The objective  gradients seem to be incorrect.
+
+ Gradient projected in one direction  -3.91692593918E-01
+ Difference approximation             -7.62752541238E-02
+1
+ 
+ 
+
+   Itns Major Minors    Step   nCon Feasible  Optimal  MeritFunction     L+U BSwap     nS  condHz Penalty
+      6     0      6              1 (0.0E+00) 3.3E-01  1.4937611E+00       1            4 1.0E+00         _  r
+     11     1      5 4.3E-01      4 (0.0E+00) 1.5E+00  7.8248430E-01       1            3 1.0E+00         _n r
+     15     2      4 1.4E-01      6 (0.0E+00) 5.1E-01  5.9346151E-01       1            6 1.4E+00         _s
+     17     3      2 1.0E+00      7 (0.0E+00) 4.4E-01  3.0757651E-01       1            5 2.3E+00         _
+     18     4      1 1.1E-01     10 (0.0E+00) 5.0E-01  1.9539803E-01       1            5 3.3E+00         _
+     22     5      4 5.1E-03     17 (0.0E+00) 2.8E-01  1.9069293E-01       1            6 2.4E+01         _
+     23     6      1 3.3E-01     19 (0.0E+00) 7.6E-01  1.9006472E-01       1            6 2.0E+01         _
+     24     7      1 2.7E-01     21 (0.0E+00) 3.7E-01  1.8845914E-01       1            6 4.7E+01         _
+     25     8      1 1.0E+00     22 (0.0E+00) 5.9E-01  1.8805809E-01       1            6 7.6E+01         _
+     26     9      1 3.1E-04     33 (0.0E+00) 5.5E-01  1.8805647E-01       1            6 7.6E+01         _n
+     27    10      1 1.3E-04     43 (0.0E+00) 5.5E-01  1.8805647E-01       1            6 3.8E+02         _
+     29    11      2 4.4E-08     53 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.7E+01         _
+     30    12      1 1.5E-08     63 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.6E+01         _
+     31    13      1 5.2E-10     73 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.4E+01         _
+     32    14      1 5.3E-10     83 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.3E+01         _
+     33    15      1 1.1E-11     93 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.2E+01         _
+     34    16      1 3.1E-12    103 (0.0E+00) 5.5E-01  1.8805647E-01       1            5 4.0E+01         _
+     37    16      4            110 (0.0E+00) 5.5E-01  1.8805647E-01       1            3 1.0E+00         _  r
+     44    17      7 4.1E-06    115 (0.0E+00) 3.9E-01  1.8804819E-01       1            6 1.1E+02         _s
+     45    18      1 3.3E-01    117 (0.0E+00) 1.6E-01  1.8804240E-01       1            6 4.4E+01         _
+     46    19      1 1.0E+00    118 (0.0E+00) 1.6E-01  1.8804034E-01       1            6 2.2E+02         _
+
+   Itns Major Minors    Step   nCon Feasible  Optimal  MeritFunction     L+U BSwap     nS  condHz Penalty
+     47    20      1 1.0E+00    119 (0.0E+00) 7.6E-01  1.8798663E-01       1            6 2.6E+02         _
+     48    21      1 1.0E+00    121 (0.0E+00) 7.6E-01  1.8788552E-01       1            6 2.6E+02         _n
+     49    22      1 1.0E+00    123 (0.0E+00) 7.6E-01  1.8778200E-01       1            6 3.3E+01         _n R
+     50    23      1 1.0E+00    125 (0.0E+00) 7.6E-01  1.8763921E-01       1            6 3.3E+01         _n R
+     53    24      3 1.0E+00    126 (0.0E+00) 7.6E-01  1.8749303E-01       1            4 2.5E+01         _s
+     58    25      5 2.1E-04    134 (0.0E+00) 2.6E-01  1.8722996E-01       1            6 1.5E+04         _
+     60    26      2 2.1E-04    142 (0.0E+00) 3.7E-01  1.8722714E-01       1            6 2.3E+04         _
+     61    27      1 2.2E-05    153 (0.0E+00) 3.6E-01  1.8722624E-01       1            6 2.3E+04         _n
+     63    28      2 4.3E-06    163 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+04         _
+     64    29      1 1.2E-08    173 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+04         _
+     65    30      1 3.9E-09    183 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+04         _
+     66    31      1 5.0E-10    193 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+04         _
+     67    32      1 1.4E-10    203 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+04         _
+     72    32      6            210 (0.0E+00) 3.6E-01  1.8722624E-01       1            1 2.4E+02         _  r
+     78    33      6 5.6E-11    220 (0.0E+00) 3.6E-01  1.8722624E-01       1            6 1.3E+00         _s
+     80    34      2 2.5E-09    230 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 2.2E+00         _
+     81    35      1 1.8E-10    240 (0.0E+00) 3.6E-01  1.8722624E-01       1            5 8.1E+00         _
+     83    36      2 4.1E-11    250 (0.0E+00) 3.6E-01  1.8722624E-01       1            4 3.6E+00         _
+     84    37      1 2.5E-12    259 (0.0E+00) 3.6E-01  1.8722624E-01       1            4 4.5E+00         _
+1
+ 
+ SNOPTC EXIT  40 -- terminated after numerical difficulties
+ SNOPTC INFO  41 -- current point cannot be improved
+
+ Problem name                 SNOPT
+ No. of iterations                  84   Objective value      1.8722624004E-01
+ No. of major iterations            37   Linear objective     0.0000000000E+00
+ Penalty parameter           0.000E+00   Nonlinear objective  1.8722624004E-01
+ No. of calls to funobj            267   No. of calls to funcon            267
+ No. of superbasics                  4   No. of basic nonlinears             0
+ No. of degenerate steps             0   Percentage                       0.00
+ Max x                       3 1.4E+00   Max pi                      1 0.0E+00
+ Max Primal infeas           0 0.0E+00   Max Dual infeas             2 2.8E+00
+ Nonlinear constraint violn    0.0E+00
+1
+ 
+ Name           SNOPT                    Objective Value      1.8722624004E-01
+
+ Status         Optimal Soln             Iteration     84    Superbasics     4
+
+ Objective               (Min)
+ RHS
+ Ranges
+ Bounds
+
+ Section 1 - Rows
+
+  Number  ...Row.. State  ...Activity...  Slack Activity  ..Lower Limit.  ..Upper Limit.  .Dual Activity    ..i
+ 
+       7  r      1    BS          .               .                None            None           .           1
+1
+ 
+ Section 2 - Columns
+
+  Number  .Column. State  ...Activity...  .Obj Gradient.  ..Lower Limit.  ..Upper Limit.  Reduced Gradnt    m+j
+ 
+       1  x      1 N  FR         0.48856         0.34303         0.10000         0.70000         0.34303      2
+       2  x      2 N  FR         1.36431         2.76024         1.10000         1.80000         2.76024      3
+       3  x      3 N SBS         1.43315         0.04725         0.10000         2.00000         0.04725      4
+       4  x      4 N SBS         0.31456        -0.02655         0.00050         5.00000        -0.02655      5
+       5  x      5 N SBS         0.29395         0.00574         0.00050         5.00000         0.00574      6
+       6  x      6 N SBS         0.25089        -0.00445         0.00050         5.00000        -0.00445      7
+ 
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                       8.95 seconds
+ Time for solution output                       0.00 seconds
+ Time for constraint functions                  9.00 seconds
+ Time for objective function                    0.00 seconds

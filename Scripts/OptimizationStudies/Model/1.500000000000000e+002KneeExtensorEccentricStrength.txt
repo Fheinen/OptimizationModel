@@ -1,0 +1,67 @@
+6.631578947368422e-001 1.783901405139104e+002
+-----------
+Study: Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study
+Operation: Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.InverseDynamics
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.FileName = "1.500000000000000e+002KneeExtensorEccentricStrength.txt"
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Search = 
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.SepSign = " "
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.LineSepSign = ""
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.t
+col1  Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.StrengthFloat
+----------------------------------------------------------
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.t Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrength.Outputfile.StrengthFloat
+5.210526315789473e-001 1.794179068089188e+002
+0.000000000000000e+000 3.839843555071674e+001
+7.578947368421054e-001 1.725612821586203e+002
+4.736842105263158e-002 5.920915423883001e+001
+9.473684210526316e-002 8.409995709658213e+001
+8.052631578947370e-001 1.702527933882627e+002
+5.684210526315789e-001 1.803739771499579e+002
+1.421052631578947e-001 1.102130752454761e+002
+1.894736842105263e-001 1.346788149036119e+002
+7.105263157894738e-001 1.759524465892744e+002
+2.368421052631579e-001 1.550593204145871e+002
+8.052631578947370e-001 1.702527933882627e+002
+2.842105263157895e-001 1.700587421233460e+002
+6.157894736842106e-001 1.799828804467775e+002
+3.315789473684210e-001 1.792320940276042e+002
+8.526315789473686e-001 1.678537907956918e+002
+7.578947368421054e-001 1.725612821586203e+002
+3.789473684210526e-001 1.829705732112132e+002
+8.526315789473686e-001 1.678537907956918e+002
+4.263157894736842e-001 1.826268682169580e+002
+6.631578947368422e-001 1.783901405139104e+002
+4.736842105263157e-001 1.800311033447422e+002
+9.000000000000002e-001 1.664827979751630e+002
+8.052631578947370e-001 1.702527933882627e+002
+7.105263157894738e-001 1.759524465892744e+002
+9.000000000000002e-001 1.664827979751630e+002
+5.210526315789473e-001 1.794179068089188e+002
+8.526315789473686e-001 1.678537907956918e+002
+7.578947368421054e-001 1.725612821586203e+002
+5.684210526315789e-001 1.803739771499579e+002
+9.000000000000002e-001 1.664827979751630e+002
+8.052631578947370e-001 1.702527933882627e+002
+6.157894736842106e-001 1.799828804467775e+002
+8.526315789473686e-001 1.678537907956918e+002
+6.631578947368422e-001 1.783901405139104e+002
+7.105263157894738e-001 1.759524465892744e+002
+9.000000000000002e-001 1.664827979751630e+002
+7.578947368421054e-001 1.725612821586203e+002
+8.052631578947370e-001 1.702527933882627e+002
+8.526315789473686e-001 1.678537907956918e+002
+9.000000000000002e-001 1.664827979751630e+002

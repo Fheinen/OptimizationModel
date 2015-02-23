@@ -1,0 +1,57 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study
+Operation: Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.InverseDynamics
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.FileName = "3.741935483870970e+002KneeFlexorEccentricStrength.txt"
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Search = 
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.SepSign = " "
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.LineSepSign = ""
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.t
+col1  Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.StrengthFloat
+----------------------------------------------------------
+Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.t Main.Studies.EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrength.Outputfile.StrengthFloat
+0.000000000000000e+000 9.017576570210231e+000
+1.120689655172413e-002 1.139383809653297e+001
+2.241379310344826e-002 1.454911017009433e+001
+3.362068965517239e-002 1.789635923389112e+001
+4.482758620689652e-002 2.141642598283446e+001
+5.603448275862066e-002 2.505177131218186e+001
+6.724137931034478e-002 2.877117227721445e+001
+7.844827586206891e-002 3.249401775274745e+001
+8.965517241379305e-002 3.615790561502241e+001
+1.008620689655172e-001 3.968688694242366e+001
+1.120689655172413e-001 4.300594589947118e+001
+1.232758620689654e-001 4.606995636147966e+001
+1.344827586206896e-001 4.881142999004452e+001
+1.456896551724137e-001 5.118485138977743e+001
+1.568965517241378e-001 5.317738125176187e+001
+1.681034482758620e-001 5.476725307187837e+001
+1.793103448275861e-001 5.596275250539053e+001
+1.905172413793102e-001 5.679637641118949e+001
+2.017241379310344e-001 5.730823095762248e+001
+2.129310344827585e-001 5.759131933781524e+001
+2.241379310344826e-001 5.786739945483399e+001
+2.353448275862068e-001 5.783433501602838e+001
+2.465517241379309e-001 5.742815883142912e+001
+2.577586206896550e-001 5.667005304960549e+001
+2.689655172413791e-001 5.542387691681991e+001
+2.801724137931033e-001 5.370734415086506e+001
+2.913793103448274e-001 5.246226508487848e+001
+3.025862068965515e-001 5.140875732153828e+001
+3.137931034482757e-001 5.040070736739744e+001
+3.249999999999998e-001 4.954088029897375e+001
+3.362068965517239e-001 4.863575503917234e+001
+3.474137931034481e-001 4.772313781241468e+001

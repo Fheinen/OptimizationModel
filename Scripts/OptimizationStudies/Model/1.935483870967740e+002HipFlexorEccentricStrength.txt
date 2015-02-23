@@ -1,0 +1,57 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study
+Operation: Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.InverseDynamics
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.FileName = "1.935483870967740e+002HipFlexorEccentricStrength.txt"
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Search = 
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.SepSign = " "
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.LineSepSign = ""
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.t
+col1  Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.StrengthFloat
+----------------------------------------------------------
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.t Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrength.Outputfile.StrengthFloat
+0.000000000000000e+000 2.344201115891390e+001
+2.166666666666669e-002 2.335492558135033e+001
+4.333333333333338e-002 2.577771096233033e+001
+6.500000000000006e-002 2.903454565873622e+001
+8.666666666666675e-002 3.363880709748990e+001
+1.083333333333335e-001 3.827915176876637e+001
+1.300000000000001e-001 4.271707278395796e+001
+1.516666666666668e-001 4.671478579975447e+001
+1.733333333333335e-001 5.013844244675050e+001
+1.950000000000002e-001 5.310113737056224e+001
+2.166666666666669e-001 5.600623629304861e+001
+2.383333333333336e-001 5.852184800507891e+001
+2.600000000000003e-001 6.059810729498592e+001
+2.816666666666670e-001 6.226718695326900e+001
+3.033333333333336e-001 6.363219257141822e+001
+3.250000000000003e-001 6.465970772115125e+001
+3.466666666666670e-001 6.528940464803313e+001
+3.683333333333336e-001 6.549527081095513e+001
+3.900000000000003e-001 6.553580479571063e+001
+4.116666666666670e-001 6.571506969590445e+001
+4.333333333333336e-001 6.635988295853871e+001
+4.550000000000003e-001 6.714279685142387e+001
+4.766666666666670e-001 6.810051743875954e+001
+4.983333333333336e-001 6.930009469484271e+001
+5.200000000000004e-001 6.985052515826297e+001
+5.416666666666671e-001 7.026317699845001e+001
+5.633333333333338e-001 7.019609806019122e+001
+5.850000000000005e-001 6.966508571203796e+001
+6.066666666666672e-001 6.893195887415955e+001
+6.283333333333340e-001 6.836623254687362e+001
+6.500000000000007e-001 6.756621013385532e+001
+6.716666666666674e-001 6.684628024289835e+001

@@ -1,0 +1,57 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study
+Operation: Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.InverseDynamics
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.FileName = "2.709677419354840e+002HipExtensorEccentricStrength.txt"
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Search = 
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.SepSign = " "
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.LineSepSign = ""
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.t
+col1  Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.StrengthFloat
+----------------------------------------------------------
+Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.t Main.Studies.EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrength.Outputfile.StrengthFloat
+0.000000000000000e+000 1.002057432957542e+002
+1.547619047619047e-002 1.165013312437094e+002
+3.095238095238094e-002 1.356064423034683e+002
+4.642857142857140e-002 1.572426207601946e+002
+6.190476190476187e-002 1.807000365114326e+002
+7.738095238095234e-002 2.047241255053510e+002
+9.285714285714281e-002 2.279021810486603e+002
+1.083333333333333e-001 2.490550308802595e+002
+1.238095238095237e-001 2.674655451137338e+002
+1.392857142857142e-001 2.824566888238584e+002
+1.547619047619047e-001 2.949431395508108e+002
+1.702380952380952e-001 3.048233701668790e+002
+1.857142857142856e-001 3.124524669966206e+002
+2.011904761904761e-001 3.186754772194077e+002
+2.166666666666666e-001 3.231486524008392e+002
+2.321428571428571e-001 3.254809252605531e+002
+2.476190476190475e-001 3.251061160254569e+002
+2.630952380952380e-001 3.211242342789957e+002
+2.785714285714285e-001 3.127777227467051e+002
+2.940476190476190e-001 3.003720941021750e+002
+3.095238095238094e-001 2.837131072426367e+002
+3.249999999999999e-001 2.634049299081705e+002
+3.404761904761904e-001 2.408201222762621e+002
+3.559523809523809e-001 2.182072049526856e+002
+3.714285714285713e-001 1.948524683439808e+002
+3.869047619047618e-001 1.709282372095427e+002
+4.023809523809523e-001 1.471930914719109e+002
+4.178571428571428e-001 1.243858412838636e+002
+4.333333333333332e-001 1.030804472222873e+002
+4.488095238095237e-001 8.700809555010000e+001
+4.642857142857142e-001 7.311624149276668e+001
+4.797619047619047e-001 6.605640325217610e+001
