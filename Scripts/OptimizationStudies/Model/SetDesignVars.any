@@ -2,12 +2,12 @@
     // L_BFGS_B [(0.2,0.9),(1,1.7)] - Counter 72
     AnyOperationMacro SetDesignVarsR1 = {
       MacroStr = {
-      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.58167"), 
-      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.28007"), 
-      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.66193"), 
-      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.34633"), 
-      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.54867"), 
-      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.31839"),
+      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), //0.58167
+      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.2"), //1.28007
+      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.1"),//0.66193 
+      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.2"), //1.34633
+      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), //0.54867
+      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.2")  //1.31839
 //      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), 
 //      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.5"), 
 ////      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
@@ -32,10 +32,10 @@
 //////      "classoperation Main.DesignVars.std_rmax"+strquote("Set Value") + "--value="+strquote("1.15373"), 
 //////      "classoperation Main.DesignVars.smb_rmin"+strquote("Set Value") + "--value="+strquote("0.36291"), 
 //////      "classoperation Main.DesignVars.smb_rmax"+strquote("Set Value") + "--value="+strquote("1.14697"), 
-      "classoperation Main.DesignVars.K1FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("16"),//10
-      "classoperation Main.DesignVars.K2FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0"),//-10
-      "classoperation Main.DesignVars.FcFastFactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0.4"),//0.4
-      "classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors"+strquote("Set Value") + "--value="+strquote("1.53002")
+//      "classoperation Main.DesignVars.K1FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("16"),//10
+//      "classoperation Main.DesignVars.K2FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0"),//-10
+//      "classoperation Main.DesignVars.FcFastFactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0.4"),//0.4
+//      "classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors"+strquote("Set Value") + "--value="+strquote("1.53002")
 ////      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.4503815")
 ////
       };

@@ -89,7 +89,7 @@ def objfunc(x):
         num = range(Nx,len(x),1)
         np.save('num',num)
         # Objective: 
-        Lt0Pen1 = np.array(10.0*np.sum(((x[num[0]]-pf[0])**2)+((x[num[1]]-pf[1])**2)+((x[num[2]]-pf[2])**2)+((x[num[3]]-pf[3])**2)+((x[num[4]]-pf[4])**2)+((x[num[5]]-pf[5])**2)+((x[num[6]]-pf[6])**2)+((x[num[7]]-pf[7])**2)+((x[num[8]]-pf[8])**2)+((x[num[9]]-pf[9])**2)))
+        Lt0Pen1 = np.array(100.0*np.sum(((x[num[0]]-pf[0])**2)+((x[num[1]]-pf[1])**2)+((x[num[2]]-pf[2])**2)+((x[num[3]]-pf[3])**2)+((x[num[4]]-pf[4])**2)+((x[num[5]]-pf[5])**2)+((x[num[6]]-pf[6])**2)+((x[num[7]]-pf[7])**2)+((x[num[8]]-pf[8])**2)+((x[num[9]]-pf[9])**2)))
         NormStrengthIsomDF = JointStrengthIsomDF/np.max(EDIsomDF)
 
         f = np.sqrt(np.sum(np.sum(((NormExpDataIsomDF-NormStrengthIsomDF)**2)+Lt0Pen1)))
