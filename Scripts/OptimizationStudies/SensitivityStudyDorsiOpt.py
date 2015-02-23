@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from anypytools.abcutils import AnyPyProcess
-from SensitivityStudyPlantar import run_model, objfunc
+from SensitivityStudyDorsi import run_model, objfunc
 app = AnyPyProcess()
 
 import pyOpt
@@ -61,7 +61,7 @@ optimizer.setOption('Major optimality tolerance',value= 10e-6)
 optimizer.setOption('Major feasibility tolerance',value= 10e-6)
 
 
-optimizer(opt_prob, sens_type='fd', disp_opts=True)
+optimizer(opt_prob, sens_type='fd', disp_opts=True, sens_mode ='pgc')
 print opt_prob
 
 opt_prob.write2file(outfile='', disp_sols=False, solutions=[])

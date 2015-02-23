@@ -1,0 +1,24 @@
+load "Optimization.main.any"
+classoperation Main.DesignVars.ta_rmin "Set Value" --value=    0.500000
+classoperation Main.DesignVars.ta_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.edl_rmin "Set Value" --value=    0.500000
+classoperation Main.DesignVars.edl_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.ehl_rmin "Set Value" --value=    0.500001
+classoperation Main.DesignVars.ehl_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors "Set Value" --value=    1.000000
+operation Main.RunApplication1
+run
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus4Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lt0 "Dump"
+operation Main.RunApplication2
+run
+classoperation Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+exit

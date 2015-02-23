@@ -1,0 +1,690 @@
+########### MACRO #############
+load "Optimization.main.any"
+classoperation Main.DesignVars.ta_rmin "Set Value" --value=    0.500000
+classoperation Main.DesignVars.ta_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.edl_rmin "Set Value" --value=    0.500000
+classoperation Main.DesignVars.edl_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.ehl_rmin "Set Value" --value=    0.500001
+classoperation Main.DesignVars.ehl_rmax "Set Value" --value=    1.200000
+classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors "Set Value" --value=    1.000000
+operation Main.RunApplication1
+run
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus4Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lt0 "Dump"
+classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lt0 "Dump"
+operation Main.RunApplication2
+run
+classoperation Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+exit
+
+######### OUTPUT LOG ##########
+AnyBody Console Application
+AnyBodyCon.exe version : 6. 0. 2. 4064 (64-bit version) 
+Build : 16015.35700
+Copyright (c) 1999 - 2015 AnyBody Technology A/S
+
+
+Current path: C:\Users\fh\Dropbox\Temp Model\runningmodel_txt_input
+
+#### Macro command > load "Optimization.main.any"
+Loading  Main  :  "C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Optimization.main.any"
+Scanning...
+Parsing...
+Constructing model tree...
+Linking identifiers...
+Evaluating constants...
+Configuring model...
+Evaluating model...
+Loaded successfully.
+Elapsed Time : 3.323000
+
+#### Macro command > classoperation Main.DesignVars.ta_rmin "Set Value" --value=    0.500000
+
+#### Macro command > classoperation Main.DesignVars.ta_rmax "Set Value" --value=    1.200000
+
+#### Macro command > classoperation Main.DesignVars.edl_rmin "Set Value" --value=    0.500000
+
+#### Macro command > classoperation Main.DesignVars.edl_rmax "Set Value" --value=    1.200000
+
+#### Macro command > classoperation Main.DesignVars.ehl_rmin "Set Value" --value=    0.500001
+
+#### Macro command > classoperation Main.DesignVars.ehl_rmax "Set Value" --value=    1.200000
+
+#### Macro command > classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors "Set Value" --value=    1.000000
+
+#### Macro command > operation Main.RunApplication1
+
+#### Macro command > run
+
+***************************************************************************************
+0) Operation Sequence: (Operation: Main.RunApplication1): 
+0.0) InitialConditions (Operation: Main.Studies.Calibrations.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions): 
+0.0) ...Design variables have been updated.
+0.1) ...Load-time positions have been re-established.
+0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(858)  :   'ExtensorHallucisLongus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.3) ...Initial conditions are fully updated.
+1.0) updateExpression (Operation: Main.RunApplication1.updateExpression): 
+
+#### Macro command : updateExpression(1:1)> classoperation Main"Update Values"
+Updating expressions...
+...Finished updating expressions
+2.0) Operation Sequence: (Operation: Main.Studies.AnkleCalibration.CalibrationSequence): 
+2.0.0) FiberAndTendonLengthAdjustment (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration1.AnkleCalibrationStudy1.FiberAndTendonLengthAdjustment): 
+2.0.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration1.AnkleCalibrationStudy1.FiberAndTendonLengthAdjustment.PreOperation): 
+2.0.0.0.0) Kinematics (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration1.AnkleCalibrationStudy1.Kinematics): 
+2.0.0.0.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration1.AnkleCalibrationStudy1.Kinematics.PreOperation): 
+2.0.0.0.0.0.0) InitialConditions (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions): 
+2.0.0.0.0.0.0) ...Design variables have been updated.
+2.0.0.0.0.0.1) ...Load-time positions have been re-established.
+2.0.0.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+2.0.0.0.0.0.3) ...Initial conditions are fully updated.
+2.0.0.0.0) Kinematic analysis...
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(858)  :   'ExtensorHallucisLongus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+2.0.0.0.1) ...Kinematic analysis completed
+2.0.0) Muscle Fiber and Tendon Length Adjustment...
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(532)  :   'TibialisAnterior1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(547)  :   'TibialisAnterior2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(562)  :   'TibialisAnterior3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(718)  :   'ExtensorDigitorumLongus1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(734)  :   'ExtensorDigitorumLongus2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(750)  :   'ExtensorDigitorumLongus3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(767)  :   'ExtensorDigitorumLongus4'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(783)  :   'ExtensorHallucisLongus1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(808)  :   'ExtensorHallucisLongus2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(835)  :   'ExtensorHallucisLongus3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+2.0.0) ...Muscle Fiber and Tendon Length Adjustment finished.
+2.0.1) ...Design variables of the calibration model have been updated.
+2.1.0) FiberAndTendonLengthAdjustment (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration2.AnkleCalibrationStudy2.FiberAndTendonLengthAdjustment): 
+2.1.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration2.AnkleCalibrationStudy2.FiberAndTendonLengthAdjustment.PreOperation): 
+2.1.0.0.0) Kinematics (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration2.AnkleCalibrationStudy2.Kinematics): 
+2.1.0.0.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration2.AnkleCalibrationStudy2.Kinematics.PreOperation): 
+2.1.0.0.0.0.0) InitialConditions (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration2.AnkleCalibrationStudy2.InitialConditions): 
+2.1.0.0.0.0.0) ...Design variables have been updated.
+2.1.0.0.0.0.1) ...Load-time positions have been re-established.
+2.1.0.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3665)  :   'SoleusMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3687)  :   'SoleusMedialis2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3709)  :   'SoleusMedialis3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3731)  :   'SoleusLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3753)  :   'SoleusLateralis2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3775)  :   'SoleusLateralis3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1173)  :   'GastrocnemiusMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(995)  :   'FlexorDigitorumLongus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1017)  :   'FlexorDigitorumLongus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1039)  :   'FlexorDigitorumLongus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1061)  :   'FlexorDigitorumLongus4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1085)  :   'FlexorHallucisLongus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3973)  :   'TibialisPosteriorLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3995)  :   'TibialisPosteriorLateralis2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3907)  :   'TibialisPosteriorMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3929)  :   'TibialisPosteriorMedialis2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2820)  :   'PeroneusLongus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2842)  :   'PeroneusLongus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+2.1.0.0.0.0.3) ...Initial conditions are fully updated.
+2.1.0.0.0) Kinematic analysis...
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1151)  :   'GastrocnemiusLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2864)  :   'PeroneusLongus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+2.1.0.0.1) ...Kinematic analysis completed
+2.1.0) Muscle Fiber and Tendon Length Adjustment...
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(22)  :   'SoleusMedialis1'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(22)  :   'SoleusMedialis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(30)  :   'SoleusMedialis2'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(30)  :   'SoleusMedialis2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(38)  :   'SoleusMedialis3'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(38)  :   'SoleusMedialis3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(46)  :   'SoleusLateralis1'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(46)  :   'SoleusLateralis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(54)  :   'SoleusLateralis2'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(54)  :   'SoleusLateralis2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(62)  :   'SoleusLateralis3'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(62)  :   'SoleusLateralis3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(99)  :   'GastrocnemiusLateralis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(120)  :   'GastrocnemiusMedialis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(195)  :   'FlexorDigitorumLongus1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(212)  :   'FlexorDigitorumLongus2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(229)  :   'FlexorDigitorumLongus3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(245)  :   'FlexorDigitorumLongus4'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(310)  :   'FlexorHallucisLongus1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(324)  :   'FlexorHallucisLongus2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(338)  :   'FlexorHallucisLongus3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(354)  :   'TibialisPosteriorLateralis1'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(354)  :   'TibialisPosteriorLateralis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(384)  :   'TibialisPosteriorLateralis2'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(384)  :   'TibialisPosteriorLateralis2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(413)  :   'TibialisPosteriorLateralis3'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(413)  :   'TibialisPosteriorLateralis3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(442)  :   'TibialisPosteriorMedialis1'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(442)  :   'TibialisPosteriorMedialis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(472)  :   'TibialisPosteriorMedialis2'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(472)  :   'TibialisPosteriorMedialis2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(502)  :   'TibialisPosteriorMedialis3'  :  Muscle calibration :  Pennation angle of the muscle is so large that Rmin value cannot be attained before fiber become perpendicular earlier. Calibration has set minimum length to fit perpendicular case.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(502)  :   'TibialisPosteriorMedialis3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(622)  :   'PeroneusLongus1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(642)  :   'PeroneusLongus2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(662)  :   'PeroneusLongus3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+2.1.0) ...Muscle Fiber and Tendon Length Adjustment finished.
+2.1.1) ...Design variables of the calibration model have been updated.
+2.2.0) FiberAndTendonLengthAdjustment (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration3.AnkleCalibrationStudy3.FiberAndTendonLengthAdjustment): 
+2.2.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration3.AnkleCalibrationStudy3.FiberAndTendonLengthAdjustment.PreOperation): 
+2.2.0.0.0) Kinematics (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration3.AnkleCalibrationStudy3.Kinematics): 
+2.2.0.0.0.0) PreOperation (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration3.AnkleCalibrationStudy3.Kinematics.PreOperation): 
+2.2.0.0.0.0.0) InitialConditions (Operation: Main.Studies.AnkleCalibration.RightAnkleCalibration3.AnkleCalibrationStudy3.InitialConditions): 
+2.2.0.0.0.0.0) ...Design variables have been updated.
+2.2.0.0.0.0.1) ...Load-time positions have been re-established.
+2.2.0.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+2.2.0.0.0.0.3) ...Initial conditions are fully updated.
+2.2.0.0.0) Kinematic analysis...
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2754)  :   'PeroneusBrevis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2776)  :   'PeroneusBrevis2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2798)  :   'PeroneusBrevis3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+2.2.0.0.1) ...Kinematic analysis completed
+2.2.0) Muscle Fiber and Tendon Length Adjustment...
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(577)  :   'PeroneusBrevis1'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(592)  :   'PeroneusBrevis2'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+NOTICE(OBJ.MCH.MUS6) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(607)  :   'PeroneusBrevis3'  :  Muscle calibration :  The tendon/fiber length of the muscle was calibrated according to the executed muscle calibration and the muscle model properties have been updated.
+2.2.0) ...Muscle Fiber and Tendon Length Adjustment finished.
+2.2.1) ...Design variables of the calibration model have been updated.
+
+***************************************************************************************
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lt0 = 0.28698606;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lt0 = 0.23774316;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lt0 = 0.1640635;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lt0 = 0.42399471;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lt0 = 0.34301382;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lt0 = 0.2319007;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus4Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus4Par.Lt0 = 0.22182849;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lt0 = 0.33046125;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lt0 = 0.2657048;
+
+#### Macro command > classoperation Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lt0 "Dump"
+Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lt0 = 0.21487657;
+
+#### Macro command > operation Main.RunApplication2
+
+#### Macro command > run
+
+***************************************************************************************
+0) Operation Sequence: (Operation: Main.RunApplication2): 
+0.0) Parameter Study (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy): 
+0.1.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.1.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.1.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.1.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.1.0.0.0.0) ...Design variables have been updated.
+0.1.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.1.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.1.0.0.0.3) ...Initial conditions are fully updated.
+0.1.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.1.0.0) ...Inverse dynamic analysis completed
+0.2.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.2.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.2.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.2.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.2.0.0.0.0) ...Design variables have been updated.
+0.2.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.2.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.2.0.0.0.3) ...Initial conditions are fully updated.
+0.2.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.2.0.0) ...Inverse dynamic analysis completed
+0.3.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.3.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.3.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.3.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.3.0.0.0.0) ...Design variables have been updated.
+0.3.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.3.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.3.0.0.0.3) ...Initial conditions are fully updated.
+0.3.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.3.0.0) ...Inverse dynamic analysis completed
+0.4.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.4.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.4.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.4.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.4.0.0.0.0) ...Design variables have been updated.
+0.4.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.4.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.4.0.0.0.3) ...Initial conditions are fully updated.
+0.4.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.4.0.0) ...Inverse dynamic analysis completed
+0.5.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.5.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.5.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.5.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.5.0.0.0.0) ...Design variables have been updated.
+0.5.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.5.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.5.0.0.0.3) ...Initial conditions are fully updated.
+0.5.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.5.0.0) ...Inverse dynamic analysis completed
+0.6.0) Operation Sequence: (Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Analysis): 
+0.6.0.0) InverseDynamics (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics): 
+0.6.0.0.0) PreOperation (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics.PreOperation): 
+0.6.0.0.0.0) InitialConditions (Operation: Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InitialConditions): 
+0.6.0.0.0.0) ...Design variables have been updated.
+0.6.0.0.0.1) ...Load-time positions have been re-established.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+0.6.0.0.0.2) ...Kinematic analysis completed. The kinematic constraints have been resolved.
+WARNING(OBJ.MCH.KIN7) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\Mus.any(1474)  :   'RectusFemorisLateralis1.SPLine'  :  Penetration of surface :  'cyl' :  Via-point 'Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.Muscles.RectusFemorisLateralis1Node' on 'Main.HumanModel.BodyModel.Right.Leg.Mus.RectusFemorisLateralis1.SPLine' is located below the wrapping surface 'Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.IliacusWrapSurf.cyl
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4171)  :   'VastusLateralisInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4193)  :   'VastusLateralisInferior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4215)  :   'VastusLateralisInferior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4303)  :   'VastusLateralisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4325)  :   'VastusLateralisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4572)  :   'VastusMedialisSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4594)  :   'VastusMedialisSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4616)  :   'VastusMedialisSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4638)  :   'VastusMedialisSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4039)  :   'VastusIntermedius1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(4061)  :   'VastusIntermedius2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3478)  :   'RectusFemorisLateralis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3456)  :   'RectusFemorisMedialis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3573)  :   'Semimembranosus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3596)  :   'Semimembranosus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3619)  :   'Semimembranosus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(609)  :   'BicepsFemorisCaputLongum1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1503)  :   'GluteusMediusAnterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1525)  :   'GluteusMediusAnterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1547)  :   'GluteusMediusAnterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1569)  :   'GluteusMediusAnterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1591)  :   'GluteusMediusAnterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1613)  :   'GluteusMediusAnterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1635)  :   'GluteusMediusPosterior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1657)  :   'GluteusMediusPosterior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1679)  :   'GluteusMediusPosterior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1701)  :   'GluteusMediusPosterior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1723)  :   'GluteusMediusPosterior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1745)  :   'GluteusMediusPosterior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1239)  :   'GluteusMaximusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1261)  :   'GluteusMaximusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1283)  :   'GluteusMaximusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1305)  :   'GluteusMaximusSuperior4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1327)  :   'GluteusMaximusSuperior5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1349)  :   'GluteusMaximusSuperior6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3797)  :   'TensorFasciaeLatae1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3819)  :   'TensorFasciaeLatae2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2954)  :   'Piriformis1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(301)  :   'AdductorLongus6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(323)  :   'AdductorMagnusDistal1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(345)  :   'AdductorMagnusDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(367)  :   'AdductorMagnusDistal3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(433)  :   'AdductorMagnusMid3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(455)  :   'AdductorMagnusMid4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(477)  :   'AdductorMagnusMid5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(499)  :   'AdductorMagnusMid6Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(169)  :   'AdductorBrevisDistal2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1195)  :   'GemellusInferior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(1217)  :   'GemellusSuperior1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2417)  :   'ObturatorExternusSuperior2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2439)  :   'ObturatorExternusSuperior3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2532)  :   'ObturatorInternus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2576)  :   'ObturatorInternus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(2620)  :   'ObturatorInternus5Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3047)  :   'Popliteus1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3069)  :   'Popliteus2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3091)  :   'Popliteus3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3319)  :   'QuadratusFemoris1Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3341)  :   'QuadratusFemoris2Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3363)  :   'QuadratusFemoris3Par'  :  Muscle without strength  :  The muscle has been stretched too much
+WARNING(OBJ.MCH.MUS2) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\TLem2\Body\AAUHuman\LegTLEM\MusPar.any(3385)  :   'QuadratusFemoris4Par'  :  Muscle without strength  :  The muscle has been stretched too much
+0.6.0.0.0.3) ...Initial conditions are fully updated.
+0.6.0.0) Inverse dynamic analysis...
+WARNING(OBJ.MCH.MUS3) :   C:\Users\fh\Documents\GitHub\OptimizationModel\Scripts\OptimizationStudies\Model\DorsiFlexorIsometricStrengthStudy.any(46)  :   'Study.InverseDynamics'  :  Overloaded muscle configuration.
+0.6.0.0) ...Inverse dynamic analysis completed
+
+***************************************************************************************
+
+#### Macro command > classoperation Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Output.Strength.Val = {9.9154021, 12.240842, 14.047238, 17.433121, 22.67171, 22.695236};
+
+#### Macro command > exit
+
+Closing model...
+Saving modified values...
+Deleting last loaded model...
+...Model deleted.
