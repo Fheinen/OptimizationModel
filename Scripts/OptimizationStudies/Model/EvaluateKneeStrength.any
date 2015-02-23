@@ -1,0 +1,8 @@
+AnyFolder Right ={
+  
+  #include "RightKneeIsometricStrength.any"
+  
+  #include "KneeConcentricStrength.any"
+  
+  #include "RightKneeEccentricStrength.any"
+};

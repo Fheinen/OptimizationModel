@@ -1,0 +1,21 @@
+
+
+Main = {
+  
+  
+  Main.Project={
+    Files={
+            MainFile = "C3DProject.main.any";
+    };
+  };
+  
+  #include "project.any"
+  
+}; //Main
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+AnyFolder Model = {
+  // Model parts included in the moment arm study
+  AnyFolder &PelvisRef = ......BodyModelRef.Trunk.SegmentsLumbar.PelvisSeg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &LegSegSideRef = .SideBodyModelRef.Leg.Seg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &LegJntsRef =  .SideBodyModelRef.Leg.Jnt;
+  AnyFolder &MusRef = .SideBodyModelRef.Leg.Mus;
+//  AnyFolder &LegMusRef = .SideBodyModelRef.Leg.Mus;
+//  AnyFolder &SpineMusRef = .SideTrunkMusRef;
+  
+ AnyFixedRefFrame ground = {
+   AnyRefNode node = { 
+      ARel=..PelvisRef.Axes0;
+     sRel=..PelvisRef.r0;
+   };
+ };
+ 
+
+AnyFolder Drivers = {
+   AnyVar AngularVelocity = (..RangeOfMotion[1]-..RangeOfMotion[0])*pi/180;
+ 
+ AnyKinMeasureOrg LegMeasure = {
+  AnyKinMeasure &HipFlexion= ...SideBodyInterfaceRef.HipFlexion;
+  AnyKinMeasure &HipAbduction= ...SideBodyInterfaceRef.HipAbduction;
+  AnyKinMeasure &HipExternalRotation= ...SideBodyInterfaceRef.HipExternalRotation;
+  AnyKinMeasure &KneeFlexion= ...SideBodyInterfaceRef.KneeFlexion;
+  AnyKinMeasure &AnklePlantarFlexion= ...SideBodyInterfaceRef.AnklePlantarFlexion;
+  AnyKinMeasure &SubTalarEversion= ...SideBodyInterfaceRef.SubTalarEversion;  
+ };
+   
+ AnyStdJoint PelvisGround={
+    AnyRefFrame &Ground = ..ground.node;
+    AnyRefFrame &Sacrum= ..PelvisRef; 
+ };
+    
+};// Drivers
+  AnyForce JointLoad = {
+      AnyKinMeasure &ref = .Drivers.LegMeasure;
+      AnyInt Sign = -round(.Drivers.AngularVelocity/abs(.Drivers.AngularVelocity));
+      F = 50*Sign*not(not(.Drivers.LegDriver.Mask));
+  };
+
+};
+ 
+ 
+AnyBodyStudy Study = {
+
+
+  #ifdef NO_GRAVITY
+  Gravity = {0,0,0};
+  #else
+  Gravity = {0,-9.81,0};
+  #endif
+  tStart = 0;
+  tEnd = 1;
+  nStep = .nStep;
+  InitialConditions.SolverType = KinSolDeterminate;
+  Kinematics.SolverType = KinSolDeterminate;
+  Kinematics.PosAnalysisOnlyOnOff = On;
+  InitialConditions.PosAnalysisOnlyOnOff = On;
+
+  InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+  
+  AnyOutputFun JointStrengthOutput = 
+    {
+      Val = .JointStrength.JointStrength;
+    };
+      AnyOutputFun StrengthTibAnt1Output = 
+    {
+      Val = .JointStrength.StrengthTibAnt1;
+    };
+      AnyOutputFun StrengthTibAnt2Output = 
+    {
+      Val = .JointStrength.StrengthTibAnt2;
+    };
+      AnyOutputFun StrengthTibAnt3Output = 
+    {
+      Val = .JointStrength.StrengthTibAnt3;
+    };
+  #if RATIOANALYSISONOFF == 1  
+  AnyString Name = strval(Main.Studies.EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.RangeOfAngle);
+  AnyOutputFile AnkleDorsiRRatios = 
+  {
+    FileName = .Name+"AnkleDorsiRRatios.txt";
+    AnyMatrix RRatios = {{.JointStrength.RRatioTibAnt1},{.JointStrength.RRatioTibAnt2},{.JointStrength.RRatioTibAnt3},
+    {.JointStrength.RRatioEdl1},{.JointStrength.RRatioEdl2},{.JointStrength.RRatioEdl3},
+    {.JointStrength.RRatioEhl1},{.JointStrength.RRatioEhl2},{.JointStrength.RRatioEhl3}};
+
+  };
+  #else
+  #endif
+  
+  AnyFolder &Model = .Model;
+  AnyString path = "Main.HumanModel.BodyModel.Right.Leg";
+  AnyFolder JointStrength = {
+     AnyFolder Abscissa  ={
+        AnyVar JointAngle = not(not(..Model.Drivers.LegDriver.DriverVel))*..Model.Drivers.LegMeasure.Pos'*180/pi;     
+     };
+     AnyVar JointStrength = max(abs(.Model.JointLoad.F))/(.MaxMuscleActivity+0.00000001);
+     AnyVar RRatioTibAnt1 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior1.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior1Par.Lfbar);
+     AnyVar RRatioTibAnt2 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior2.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior2Par.Lfbar);
+     AnyVar RRatioTibAnt3 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior3.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.TibialisAnterior3Par.Lfbar);
+
+     AnyVar StrengthTibAnt1 = max(Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior1.Strength);
+     AnyVar StrengthTibAnt2 = max(Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior2.Strength);
+     AnyVar StrengthTibAnt3 = max(Main.HumanModel.BodyModel.Right.Leg.Mus.TibialisAnterior3.Strength);
+
+     AnyVar RRatioEdl1 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorDigitorumLongus1.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus1Par.Lfbar);
+     AnyVar RRatioEdl2 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorDigitorumLongus2.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus2Par.Lfbar);
+     AnyVar RRatioEdl3 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorDigitorumLongus3.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorDigitorumLongus3Par.Lfbar);
+
+     AnyVar RRatioEhl1 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorHallucisLongus1.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus1Par.Lfbar);
+     AnyVar RRatioEhl2 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorHallucisLongus2.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus2Par.Lfbar);
+     AnyVar RRatioEhl3 = max((Main.HumanModel.BodyModel.Right.Leg.Mus.ExtensorHallucisLongus3.Lmt-Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lt0)/Main.HumanModel.BodyModel.Right.Leg.MusPar.ExtensorHallucisLongus3Par.Lfbar);
+
+     //AnyVar PsoasMajorT12I = -1*.Model.SpineMusRef.PsoasMajor.PMT12I_TM.LmtDot/.Model.Drivers.AngularVelocity;
+  };
+};
+
+AnyOperationMacro MacroCmd = 
+{
+
+  MacroStr = {"operation " + CompleteNameOf(&.Study.InverseDynamics),
+    "run"
+#ifdef OUTPUT_SAVE_PATH
+    ,
+    "classoperation " + CompleteNameOf(&.Study.Output) + strquote("Save data") 
+     + " --type=" + strquote("Deep") +" --file=" + strquote(
+     OUTPUT_SAVE_PATH + .OutputFileName + ".anydata.h5")
+#endif
+   };
+ };

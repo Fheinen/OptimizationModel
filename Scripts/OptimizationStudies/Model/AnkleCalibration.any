@@ -1,0 +1,28 @@
+
+
+
+//This will run calibration1 on the right ankle 
+  AnyFolder RightAnkleCalibration1={
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "AnkleCal1.any"
+  };
+ 
+  //This will run calibration2 on the right ankle 
+  AnyFolder RightAnkleCalibration2={
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "AnkleCal2.any"
+  };
+  
+  //This will run calibration3 on the right ankle 
+  AnyFolder RightAnkleCalibration3={
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "AnkleCal3.any"
+  };
+  
+  CalibrationSequence = { 
+    AnyOperation &Cal1AnkleRight = .RightAnkleCalibration1.AnkleCalibrationStudy1.FiberAndTendonLengthAdjustment;
+    AnyOperation &Cal2AnkleRight = .RightAnkleCalibration2.AnkleCalibrationStudy2.FiberAndTendonLengthAdjustment;
+    AnyOperation &Cal3AnkleRight = .RightAnkleCalibration3.AnkleCalibrationStudy3.FiberAndTendonLengthAdjustment;
+  };
+ 
+ 

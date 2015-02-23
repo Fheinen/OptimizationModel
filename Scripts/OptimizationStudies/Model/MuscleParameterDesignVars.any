@@ -1,0 +1,263 @@
+AnyFolder DesignVars = {
+    #define RminMaxVar(name) AnyFloat name##_rmin = DesignVar(0.4);AnyFloat name##_rmax = DesignVar(1.2);
+    #define K1K2(name) AnyFloat name##_K1 = DesignVar(10.0); AnyFloat name##_K2 = DesignVar(0.0);
+      
+//Ankel plantar/dorsi flexion muscles
+    RminMaxVar(ta)  // Tibialis Anterior
+    RminMaxVar(edl) // Extensor Digitorum Longus
+    RminMaxVar(ehl) // Extensor Hallucis Longus
+    RminMaxVar(sm)  // Soleus Medialis
+    RminMaxVar(sl)  // Soleus Lateralis
+    RminMaxVar(gl)  // Gastrocnemius Lateralis
+    RminMaxVar(gm)  // Gastrocnemius Medialis
+    RminMaxVar(fdl) // Flexor Digitorum Longus
+    RminMaxVar(fhl) // Flexor Hallucis Longus
+    RminMaxVar(tpl) // Tibialis Posterior Lateralis
+    RminMaxVar(tpm) // Tibialis Posterior Medialis
+    RminMaxVar(pr) // Peroneus
+    K1K2(ta)
+    K1K2(edl)
+    K1K2(ehl)
+    K1K2(sm)
+    K1K2(sl)
+    K1K2(gl)
+    K1K2(gm)
+    K1K2(fdl)
+    K1K2(fhl)
+    K1K2(tpl)
+    K1K2(tpm)
+    
+    //Knee extensor/flexor muscles
+    RminMaxVar(vli) //Vastus Lateralis Inferior
+    RminMaxVar(vls) //Vastus Lateralis Superior
+    RminMaxVar(vmi) //Vastus Medialis Inferior
+    RminMaxVar(vmm) //Vastus Medialis Mid
+    RminMaxVar(vms) //Vastus Medialis Superior
+    RminMaxVar(vi) //Vastus Intermedius 
+    RminMaxVar(tfl)//Tensor Fasciae Latae
+    RminMaxVar(rf)//Rectus Femoris
+    RminMaxVar(std)//Semitendinosus
+    RminMaxVar(smb)//Semimembranosus
+    RminMaxVar(bfcl)//Biceps Femoris Caput Longum
+    RminMaxVar(bfcb) //Biceps Femoris Caput Breve
+    RminMaxVar(pop)//Popliteus
+    RminMaxVar(st)//Sartorius
+    K1K2(vli)
+    K1K2(vls)
+    K1K2(vmi)
+    K1K2(vmm)
+    K1K2(vms)
+    K1K2(vi)
+    K1K2(tfl)
+    K1K2(rf)
+    K1K2(std)
+    K1K2(smb)
+    K1K2(bfcl)
+    K1K2(bfcb)
+    K1K2(pop)
+    
+//    Hip extensor/flexor muscles
+    RminMaxVar(pmaj) //Psoas Major
+    RminMaxVar(pmin) //Psoas Minor
+    RminMaxVar(ili) //Iliacus
+    RminMaxVar(gms) //Gluteus Maximus Superior
+    RminMaxVar(gmi) //Gluteus Maximus Inferior
+    RminMaxVar(gmed) //Gluteus Medius
+    RminMaxVar(gma)//Glueteus MAximus Anterior
+    RminMaxVar(gmm)//Gluteus Maximus mid
+    RminMaxVar(gmp)// Gluteus Maximus Posterior
+    RminMaxVar(il)//IliaxusLateralis
+    RminMaxVar(im)//IliacusMid
+    
+    
+//     Rmin Vector Ankle
+    AnyVector RminValuesAnkle = DesignVar({
+      ta_rmin,
+      edl_rmin,
+      ehl_rmin,
+      sm_rmin,
+      sl_rmin,
+      gl_rmin,
+      gm_rmin,
+      fdl_rmin,
+      fhl_rmin,
+      tpl_rmin,
+      tpm_rmin,
+      pr_rmin
+     });
+     
+     AnyVector K1ValuesAnkle = DesignVar({
+      ta_K1,
+      edl_K1,
+      ehl_K1,
+      sm_K1,
+      sl_K1,
+      gl_K1,
+      gm_K1,
+      fdl_K1,
+      fhl_K1,
+      tpl_K1,
+      tpm_K1
+     });
+     
+     //Rmin Vector Knee
+     AnyVector RminValuesKnee = DesignVar({
+      vli_rmin,
+      vls_rmin,
+      vmi_rmin,
+      vmm_rmin,
+      vms_rmin,
+      vi_rmin,
+      tfl_rmin,
+      rf_rmin,
+      std_rmin,
+      smb_rmin,
+      bfcl_rmin,
+      bfcb_rmin,
+      st_rmin
+    });
+    
+    AnyVector K1ValuesKnee = DesignVar({
+      vli_K1,
+      vls_K1,
+      vmi_K1,
+      vmm_K1,
+      vms_K1,
+      vi_K1,
+      tfl_K1,
+      rf_K1,
+      std_K1,
+      smb_K1,
+      bfcl_K1,
+      bfcb_K1
+     });
+     
+    AnyVector RminValuesHip = DesignVar({
+      pmaj_rmin,
+      pmin_rmin,
+      ili_rmin,
+      gms_rmin,
+      gmi_rmin,
+      gmed_rmin,
+      gma_rmin,
+      gmm_rmin,
+      gmp_rmin,
+      il_rmin,
+      im_rmin
+    });
+    
+     // Rmax Vector Ankle
+     AnyVector RmaxValuesAnkle = DesignVar({
+       ta_rmax,
+       edl_rmax,
+       ehl_rmax,
+       sm_rmax,
+       sl_rmax,
+       gl_rmax,
+       gm_rmax,
+       fdl_rmax,
+       fhl_rmax,
+       tpl_rmax,
+       tpm_rmax,
+       pr_rmax
+     });
+//     
+     AnyVector K2ValuesAnkle = DesignVar({
+      ta_K2,
+      edl_K2,
+      ehl_K2,
+      sm_K2,
+      sl_K2,
+      gl_K2,
+      gm_K2,
+      fdl_K2,
+      fhl_K2,
+      tpl_K2,
+      tpm_K2
+     });
+     
+     //Rmax Vector Knee
+     AnyVector RmaxValuesKnee = DesignVar({
+       vli_rmax,
+       vls_rmax,
+       vmi_rmax,
+       vmm_rmax,
+       vms_rmax,
+       vi_rmax,
+       tfl_rmax,
+       rf_rmax,
+       std_rmax,
+       smb_rmax,
+       bfcl_rmax,
+       bfcb_rmax,
+       st_rmax
+     });
+     
+     AnyVector K2ValuesKnee = DesignVar({
+      vli_K2,
+      vls_K2,
+      vmi_K2,
+      vmm_K2,
+      vms_K2,
+      vi_K2,
+      tfl_K2,
+      rf_K2,
+      std_K2,
+      smb_K2,
+      bfcl_K2,
+      bfcb_K2
+     });
+     
+     AnyVector RmaxValuesHip = DesignVar({
+      pmaj_rmax,
+      pmin_rmax,
+      ili_rmax,
+      gms_rmax,
+      gmi_rmax,
+      gmed_rmax,
+      gma_rmax,
+      gmm_rmax,
+      gmp_rmax,
+      il_rmax,
+      im_rmax
+    });
+     
+   AnyFloat GlobalStrengthFactor = DesignVar(1);            // Adjust the variable to change the strength of all muscles 
+   AnyFloat LocalStrengthFactorDorsiFlexors = DesignVar(1);
+   AnyFloat LocalStrengthFactorPlantarFlexors = DesignVar(1);
+   AnyFloat LocalStrengthFactorKneeExtensor = DesignVar(1);
+   AnyFloat LocalStrengthFactorKneeFlexor = DesignVar(1);
+   AnyFloat LocalStrengthFactorHipExtensor = DesignVar(1);
+   AnyFloat LocalStrengthFactorHipFlexor = DesignVar(1);
+   AnyFloat K1FactorDorsiFlexors = DesignVar(10);
+   AnyFloat K2FactorDorsiFlexors = DesignVar(0);
+   AnyFloat FcFastFactorDorsiFlexors = DesignVar(0.4);
+   
+   //Pennation angles
+//   AnyFloat PennationAngleSoleusMed = DesignVar(20);
+//   AnyFloat PennationAngleSoleusLat = DesignVar(20);
+//   AnyFloat PennationAngleGastrocMed = DesignVar(20);
+//   AnyFloat PennationAngleGastrocLat = DesignVar(20);
+//   AnyFloat PennationAngleFlexorHallucisLongus = DesignVar(20);
+//   AnyFloat PennationAngleFlexorDigitorumLongus = DesignVar(20);
+   
+   AnyOperationMacro SetInitialGuess = {
+     MacroStr = {"classoperation Main.DesignVars.RminValues"+strquote("Set Value") + 
+     "--value="+strquote("{0.5}"),
+     "classoperation Main.DesignVars.RmaxValues "+strquote("Set Value") + 
+     "--value="+strquote("{1.2}")
+     
+   };
+
+};
+
+   
+   
+   AnyFolder SetDesignVars = {
+     
+     #include "SetDesignVars.any"
+     
+   };
+          
+ 
+ };

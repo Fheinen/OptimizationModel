@@ -1,0 +1,546 @@
+    AnyFolder PlantarFlexorMuscles = {
+    
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AnkleAngle = {  
+          Val = ....EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.JointStrengthOutput());      
+        };
+        AnyDesMeasure SoleusStrength = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnklePlantarFlexion.Study.SoleusStrengthOutput());      
+        };
+        #if RATIOANALYSISONOFF ==1
+        DesignValues = {{30},{-30}};
+        #else
+//        DesignValues = {{30},{25},{20},{15},{10},{5},{0},{-5},{-10},{-15},{-20},{-25},{-30}};
+        DesignValues = {{10.215},{6.12},{3.15},{-2.25},{-14.625},{-18.405}};
+//        DesignValues = {{30},{25},{20},{15},{10},{5},{0},{-5},{-10},{-15},{-20},{-25},{-30}};
+        #endif
+          
+        AnyString studyname = "PlantarFlexorIsomStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+//       {-36.10285},{-34.6689903225806},{-33.2351306451613},{-31.8012709677419},
+//          {-30.3674112903226},{-28.9335516129032},{-27.4996919354839},{-26.0658322580645},
+//          {-24.6319725806452},{-23.1981129032258},{-21.7642532258065},{-20.3303935483871},
+//          {-18.8965338709677},{-17.4626741935484},{-16.0288145161290},{-14.5949548387097},
+//          {-13.1610951612903},{-11.7272354838710},{-10.2933758064516},{-8.85951612903226},
+//          {-7.42565645161290},{-5.99179677419355},{-4.55793709677419},{-3.12407741935484},
+//          {-1.69021774193548},{-0.256358064516129},{1.17750161290323},{2.61136129032258},
+//          {4.04522096774194},{5.47908064516129},{6.91294032258065},{8.34680000000000}
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.ConcentricStrength.AnklePlantarFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateAnkleStrength.Right.ConcentricStrength.AnklePlantarFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.ConcentricStrength.AnklePlantarFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+        }; 
+        AnyString studyname = "PlantarFlexorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+  
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.EccentricStrength.AnklePlantarFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateAnkleStrength.Right.EccentricStrength.AnklePlantarFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.EccentricStrength.AnklePlantarFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+        };
+        AnyString studyname = "PlantarFlexorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+
+    };
+    
+    AnyFolder DorsiFlexorMuscles = {
+      
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AnkleAngle = {  
+          Val = ....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.JointStrengthOutput());      
+        };
+                AnyDesMeasure StrengthTibAnt1 = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.StrengthTibAnt1Output());      
+        };
+                AnyDesMeasure StrengthTibAnt2 = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.StrengthTibAnt2Output());      
+        };
+                AnyDesMeasure StrengthTibAnt3 = { 
+          Val = max(....EvaluateAnkleStrength.Right.IsometricStrength.AnkleDorsiFlexion.Study.StrengthTibAnt3Output());      
+        };
+        #if RATIOANALYSISONOFF ==1
+        DesignValues = {{30},{-30}};
+//        DesignValues = {{30},{25},{20},{15},{5},{0},{-5},{-10},{-15},{-20},{-25},{-30}};
+        #else
+//        DesignValues = {{30},{25},{20},{15},{5},{0},{-5},{-10},{-15},{-20},{-25},{-30}};
+//        DesignValues = {{10.215},{6.12},{3.15},{-2.25},{-14.625},{-18.405}};
+        DesignValues = {{30},{25},{20},{15},{10},{5},{0},{-5},{-10},{-15},{-20},{-25},{-30}};
+        #endif
+        AnyString studyname = "DorsiFlexorIsomStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+        
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.ConcentricStrength.AnkleDorsiFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateAnkleStrength.Right.ConcentricStrength.AnkleDorsiFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.ConcentricStrength.AnkleDorsiFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+        };
+//          DesignValues = {{300}, {250}, {200}, {150}, {100}, {50}};
+        AnyString studyname = "DorsiFlexorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateAnkleStrength.Right.EccentricStrength.AnkleDorsiFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateAnkleStrength.Right.EccentricStrength.AnkleDorsiFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateAnkleStrength.Right.EccentricStrength.AnkleDorsiFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+        };
+
+//          DesignValues = {{300}, {250}, {200}, {150}, {100}, {50}};
+        AnyString studyname = "DorsiFlexorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+  
+    };
+    
+    AnyFolder KneeFlexorMuscles = {
+    
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar KneeAngle = {  
+          Val = ....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.Study.JointStrengthOutput());      
+        };
+        AnyDesMeasure Gastroc1 = { 
+          Val = max(....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.Study.Gastroc1Output());      
+        };
+        AnyDesMeasure Gastroc2 = { 
+          Val = max(....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.Study.Gastroc2Output());      
+        };
+        AnyDesMeasure BicepsCaputLongOutput = { 
+          Val = max(....EvaluateKneeStrength.Right.IsometricStrength.KneeFlexion.Study.BicepsCaputLongOutput());      
+        };
+        DesignValues = {
+          {0},{10},{20},{30},{40},{50},{60},{70},{80},{90},{100}
+//          {25},{39},{50},{60},{76},{85},{102}
+
+//        {0},{4.193548387},{8.387096774},{12.58064516},{16.77419355},{20.96774194},
+//        {25.16129032},{29.35483871},{33.5483871},{37.74193548},{41.93548387},
+//        {46.12903226},{50.32258065},{54.51612903},{58.70967742},{62.90322581},
+//        {67.09677419},{75.48387097},{79.67741935},{83.87096774},{88.06451613},
+//        {92.25806452},{96.4516129},{100.6451613},{104.8387097},{109.0322581},
+//        {113.2258065},{117.4193548},{121.6129032},{125.8064516},{130}
+      };///HAVE TO BE CHANGED
+        AnyString studyname = "KneeFlexorIsomStrength";
+        
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          SepSign = " ";
+          AnyVar Strength = .Strength.Val;
+      };
+      };
+      
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {50},{100},{150},{200},{250},{300},{350},{400}
+          
+        }; ////HAVE TO BE CHANGED
+        AnyString studyname = "KneeFlexorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          SepSign = " ";
+//          AnyVar Strength = .Strength.Val;
+//        AnyVector Demos = Main.Studies.EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.Study.dile;
+//          AnyVector Demos = Main.Studies.EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.Study.JointStrength.JointStrengthdemo[0][3];        
+        
+
+        };
+      };
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.EccentricStrength.KneeFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {50},{100},{150},{200},{250},{300},{350},{400}
+          
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "KneeFlexorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+
+    };
+    
+    AnyFolder KneeExtensorMuscles = {
+      
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.IsometricStrength.KneeExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar KneeAngle = {  
+          Val = ....EvaluateKneeStrength.Right.IsometricStrength.KneeExtension.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.IsometricStrength.KneeExtension.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+//          {68},{60},{48},{31},{24},{7},{0}
+//          {22},{30},{42},{59},{66},{83},{98}
+          {0},{10},{20},{30},{40},{50},{60},{70},{80},{90},{100}
+//          {25},{39},{50},{60},{76},{85},{102}
+//        {0},{4.193548387},{8.387096774},{12.58064516},{16.77419355},{20.96774194},
+//        {25.16129032},{29.35483871},{33.5483871},{37.74193548},{41.93548387},
+//        {46.12903226},{50.32258065},{54.51612903},{58.70967742},{62.90322581},
+//        {67.09677419},{75.48387097},{79.67741935},{83.87096774},{88.06451613},
+//        {92.25806452},{96.4516129},{100.6451613},{104.8387097},{109.0322581},
+//        {113.2258065},{117.4193548},{121.6129032},{125.8064516},{130}
+
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "KneeExtensorIsomStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+        
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.JointStrengthOutput());      
+        };
+//        AnyDesMeasure Dem = { 
+//          Val = max(....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.JointStrengthOutput());      
+//        };
+        AnyDesMeasure VastusStrength = { 
+          Val = max(....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.VastusStrength ());      
+        };
+        AnyDesMeasure VastusFm = { 
+          Val = max(....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.VastusFm ());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {50},{100},{150},{200},{250},{300},{350},{400}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "KneeExtensorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+//          AnyFloat Demo = Main.Studies.EvaluateKneeStrength.Right.ConcentricStrength.KneeFlexion.Study.Output.JointStrength.JointStrength();
+//          AnyFloat demo = ....EvaluateKneeStrength.Right.ConcentricStrength.KneeExtension.Study.JointStrengthOutput();
+                          
+};
+
+  
+
+      };
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.JointStrengthOutput());      
+        };
+        AnyDesMeasure VastusStrength = { 
+          Val = max(....EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.VastusStrength ());      
+        };
+        AnyDesMeasure VastusFm = { 
+          Val = max(....EvaluateKneeStrength.Right.EccentricStrength.KneeExtension.Study.VastusFm ());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {50},{100},{150},{200},{250},{300},{350},{400}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "KneeExtensorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+    };
+          AnyFolder HipFlexorMuscles = {
+    
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.IsometricStrength.HipFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar HipAngle = {  
+          Val = ....EvaluateHipStrength.Right.IsometricStrength.HipFlexion.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.IsometricStrength.HipFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = { 
+//          {5},{14},{25},{33},{50},{61},{72}
+          {0},{10},{20},{30},{40},{50},{60},{70},{80},{90},{100}
+
+//          {0},{4.193548387},{8.387096774},{12.58064516},{16.77419355},{20.96774194},
+//        {25.16129032},{29.35483871},{33.5483871},{37.74193548},{41.93548387},
+//        {46.12903226},{50.32258065},{54.51612903},{58.70967742},{62.90322581},
+//        {67.09677419},{75.48387097},{79.67741935},{83.87096774},{88.06451613},
+//        {92.25806452},{96.4516129},{100.6451613},{104.8387097},{109.0322581},
+//        {113.2258065},{117.4193548},{121.6129032},{125.8064516},{130}
+
+//          {0},{60},{90},{130} 
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "HipFlexorIsomStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+      
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.ConcentricStrength.HipFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateHipStrength.Right.ConcentricStrength.HipFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.ConcentricStrength.HipFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {60}, {120}, {180},{240}
+        }; ////HAVE TO BE CHANGED
+        AnyString studyname = "HipFlexorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateHipStrength.Right.EccentricStrength.HipFlexion.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.EccentricStrength.HipFlexion.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {60},{120},{180},{240}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "HipFlexorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+
+    };
+    
+    AnyFolder HipExtensorMuscles = {
+      
+      AnyParamStudy1D IsometricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.IsometricStrength.HipExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar HipAngle = {  
+          Val = ....EvaluateHipStrength.Right.IsometricStrength.HipExtension.RangeOfAngle; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.IsometricStrength.HipExtension.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+//          {5},{18},{25},{37},{44},{57},{72}
+          {0},{10},{20},{30},{40},{50},{60},{70},{80},{90},{100}
+//          {0},{4.193548387},{8.387096774},{12.58064516},{16.77419355},{20.96774194},
+//        {25.16129032},{29.35483871},{33.5483871},{37.74193548},{41.93548387},
+//        {46.12903226},{50.32258065},{54.51612903},{58.70967742},{62.90322581},
+//        {67.09677419},{75.48387097},{79.67741935},{83.87096774},{88.06451613},
+//        {92.25806452},{96.4516129},{100.6451613},{104.8387097},{109.0322581},
+//        {113.2258065},{117.4193548},{121.6129032},{125.8064516},{130}
+
+//          {0},{30},{60},{90}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "HipExtensorIsomStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+        
+      AnyParamStudy1D ConcentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.ConcentricStrength.HipExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateHipStrength.Right.ConcentricStrength.HipExtension.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.ConcentricStrength.HipExtension.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {1}
+//          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+//          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+//          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+//          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+//
+//          {60},{120},{180},{240}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "HipExtensorConcStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+      
+      AnyParamStudy1D EccentricStrength = {
+        Analysis = { 
+          AnyOperation &ref = ....EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.InverseDynamics; 
+        };
+        AnyDesVar AngularVelocity = {  
+          Val = ....EvaluateHipStrength.Right.EccentricStrength.HipExtension.RangeOfVelocity; 
+        };
+        AnyDesMeasure Strength = { 
+          Val = max(....EvaluateHipStrength.Right.EccentricStrength.HipExtension.Study.JointStrengthOutput());      
+        };
+        DesignValues = {
+          {400}, {374.193548387097}, {348.387096774194},{322.580645161290},{296.774193548387},
+          {270.967741935484},{245.161290322581},{219.354838709677},{193.548387096774},
+          {167.741935483871},{141.935483870968},{116.129032258065},{90.3225806451613},
+          {90.3225806451613},{64.5161290322581},{38.7096774193549},{12.9032258064516}
+
+//          {60},{120},{180},{240}
+        };///HAVE TO BE CHANGED
+        AnyString studyname = "HipExtensorEccStrength";
+        AnyOutputFile Outputfile = {
+          FileName = ANYBODY_PATH_OUTPUT  + .studyname + ".txt";
+          AnyVar Strength = .Strength.Val;
+        };
+      };
+      
+    };
+  

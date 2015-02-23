@@ -1,0 +1,12 @@
+load "Optimization.main.any"
+classoperation Main.DesignVars.GlobalStrengthFactor "Set Value" --value=    0.100000
+operation Main.RunApplication1
+run
+operation Main.RunApplication2
+run
+classoperation Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+classoperation Main.Studies.ParameterStudies.KneeFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+classoperation Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+classoperation Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+classoperation Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Output.Strength.Val "Dump"
+exit

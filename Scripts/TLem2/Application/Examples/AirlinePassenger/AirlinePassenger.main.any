@@ -1,0 +1,131 @@
+#include "../libdef.any"
+
+/** --------------------------------------------------------
+This is a model of a coach class airline passenger seat 
+characterized by the following:
+- No arm rests (you always lose the battle for the armrest
+to the person next to you)
+- Horizontal seat pan
+- Limited ability to incline the backrest due to the lack
+of clearance to the person behind
+
+The model assesses the comfort of the passenger in terms of
+the following:
+- Muscle effort computed as the percentage of maximum
+voluntary contraction to maintain the given posture.
+- The total shear force between the seat pan and the
+buttocks of the passenger. Shear forces are known to 
+cause particular discomfort in static loading situations,
+typically as when the passenger tries to sleep.
+
+The posture of the passenger is controlled by the backrest
+angle. The bacrest offers pressure support for the back 
+of the human model but no tension support. This means that 
+forward leaning postures are realized by inclining the 
+seat forward and the body is not getting any support from
+the backrest in this situation.
+
+The inverse dynamic analysis of the model inclines the 
+backrest backwards from an initial 10 degree forward 
+inclination to a 30 degree backward inclination, which
+is on the very upper limit of coach class passenger seats.
+-------------------------------------------------------- */
+Main = {
+
+  // ----------------------------------------------------------
+  // Model input parameters
+  // ----------------------------------------------------------
+  #include "Model/InputParameters.any"
+  
+  // ----------------------------------------------------------
+  // Path to draw settings
+  // ----------------------------------------------------------
+  #path BM_DRAWSETTINGS_FILE "Model/DrawSettings.any"
+  
+  // ----------------------------------------------------------
+  // Model configuration:
+  // For more info on body model configuration options please load the model and double click on: 
+  // #include "<ANYBODY_PATH_BODY>\Documentation\BodyModel.parameters.any"
+  // ----------------------------------------------------------
+  
+  // This model uses old leg model: CONST_LEG_MODEL_Leg
+  #define BM_LEG_LEFT CONST_LEG_MODEL_Leg
+  #define BM_LEG_RIGHT CONST_LEG_MODEL_Leg
+  
+  // The Mannequin file specifies load-time positions for all the segments
+  // in the HumanModel. This is important for the model's ablity to resolve
+  // all the kinematic constraints when the model is analyzed.
+  // The mannequin file also drives those degrees of freedom of the human 
+  // model that are not governed by problem-specific drivers at run time.    
+  #path BM_MANNEQUIN_FILE "Model/Mannequin.any" 
+  
+  // Model of the human body to be used for the analysis    
+  #include "<ANYBODY_PATH_BODY>/HumanModel.any"
+  
+  // ----------------------------------------------------------
+  // Model
+  // ----------------------------------------------------------  
+  AnyFolder Model = {
+    /// Body model without default drivers
+    AnyFolder &HumanModel=.HumanModel.BodyModel;
+    /// Reference to the mannequin folder (used by drivers)
+    AnyFolder &Mannequin =.HumanModel.Mannequin;
+    
+    /// This folder contains the seat and other support conditions
+    AnyFolder EnvironmentModel = {
+      #include "Model/Environment.any"
+    };
+    
+    /// Connections between the Body model and the seat.
+    AnyFolder ModelEnvironmentConnection = {
+      
+      #include "Model/ConnectionSegments.any"
+      #include "Model/JointsAndDrivers.any"
+      
+      AnyFolder &RefPM=Main.Model.EnvironmentModel;
+      #include "Model/InitialPositionsEnvironment.any" 
+//      #include "Measures.any"
+      #include "Model/Support.any" 
+    }; // ModelEnvironmentConnection    
+  }; // Model
+
+    
+  // --------------------------------------------------------------
+  // Studies
+  // --------------------------------------------------------------
+  AnyBodyStudy Study = {
+    AnyFolder &Model = .Model;
+        
+    tEnd = 100;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 13;
+    
+    /** One of the interesting variables is the activity in the vasti muscles. 
+    This is because seats with slippery surfaces reduce the shear force on the
+    buttocks but in return require vasti muscle acitivity to prevent the body
+    from sliding forward on the seat pan.
+    */
+    AnyVar VastiAct = 
+    max({Main.Model.HumanModel.Right.Leg.Mus.VastusMedialis.Activity,
+      Main.Model.HumanModel.Right.Leg.Mus.VastusIntermedius.Activity,
+      Main.Model.HumanModel.Right.Leg.Mus.VastusLateralis.Activity});
+
+    /** This variable collects the shear force between the buttocks and the seat
+    by means of the shear reaction between the seat in the environment. Shear
+    force on the buttocks is known to cause discomfort.
+    */
+    AnyVar ShearForce = -Main.Study.Model.EnvironmentModel.Jnt.SeatSupport.Fout[1];
+
+    /** The maximum muscle activity is the percentage of maximum voluntary
+    contraction necessary to maintain the posture. You cannot sleep unless
+    this is very low. */
+    AnyOutputFun MaxAct = {
+      Val = .MaxMuscleActivity;
+    }; 
+    
+  }; 
+
+  // Include an operation sequence to run all required steps of your application (see Operations tab)
+  #include "<ANYBODY_PATH_TOOLBOX>\Operations\RunAppSequence.any"
+  
+};// Main

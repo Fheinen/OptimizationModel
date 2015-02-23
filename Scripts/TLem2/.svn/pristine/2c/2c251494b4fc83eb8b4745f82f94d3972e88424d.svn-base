@@ -1,0 +1,62 @@
+AnyFolder &PelvisRef = Pelvis;
+PelvisRef = {
+  AnyVec3 HipJoint = {0,0,0}*.TF';
+};
+
+AnyFolder &ThighRef = Thigh;
+ThighRef = {
+  AnyVec3 KneeJoint = { -0.0136, -0.4095, 0.0096}*.TF';
+  AnyVec3 HipJoint = {0.0, 0.0, 0.0}*.TF';
+  AnyVec3 PatellaFemurJoint = {-0.0112, -0.3867, 0.0149}*.TF';
+  AnyVec3 KneeJointAxis = ..Sign*{-0.1005, -0.0589, 0.9936}*.TF'/vnorm({0.1005, 0.0589, 0.9936});
+  AnyVec3 PatellaFemurJointAxis = ..Sign*{-0.0087, 0.0613, 0.9981}*.TF'/vnorm({-0.0087, 0.0613, 0.9981});
+};
+
+AnyFolder &PatellaRef = Patella;
+PatellaRef = {
+  AnyVec3 PatellaFemurJoint = {-0.0112, -0.3867, 0.0149}*.TF';
+  AnyVec3 PatellaFemurJointAxis = ..Sign*{-0.0087, 0.0613, 0.9981}*.TF'/vnorm({-0.0087, 0.0613, 0.9981});
+  AnyVec3 HipJoint = {0.0, 0.0, 0.0}*.TF';
+};
+
+AnyFolder &ShankRef = Shank;
+ShankRef = {
+  AnyVec3 KneeJoint = {-0.01320,0.3982,0.00700}*.TF';
+  AnyVec3 AnkleJoint_KH =   {0.0137, -0.0106, -0.0047}*.TF';
+  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((.Shank.MedialMalleolus[2]+.Shank.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  AnyVec3 AnkleJointAxis = ..Sign*{-0.2955, -0.1808, 0.9381}*.TF'/vnorm({-0.2955, -0.1808, 0.9381});
+  AnyVec3 KneeJointAxis = ..Sign*{-0.0172, -0.1012, 0.9951}*.TF'/vnorm({-0.0172, -0.1012, 0.9951});
+};
+ 
+AnyFolder &TalusRef = Talus;
+TalusRef = {
+  AnyVec3 KneeJoint = {-0.0132, 0.3982, 0.0070}*.TF';
+  AnyVec3 AnkleJoint_KH =   {0.0137, -0.0106, -0.0047}*.TF';
+  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((.Shank.MedialMalleolus[2]+.Shank.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  AnyVec3 SubTalarJoint_KH = {0.0243, 0.0014, -0.0112}*.TF';
+  AnyVec3 SubTalarJoint = SubTalarJoint_KH + SubTalarJointAxis*((.Shank.MedialMalleolus[0]+.Shank.LateralMalleolus[0])/2-SubTalarJoint_KH[0])/SubTalarJointAxis[0];
+  AnyVec3 AnkleJointAxis = ..Sign*{-0.2955, -0.1808, 0.9381}*.TF'/vnorm({-0.2955, -0.1808, 0.9381});
+  AnyVec3 SubTalarJointAxis = ..Sign*{-0.9840, -0.1538, -0.0896}*.TF'/vnorm({-0.9840, -0.1538, -0.0896});
+};
+
+AnyFolder &FootRef = Foot;
+FootRef = {
+  AnyVec3 KneeJoint =  {-0.0132, 0.3982, 0.0070}*.TF';
+ AnyVec3 SubTalarJoint_KH = {0.0243, 0.0014, -0.0112}*.TF';
+  AnyVec3 SubTalarJoint = SubTalarJoint_KH + SubTalarJointAxis*((.Shank.MedialMalleolus[0]+.Shank.LateralMalleolus[0])/2-SubTalarJoint_KH[0])/SubTalarJointAxis[0];
+  AnyVec3 AnkleJoint_KH =   {0.0137, -0.0106, -0.0047}*.TF';
+  // Make sure the Z-coordinate of the ankle joint coincides with the intermalleolar Z-coordinate
+  AnyVec3 AnkleJoint = AnkleJoint_KH + AnkleJointAxis*((.Shank.MedialMalleolus[2]+.Shank.LateralMalleolus[2])/2-AnkleJoint_KH[2])/AnkleJointAxis[2];
+  AnyVec3 AnkleJointAxis = ..Sign*{-0.2955, -0.1808, 0.9381}*.TF'/vnorm({-0.2955, -0.1808, 0.9381});
+  AnyVec3 SubTalarJointAxis = ..Sign*{-0.9840, -0.1538, -0.0896}*.TF'/vnorm({-0.9840, -0.1538, -0.0896});
+  
+  // Not yet in local ref frame, but these were also not measured by Martijn-Klein Horsman.
+  AnyVec3 MetatarsalJoint1Node ={0.18, -0.9600, 0.05}*.TF';
+  AnyVec3 MetatarsalJoint2Node = {0.1650, -0.9600, 0.065}*.TF';
+  AnyVec3 MetatarsalJoint3Node = {0.1450, -0.9600,0.0700  }*.TF';
+  AnyVec3 MetatarsalJoint4Node = {0.1350, -0.9600, 0.0800 }*.TF';
+  AnyVec3 MetatarsalJoint5Node = {0.12, -0.95500, 0.095 }*.TF';
+  AnyVec3 ToeJoint = {0.18, -0.94, 0.05}*.TF';
+};

@@ -1,0 +1,31 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength
+Operation: Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.FileName = "..\Output\PlantarFlexorIsomStrength.txt"
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.Outputfile.Strength
+0.000000000000000e+000,8.097275795849053e+001
+1.000000000000000e+000,7.894893570856276e+001
+2.000000000000000e+000,7.520757750277329e+001
+3.000000000000000e+000,6.582698723863412e+001
+4.000000000000000e+000,4.028533171122330e+001
+5.000000000000000e+000,3.288996770879996e+001

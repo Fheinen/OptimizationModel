@@ -1,0 +1,168 @@
+
+AnyFolder AnklePlantarFlexorCal = {
+  
+  AnyFolder &Pelvis = ..HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &LegSegSide = .SideHumanFolderRef.Leg.Seg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &JointsCal2 = .SideHumanFolderRef.Leg.Jnt; 
+    AnyFolder &InterfaceRef = .SideHumanFolderRef.Leg.InterfaceFolder; 
+
+  AnyFixedRefFrame ground = {
+    AnyRefNode node = { 
+      ARel=..Pelvis.Axes0;
+      sRel=..Pelvis.r0;
+    };
+  };
+  
+  AnyRevoluteJoint PelvisGround={
+    AnyRefFrame &Ground = .ground.node;
+    AnySeg &Sacrum= ...HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg; 
+
+    Axis=z;
+  };
+  
+  AnyKinEqSimpleDriver PelvisGroundRot = {
+    AnyRevoluteJoint &Jnt = .PelvisGround;
+    DriverPos = {0};
+    DriverVel = {0};
+    Reaction.Type = {Off}; 
+  };
+  
+  //////////////////////////////////////////Ankle Extensors calibration//////////////////////////////////////
+  
+//  AnyKinEqSimpleDriver Hip = {
+//    AnySphericalJoint &Spherical = .JointsCal2.Hip;
+//    MeasureOrganizer = {2,0,1}; // flexion/extension, abduction/adduction, internal/external rotation
+//    DriverPos = {-60,0,..Sign*10}*pi/180;
+//    DriverVel = {0,0,0}*pi/180;
+//    Reaction.Type = {Off,Off,Off};
+//  };
+  
+  
+AnyKinEqSimpleDriver HipAbductionAdduction =  {
+    AnyKinMeasureOrg &Hip1 = .InterfaceRef.HipAbduction;    
+    MeasureOrganizer = {0};
+    DriverPos = {0};
+    DriverVel = {0};
+    Reaction.Type = {Off};
+   };
+  
+   AnyKinEqSimpleDriver HipFlexionExtension = 
+   {
+     AnyKinMeasureOrg &Hip2 = .InterfaceRef.HipFlexion;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+
+   AnyKinEqSimpleDriver HipInternalExternal = 
+   {
+     AnyKinMeasureOrg &Hip3 = .InterfaceRef.HipExternalRotation;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+  
+  AnyKinEqInterPolDriver Knee = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.KneeFlexion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{90,0}}*pi/180;
+    Reaction.Type = {Off};
+  };
+  
+  AnyKinEqInterPolDriver Ankle = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.AnklePlantarFlexion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{-30,30}}*pi/180;//-40,30
+    Reaction.Type = {Off}; 
+  };
+
+  AnyKinEqInterPolDriver Subtalar = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.SubTalarEversion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{0,0}}*pi/180;//-30,30
+    Reaction.Type = {Off}; 
+  };
+  
+  
+  //AnyFolder &MuscleParCal6 =.SideHumanFolderRef.Leg.MusPar;
+  #if MUSCLE_MODELVERSION ==2
+  AnyFolder Mus = {
+    AnyFolder &mus1  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis1;
+    AnyFolder &mus2  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis2;
+    AnyFolder &mus3  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis3;
+    AnyFolder &mus4  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis1;
+    AnyFolder &mus5  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis2;
+    AnyFolder &mus6  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis3;
+    AnyFolder &mus7  = ..SideHumanFolderRef.Leg.Mus.GastrocnemiusLateralis1;
+    AnyFolder &mus8  = ..SideHumanFolderRef.Leg.Mus.GastrocnemiusMedialis1;
+    AnyFolder &mus9  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus1;
+    AnyFolder &mus10  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus2;
+    AnyFolder &mus11  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus3;
+    AnyFolder &mus12  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus4;
+    AnyFolder &mus13  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus1;
+    AnyFolder &mus14  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus2;
+    AnyFolder &mus15  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus3;
+    AnyFolder &mus16  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis1;
+    AnyFolder &mus17  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis2;
+    AnyFolder &mus18  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis3;
+    AnyFolder &mus19  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis1;
+    AnyFolder &mus20  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis2;
+    AnyFolder &mus21  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis3;
+    AnyFolder &mus22 = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus1;
+    AnyFolder &mus23 = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus2;
+    AnyFolder &mus24 = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus3;
+  };
+
+  #else
+  AnyFolder Mus = {
+    AnyFolder &mus1  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis1;
+    AnyFolder &mus2  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis2;
+    AnyFolder &mus3  = ..SideHumanFolderRef.Leg.Mus.SoleusMedialis3;
+    AnyFolder &mus4  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis1;
+    AnyFolder &mus5  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis2;
+    AnyFolder &mus6  = ..SideHumanFolderRef.Leg.Mus.SoleusLateralis3;
+    AnyFolder &mus7  = ..SideHumanFolderRef.Leg.Mus.GastrocnemiusLateralis1;
+    AnyFolder &mus8  = ..SideHumanFolderRef.Leg.Mus.GastrocnemiusMedialis1;
+    AnyFolder &mus9  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus1;
+    AnyFolder &mus10  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus2;
+    AnyFolder &mus11  = ..SideHumanFolderRef.Leg.Mus.FlexorDigitorumLongus3;
+    AnyFolder &mus12  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus1;
+    AnyFolder &mus13  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus2;
+    AnyFolder &mus14  = ..SideHumanFolderRef.Leg.Mus.FlexorHallucisLongus3;
+    AnyFolder &mus15  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis1;
+    AnyFolder &mus16  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis2;
+    AnyFolder &mus17  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorLateralis3;
+    AnyFolder &mus18  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis1;
+    AnyFolder &mus19  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis2;
+    AnyFolder &mus20  = ..SideHumanFolderRef.Leg.Mus.TibialisPosteriorMedialis3;
+  };
+  #endif
+};
+
+
+
+// The study: Operations to be performed on the model
+AnyBodyCalibrationStudy AnkleCalibrationStudy2 = {
+  AnyFolder &ref=.AnklePlantarFlexorCal; 
+ nStep = 2;
+   InitialConditions.SolverType = KinSolOverDeterminate;
+   #if MUSCLE_MODELVERSION ==2
+    RmaxMuscleFiber = {Main.DesignVars.sm_rmax,Main.DesignVars.sm_rmax,Main.DesignVars.sm_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.gl_rmax,Main.DesignVars.gm_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpm_rmax,Main.DesignVars.tpm_rmax,Main.DesignVars.tpm_rmax,Main.DesignVars.pr_rmax,Main.DesignVars.pr_rmax,Main.DesignVars.pr_rmax};//{1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2};
+    RminMuscleFiber = {Main.DesignVars.sm_rmin,Main.DesignVars.sm_rmin,Main.DesignVars.sm_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.gl_rmin,Main.DesignVars.gm_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpm_rmin,Main.DesignVars.tpm_rmin,Main.DesignVars.tpm_rmin,Main.DesignVars.pr_rmin,Main.DesignVars.pr_rmin,Main.DesignVars.pr_rmin};//{0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5};
+
+   #else
+    RmaxMuscleFiber = {Main.DesignVars.sm_rmax,Main.DesignVars.sm_rmax,Main.DesignVars.sm_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.sl_rmax,Main.DesignVars.gl_rmax,Main.DesignVars.gm_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fdl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.fhl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpl_rmax,Main.DesignVars.tpm_rmax,Main.DesignVars.tpm_rmax,Main.DesignVars.tpm_rmax};//{1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2};
+    RminMuscleFiber = {Main.DesignVars.sm_rmin,Main.DesignVars.sm_rmin,Main.DesignVars.sm_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.sl_rmin,Main.DesignVars.gl_rmin,Main.DesignVars.gm_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fdl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.fhl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpl_rmin,Main.DesignVars.tpm_rmin,Main.DesignVars.tpm_rmin,Main.DesignVars.tpm_rmin};//{0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5};
+   #endif
+
+//  FiberAndTendonLengthAdjustment.CalibrateTendonAtMaxForceOnOff = Off;
+};
+

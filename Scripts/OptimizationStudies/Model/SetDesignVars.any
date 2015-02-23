@@ -1,0 +1,473 @@
+//
+    // L_BFGS_B [(0.2,0.9),(1,1.7)] - Counter 72
+    AnyOperationMacro SetDesignVarsR1 = {
+      MacroStr = {
+      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.58167"), 
+      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.28007"), 
+      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.66193"), 
+      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.34633"), 
+      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.54867"), 
+      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.31839"),
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.5"), 
+////      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+////      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.10021"), 
+////      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.42879"), 
+////      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.20080"), 
+////      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.60248"), 
+////      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.18679"), 
+////      "classoperation Main.DesignVars.pr_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+////      "classoperation Main.DesignVars.pr_rmax"+strquote("Set Value") + "--value="+strquote("1.21226"), 
+////      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.49620"), 
+////      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.18935"), 
+//////      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//////      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.1"), 
+//////      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.34647"), 
+//////      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.10001"), 
+//////            "classoperation Main.DesignVars.bfcl_rmin"+strquote("Set Value") + "--value="+strquote("0.46904"), 
+//////      "classoperation Main.DesignVars.bfcl_rmax"+strquote("Set Value") + "--value="+strquote("1.1"), 
+//////      "classoperation Main.DesignVars.bfcb_rmin"+strquote("Set Value") + "--value="+strquote("0.13965"), 
+//////      "classoperation Main.DesignVars.bfcb_rmax"+strquote("Set Value") + "--value="+strquote("1.23031"), 
+//////      "classoperation Main.DesignVars.std_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), 
+//////      "classoperation Main.DesignVars.std_rmax"+strquote("Set Value") + "--value="+strquote("1.15373"), 
+//////      "classoperation Main.DesignVars.smb_rmin"+strquote("Set Value") + "--value="+strquote("0.36291"), 
+//////      "classoperation Main.DesignVars.smb_rmax"+strquote("Set Value") + "--value="+strquote("1.14697"), 
+      "classoperation Main.DesignVars.K1FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("16"),//10
+      "classoperation Main.DesignVars.K2FactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0"),//-10
+      "classoperation Main.DesignVars.FcFastFactorDorsiFlexors "+strquote("Set Value") + "--value="+strquote("0.4"),//0.4
+      "classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors"+strquote("Set Value") + "--value="+strquote("1.53002")
+////      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.4503815")
+////
+      };
+    };
+//    
+//
+//
+//    // L_BFGS_B [(0.2,0.9),(1,1.7),(1,1.4)] - Counter 190 ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsR2 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.22341652"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.27999502"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.46651394"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.2"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.09736611"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.12576189"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.26806045"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.2"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4277775"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.36154193"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.7"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("1.4")
+//      };
+//    };
+//    
+//    
+//    // L_BFGS_B [(0,4,1)] - ISOMETRIC TESTS ONLY - GSF = 0,67 
+//    AnyOperationMacro SetDesignVarsR3 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.66")
+//      };
+//    };
+//    
+//    
+//    // L_BFGS_B [(0.05,0.6),(0.9,1.6),(0.5,0.9)] - Counter . ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsR4 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.56764918"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("0.91970813"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.38571618"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.04179053"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.36011714"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("0.98069181"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("0.98526234"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.05341776"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.59281711"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.1960853"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.6"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.06441268"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.02487266"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.38803016"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.21952794"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.23237776"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.88616222")
+//      };
+//    };
+//    
+//    // TNC [(0.05,0.6),(0.9,1.6),(0.5,0.9)] - Counter . ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsR5 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.49703469"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.06546463"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.40806955"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.08185163"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.41481955"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.04409336"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.121873"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.13552883"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.20780568"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.36239365"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.24843058"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.09156886"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.03710783"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.39865375"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.13234267"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.12704846"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.76239254")
+//      };
+//    };
+//    
+//    // TNC [(0.05,0.6),(0.9,1.6),(0.6,1)] - Counter 77 
+//    AnyOperationMacro SetDesignVarsR6 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.47173471"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.53631756"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.06529185"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.49157794"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.04742822"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.03409342"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.02252413"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.27086486"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.07161331"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.25622794"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.03817539"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.52858725"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.09103304"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.03767396"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.48222391"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.01693952"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.40958597"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.06910255"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.69533669")
+//      };
+//    };
+//    
+//    // L_BFGS_B [(0.05,0.7),(1,1.6),(0.7,1.2)] - Counter 59 
+//    AnyOperationMacro SetDesignVarsR7 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.43394639"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.02963765"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.59884074"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.04176137"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.54198346"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.04580092"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.04720417"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.04283613"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.27370852"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.07798604"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.28808753"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.05818736"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.63092154"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.09708554"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.09738681"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.43531126"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.07243748"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.19814979"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.07177428"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.79742182")
+//      };
+//    };
+//    
+//    // L_BFGS_B [(0.2,0.7),(1,1.6),(0.7,1)] - Counter 64 OUI
+//    AnyOperationMacro SetDesignVarsR8 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.51744894"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.00379637"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.52084731"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.04132977"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.39723726"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.09633239"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.03769269"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.04326686"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.28290963"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.31313627"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.28672437"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.38460283"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.48147893"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.09263594"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.1201703"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.52625764"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.05578216"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.50093516"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.06356574"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.80867368")
+//      };
+//    };
+//
+//    // L_BFGS_B [(0.2,0.7),(1,1.6),(0.7,1.1)] - Counter 64 OUI
+//    AnyOperationMacro SetDesignVarsR61 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.55126991"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.12896478"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.54294868"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.18073413"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.57470134"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.31254127"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.04658899"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.04172161"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.30828005"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.43273848"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.27509697"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.43849508"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.41719114"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.21571621"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.12790548"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.50058788"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.52018425"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.91394574")
+//      };
+//    };
+//
+//    
+//    // L_BFGS_B [(0.05,0.6),(0.9,1.6),(0.5,0.9)] - Counter  ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsL1 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.54568377"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.15413041"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.48116209"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.14308036"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.51138543"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.12136697"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.161232"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.12320767"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.54882072"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.16006152"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.5869958"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.06122634"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("0.98257114"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.39082142"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.22565785"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.2031435"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.8")
+//      };
+//    };
+//    
+//    // L_BFGS_B [(0.05,0.6),(0.9,1.6),(0.5,0.8)] - Counter  ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsL2 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.6"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.11075153"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.40891877"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.07928894"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.40830314"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("0.93172267"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.0909315"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.09884746"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.6"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.20792075"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.6"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.08563645"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.06538146"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.39168075"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.32716984"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.29399934"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.78")
+//      };
+//    };
+//    
+//    // TNC [(0.05,0.6),(0.9,1.6),(0.5,0.8)] - Counter > 250  ___ ISOMETRIC TESTS ONLY
+//    AnyOperationMacro SetDesignVarsL3 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.58464676"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.19422917"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.40230764"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.04073116"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.40347364"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("0.96876385"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.11556022"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.12847153"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.29448948"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.34700042"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.36893473"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.088425"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.05679118"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.39779536"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.15758249"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.14943197"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.7200564")
+//      };
+//    };
+//    
+//    // L_BFGS_B [(0.05,0.7),(1,1.6),(0.7,1.2)] - Counter 84 OUI
+//    AnyOperationMacro SetDesignVarsL4 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.5620619"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.67569323"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.62677938"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.26444364"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.27370852"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.01301648"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.18234449"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.58494218"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote(" 1.1284609"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.09884624"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.43536038"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.11869098"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.19814979"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.07910336"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.75220183")
+//      };
+//    };
+//
+//    // L_BFGS_B [(0.1,0.7),(1,1.6),(0.7,1)] - Counter 134 
+//    AnyOperationMacro SetDesignVarsL5 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.5897816"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.00601348"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.63234657"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.00777305"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.59768242"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.01367084"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.34852234"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.21249454"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.00301648"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.15646869"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.50733442"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.0375236"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.00884624"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.49300728"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.16543431"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.5433575"), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.20098916"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.74075703")
+//      };
+//    };
+//
+//    // L_BFGS_B [(0.1,0.7),(1,1.6),(0.7,1)] - 60 OUI
+//    AnyOperationMacro SetDesignVarsL61 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.48527372"), 
+//      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.0138243"), 
+//      "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.56269207"), 
+//      "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.05171271"), 
+//      "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.585764"), 
+//      "classoperation Main.DesignVars.ehl_rmax"+strquote("Set Value") + "--value="+strquote("1.01628669"), 
+//      "classoperation Main.DesignVars.sm_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sm_rmax"+strquote("Set Value") + "--value="+strquote("1.02989949"), 
+//      "classoperation Main.DesignVars.sl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.sl_rmax"+strquote("Set Value") + "--value="+strquote("1.03605579"), 
+//      "classoperation Main.DesignVars.gl_rmin"+strquote("Set Value") + "--value="+strquote("0.12495449"), 
+//      "classoperation Main.DesignVars.gl_rmax"+strquote("Set Value") + "--value="+strquote("1.02324668"), 
+//      "classoperation Main.DesignVars.gm_rmin"+strquote("Set Value") + "--value="+strquote("0.12807138"), 
+//      "classoperation Main.DesignVars.gm_rmax"+strquote("Set Value") + "--value="+strquote("1.02300343"), 
+//      "classoperation Main.DesignVars.fdl_rmin"+strquote("Set Value") + "--value="+strquote("0.52833115"), 
+//      "classoperation Main.DesignVars.fdl_rmax"+strquote("Set Value") + "--value="+strquote("1.33999694"), 
+//      "classoperation Main.DesignVars.fhl_rmin"+strquote("Set Value") + "--value="+strquote("0.5"), 
+//      "classoperation Main.DesignVars.fhl_rmax"+strquote("Set Value") + "--value="+strquote("1.14984817"), 
+//      "classoperation Main.DesignVars.tpl_rmin"+strquote("Set Value") + "--value="+strquote("0.49723581"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.21917345"), 
+//      "classoperation Main.DesignVars.tpm_rmin"+strquote("Set Value") + "--value="+strquote("0.4811001 "), 
+//      "classoperation Main.DesignVars.tpm_rmax"+strquote("Set Value") + "--value="+strquote("1.19419069"), 
+//      "classoperation Main.DesignVars.GlobalStrengthFactor"+strquote("Set Value") + "--value="+strquote("0.94119563")
+//      };
+//    };
+
+//
+    // L_BFGS_B [(0.1,0.7),(1,1.6),(0.7,1)] - 60 OUI
+//    AnyOperationMacro SetDesignVarsL61 = {
+//      MacroStr = {
+//      "classoperation Main.DesignVars.vli_rmin"+strquote("Set Value") + "--value="+strquote("0.43792"), 
+//      "classoperation Main.DesignVars.vls_rmin"+strquote("Set Value") + "--value="+strquote("0.33141"), 
+//      "classoperation Main.DesignVars.vmi_rmin"+strquote("Set Value") + "--value="+strquote(" 0.48004"), 
+//      "classoperation Main.DesignVars.vmm_rmin"+strquote("Set Value") + "--value="+strquote("0.37970"), 
+//      "classoperation Main.DesignVars.vms_rmin"+strquote("Set Value") + "--value="+strquote("0.37190"), 
+//      "classoperation Main.DesignVars.vi_rmin"+strquote("Set Value") + "--value="+strquote("0.38271"), 
+//      "classoperation Main.DesignVars.tfl_rmin"+strquote("Set Value") + "--value="+strquote("0.70000"), 
+//      "classoperation Main.DesignVars.rf_rmin"+strquote("Set Value") + "--value="+strquote("0.54352"), 
+//      "classoperation Main.DesignVars.std_rmin"+strquote("Set Value") + "--value="+strquote("0.56809 "), 
+//      "classoperation Main.DesignVars.smb_rmin"+strquote("Set Value") + "--value="+strquote("0.69043"), 
+//      "classoperation Main.DesignVars.bfcl_rmin"+strquote("Set Value") + "--value="+strquote("0.47508"), 
+//      "classoperation Main.DesignVars.bfcb_rmin"+strquote("Set Value") + "--value="+strquote("0.69318"), 
+//
+//      "classoperation Main.DesignVars.vli_rmax"+strquote("Set Value") + "--value="+strquote("1.35707"), 
+//      "classoperation Main.DesignVars.vls_rmax"+strquote("Set Value") + "--value="+strquote("1.60000 "), 
+//      "classoperation Main.DesignVars.vmi_rmax"+strquote("Set Value") + "--value="+strquote(" 1.32050"), 
+//      "classoperation Main.DesignVars.vmm_rmax"+strquote("Set Value") + "--value="+strquote(" 1.60000"), 
+//      "classoperation Main.DesignVars.vms_rmax"+strquote("Set Value") + "--value="+strquote("1.60000"), 
+//      "classoperation Main.DesignVars.vi_rmax"+strquote("Set Value") + "--value="+strquote("1.60000"), 
+//      "classoperation Main.DesignVars.rf_rmax"+strquote("Set Value") + "--value="+strquote("1.33547"), 
+//      "classoperation Main.DesignVars.std_rmax"+strquote("Set Value") + "--value="+strquote("1.26158 "), 
+//      "classoperation Main.DesignVars.smb_rmax"+strquote("Set Value") + "--value="+strquote("1.54818"), 
+//      "classoperation Main.DesignVars.tpl_rmax"+strquote("Set Value") + "--value="+strquote("1.36007"), 
+//      "classoperation Main.DesignVars.bfcl_rmax"+strquote("Set Value") + "--value="+strquote("1.36847"), 
+//      "classoperation Main.DesignVars.bfcb_rmax"+strquote("Set Value") + "--value="+strquote("1.48247"), 
+//
+//      "classoperation Main.DesignVars.LocalStrengthFactorKneeExtesor"+strquote("Set Value") + "--value="+strquote("0.91655"),
+//      "classoperation Main.DesignVars.LocalStrengthFactorKneeFlexor"+strquote("Set Value") + "--value="+strquote("0.67208")
+//      };
+//    };
+            
+   AnyOperationMacro SetFiberAndTendonLength = {
+     MacroStr = {
+     "classoperation Main.Lt0"+strquote("Dump All"),
+     "classoperation Main.Lfbar"+strquote("Dump All")
+     };
+   };

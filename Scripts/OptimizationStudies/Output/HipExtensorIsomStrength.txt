@@ -1,0 +1,36 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength
+Operation: Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.FileName = "..\Output\HipExtensorIsomStrength.txt"
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.Outputfile.Strength
+0.000000000000000e+000,6.135452128552853e+001
+1.000000000000000e+000,8.384728369721869e+001
+2.000000000000000e+000,1.054644959616576e+002
+3.000000000000000e+000,1.243474572817638e+002
+4.000000000000000e+000,1.396881804781718e+002
+5.000000000000000e+000,1.508039515454202e+002
+6.000000000000000e+000,1.556242833676101e+002
+7.000000000000000e+000,1.539352885646117e+002
+8.000000000000000e+000,1.464233759639633e+002
+9.000000000000000e+000,1.366778479739099e+002
+1.000000000000000e+001,1.231663416507242e+002

@@ -1,0 +1,38 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength
+Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.FileName = "..\Output\DorsiFlexorIsomStrength.txt"
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Strength
+0.000000000000000e+000,1.157983213205134e+001
+1.000000000000000e+000,1.550212198511398e+001
+2.000000000000000e+000,2.007491511427387e+001
+3.000000000000000e+000,2.506894978884909e+001
+4.000000000000000e+000,3.005119818549592e+001
+5.000000000000000e+000,3.438879545446774e+001
+6.000000000000000e+000,3.735008548039276e+001
+7.000000000000000e+000,3.829333987921219e+001
+8.000000000000000e+000,3.689941476677602e+001
+9.000000000000000e+000,3.306597142089834e+001
+1.000000000000000e+001,2.769179856216182e+001
+1.100000000000000e+001,2.175964991567408e+001
+1.200000000000000e+001,1.618032613894060e+001

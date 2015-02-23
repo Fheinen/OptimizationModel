@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\KneeExtensorEccStrength.txt"
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,2.382553490803721e+002
+1.000000000000000e+000,2.382553220751671e+002
+2.000000000000000e+000,2.382347003568218e+002
+3.000000000000000e+000,2.379670246975425e+002
+4.000000000000000e+000,2.374072223913417e+002
+5.000000000000000e+000,2.364403580275557e+002
+6.000000000000000e+000,2.353049443708452e+002
+7.000000000000000e+000,2.339341271153117e+002
+8.000000000000000e+000,2.323017577952144e+002
+9.000000000000000e+000,2.303041763999243e+002
+1.000000000000000e+001,2.277760776134090e+002
+1.100000000000000e+001,2.245831026859501e+002
+1.200000000000000e+001,2.204220018294288e+002
+1.300000000000000e+001,2.204220018294288e+002
+1.400000000000000e+001,2.147709777367929e+002
+1.500000000000000e+001,2.066452367683773e+002
+1.600000000000000e+001,1.939213816109272e+002

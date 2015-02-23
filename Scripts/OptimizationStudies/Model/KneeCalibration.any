@@ -1,0 +1,17 @@
+//This will run calibration4 on the right leg 
+  AnyFolder RightLegKneeExCalibration={
+    AnyVar Sign = 1;
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "KneeExtensorCal.any"
+  };
+
+    AnyFolder RightLegKneeFlexCalibration={
+    AnyVar Sign = 1;
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "KneeFlexorCal.any"
+  };
+   CalibrationSequence = { 
+    AnyOperation &KneeExtensorCalRight = .RightLegKneeExCalibration.LegCalibrationStudy5.FiberAndTendonLengthAdjustment;
+    AnyOperation &KneeFlexorCalRight = .RightLegKneeFlexCalibration.LegCalibrationStudy6.FiberAndTendonLengthAdjustment;
+
+  };

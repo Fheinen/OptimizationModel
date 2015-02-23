@@ -1,0 +1,136 @@
+//This is the calibration2 file it will calibrate specfic muscles on the leg
+AnyFolder HipAbductionCal={
+  
+  AnyFolder &Pelvis = ..HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg;  //This is a reference to the folder which holds the human part of the model
+  AnyFolder &LegSegSide = .SideHumanFolderRef.Leg.Seg; //This is a reference to the folder which holds the human part of the model
+  
+  AnyFolder &JointsCal2 = .SideHumanFolderRef.Leg.Jnt; 
+  AnyFolder &InterfaceRef = .SideHumanFolderRef.Leg.InterfaceFolder; 
+
+  AnyFixedRefFrame ground = {
+    AnyRefNode node = { 
+      ARel=..Pelvis.Axes0;
+      sRel=..Pelvis.r0;
+    };
+  };
+  
+  AnyRevoluteJoint PelvisGround={
+    AnyRefFrame &Ground = .ground.node;
+    AnyRefFrame &Sacrum= ...HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg; 
+    Axis=z;
+  };
+  
+  AnyKinEqSimpleDriver PelvisGroundRot = {
+    AnyRevoluteJoint &Jnt = .PelvisGround;
+    DriverPos = {0};
+    DriverVel = {0};
+    Reaction.Type = {Off}; 
+  };
+  
+  ////////////////////////////////////////////////Hip Abduction calibration////////////////////////////////
+  
+  AnyKinEqInterPolDriver HipAbductionAdduction =  {
+    AnyKinMeasureOrg &Hip1 = .InterfaceRef.HipAbduction;    
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{40,-30}}*pi/180;
+    Reaction.Type = {Off};
+   };
+  
+   AnyKinEqSimpleDriver HipFlexionExtension = 
+   {
+     AnyKinMeasureOrg &Hip2 = .InterfaceRef.HipFlexion;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+
+   AnyKinEqSimpleDriver HipInternalExternal = 
+   {
+     AnyKinMeasureOrg &Hip3 = .InterfaceRef.HipExternalRotation;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+  
+//  AnyKinEqSimpleDriver Hip = {
+//    AnySphericalJoint &Spherical = .JointsCal2.Hip;
+//    MeasureOrganizer = {2,0,1}; // flexion/extension, abduction/adduction, internal/external rotation
+//    DriverPos = {0,0,0}*pi/180;
+//    DriverVel = {0,0,0}*pi/180;
+//    Reaction.Type = {Off,Off,Off};
+//  };
+  
+  
+  AnyKinEqSimpleDriver Knee = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.KneeFlexion;
+    DriverPos = {0}; // 70 degrees knee flexion
+    DriverVel = {0*pi/180};
+    Reaction.Type = {Off};
+  };
+  
+  
+  AnyKinEqSimpleDriver Ankle = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.AnklePlantarFlexion;
+    DriverPos = {0*pi/180}; //20 degrees plantar flexion
+    DriverVel = {0*pi/180}; 
+    Reaction.Type = {Off};
+  };
+  
+  AnyKinEqSimpleDriver SubTalar = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.SubTalarEversion;
+    DriverPos = {0*pi/180};
+    DriverVel = {0*pi/180}; 
+    Reaction.Type = {Off};
+  };
+  
+
+  //AnyFolder &MuscleParCal2 =.SideHumanFolderRef.Leg.MusPar;
+  
+  AnyFolder Mus = {
+    //Muscle main function: Dorsal flexion
+//    AnyViaPointMuscle &TibialisAnterior1 = ..SideHumanFolderRef.Leg.Mus.TibialisAnterior1;
+//    AnyViaPointMuscle &TibialisAnterior2 = ..SideHumanFolderRef.Leg.Mus.TibialisAnterior2;
+//    AnyViaPointMuscle &TibialisAnterior3 = ..SideHumanFolderRef.Leg.Mus.TibialisAnterior3;
+//    AnyViaPointMuscle &PeroneusTertius1 = ..SideHumanFolderRef.Leg.Mus.PeroneusTertius1;
+//    AnyViaPointMuscle &ExtensorDigitorumLongus1  = ..SideHumanFolderRef.Leg.Mus.ExtensorDigitorumLongus1;
+//    AnyViaPointMuscle &ExtensorDigitorumLongus2  = ..SideHumanFolderRef.Leg.Mus.ExtensorDigitorumLongus2;
+//    AnyViaPointMuscle &ExtensorDigitorumLongus3  = ..SideHumanFolderRef.Leg.Mus.ExtensorDigitorumLongus3;
+//    AnyViaPointMuscle &ExtensorHallucisLongus1 = ..SideHumanFolderRef.Leg.Mus.ExtensorHallucisLongus1;
+//    AnyViaPointMuscle &ExtensorHallucisLongus2 = ..SideHumanFolderRef.Leg.Mus.ExtensorHallucisLongus2;
+//    AnyViaPointMuscle &ExtensorHallucisLongus3 = ..SideHumanFolderRef.Leg.Mus.ExtensorHallucisLongus3;
+    AnyFolder &mus81  = ..SideHumanFolderRef.Leg.Mus.GluteusMinimusAnterior1;
+    AnyFolder &mus82  = ..SideHumanFolderRef.Leg.Mus.GluteusMinimusMid1;
+    AnyFolder &mus83  = ..SideHumanFolderRef.Leg.Mus.GluteusMinimusPosterior1;
+    AnyFolder &mus84  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior1;
+    AnyFolder &mus85  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior2;
+    AnyFolder &mus86  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior3;
+    AnyFolder &mus87  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior4;
+    AnyFolder &mus88  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior5;
+    AnyFolder &mus89  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusAnterior6;
+    AnyFolder &mus90  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior1;
+    AnyFolder &mus91  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior2;
+    AnyFolder &mus92  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior3;
+    AnyFolder &mus93  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior4;
+    AnyFolder &mus94  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior5;
+    AnyFolder &mus95  = ..SideHumanFolderRef.Leg.Mus.GluteusMediusPosterior6; 
+};  
+};
+
+
+// The study: Operations to be performed on the model
+AnyBodyCalibrationStudy LegCalibrationStudy3 = {
+  AnyFolder &ref=.HipAbductionCal; 
+  nStep = 2;
+//  tStart = 0;
+//  tEnd = 3;
+    InitialConditions.SolverType = KinSolOverDeterminate;
+    RmaxMuscleFiber = {1.2,1.2,1.2,1.3,1.3,1.3,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2};
+    RminMuscleFiber = {0.5,0.5,0.5,0.3,0.3,0.3,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5};
+
+};
+
+

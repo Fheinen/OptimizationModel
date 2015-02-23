@@ -1,0 +1,9 @@
+AnyFolder Right = {
+  
+#include "RightHipIsometricStrength.any"
+
+#include "RightHipConcentricStrength.any"
+
+#include "RightHipEccentricStrength.any"
+
+};

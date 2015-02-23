@@ -1,0 +1,53 @@
+
+
+AnyBody Console Application
+
+Edition Name : Beta (Internal version)
+
+AnyBodyCon.exe version : 6. 0. 0. 3561 
+
+Build : 15716.59820 (beta)
+
+Copyright (c) 1999 - 2015 AnyBody Technology A/S
+
+
+
+
+
+Current path: C:\Users\fh\Documents\AAU\PhD-AAU\PhD projekt\OptimeringsArtikle\Scripts
+
+
+
+#### Macro command > load "Optimization.main.any"
+
+Loading  Main  :  "C:\Users\fh\Documents\AAU\PhD-AAU\PhD projekt\OptimeringsArtikle\Scripts\OptimizationStudies\Optimization.main.any"
+
+Scanning...
+
+Parsing...
+
+Constructing model tree...
+
+Linking identifiers...
+
+Evaluating constants...
+
+ERROR(SCR.EXP10) :   C:\Users\fh\Documents\AAU\PhD-AAU\PhD projekt\OptimeringsArtikle\Scripts\OptimizationStudies\Model\PlantarFlexorEccentricStrengthStudy.any(67)  :   'FileName'  :  Expression evaluation failed at moment 'Const' : 
+
+ C:\Users\fh\Documents\AAU\PhD-AAU\PhD projekt\OptimeringsArtikle\Scripts\OptimizationStudies\Model\PlantarFlexorEccentricStrengthStudy.any(64)  :  'Name' : argument will not be ready for evaluation until moment 'DesignVar'
+
+Model loading skipped
+
+
+
+#### Macro command > classoperation Main.DesignVars.GlobalStrengthFactor "Set Value" --value=    1.000000
+
+Error : command line parser failure.
+
+
+
+Closing model...
+
+Deleting last loaded model...
+
+...Model deleted.

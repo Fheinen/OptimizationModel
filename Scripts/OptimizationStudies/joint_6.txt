@@ -1,0 +1,18 @@
+
+Optimization Problem -- Joint Strength Analysis
+================================================================================
+
+        Objective Function: objfunc
+
+    Objectives:
+        Name        Value        Optimum
+	     f               0             0
+
+	Variables (c - continuous, i - integer, d - discrete):
+        Name    Type       Value       Lower Bound  Upper Bound
+	   tarmin     c	      0.542000       1.00e-01     7.00e-01 
+	   tarmax     c	      1.353000       1.10e+00     1.80e+00 
+	 LocalStrengthFactorDorsiFlexors    c	      1.411000       1.00e-01     2.00e+00 
+	     x1       c	      0.300000       5.00e-04     5.00e+00 
+	     x2       c	      0.300000       5.00e-04     5.00e+00 
+	     x3       c	      0.300000       5.00e-04     5.00e+00 

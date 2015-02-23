@@ -1,0 +1,62 @@
+ AnyFolder IsometricStrength = {
+           
+      AnyFolder KneeExtension ={
+        
+        // Change the following variables to adjust the joint strength study
+        AnyVector RangeOfMotion = DesignVar({135,0});
+        AnyVar RangeOfAngle = DesignVar(135);
+        AnyVar HipFlexion = DesignVar(90);
+        AnyVar HipAbduction = DesignVar(5);
+        AnyVar HipExternalRotation = DesignVar(0);
+//        AnyVar KneeFlexion = DesignVar(0);
+        AnyVar AnklePlantarFlexion = DesignVar(0);
+        AnyVar SubtalarEversion = DesignVar(0);
+        /////////////////////////////////////////
+        
+        // The following should not be changed
+        AnyFolder &SideBodyModelRef=.....BodyModelRef.Right;
+        AnyFolder &SideBodyInterfaceRef = .....BodyModelRef.Interface.Right;
+        AnyInt nStep = 1;
+        #include "KneeExtensionIsometricStrengthStudy.any"
+        AnyString OutputFileName =  "JointStrength_LegTD_Right_KneeExtension.csv";      
+        Model.Drivers = {
+          AnyKinEqSimpleDriver LegDriver= {
+            AnyKinMeasure &ref = .LegMeasure;
+            DriverPos = {90,5,...HipExternalRotation,...RangeOfAngle,0,...SubtalarEversion }*pi/180;
+            AnyFloat Mask = {0,0,0,1,0,0};
+            DriverVel = Mask*0;//{0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0}*pi/180/...Study.tEnd;  
+             Reaction.Type = {On,On,On,Off, On, On};
+            };        
+        };
+      };
+      
+      AnyFolder KneeFlexion ={
+        
+        // Change the following variables to adjust the joint strength study
+        AnyVector RangeOfMotion = DesignVar({0,135});
+        AnyVar RangeOfAngle = DesignVar(135);
+        AnyVar HipFlexion = DesignVar(90);
+        AnyVar HipAbduction = DesignVar(5);
+        AnyVar HipExternalRotation = DesignVar(0);
+//        AnyVar KneeFlexion = DesignVar(90);
+        AnyVar AnklePlantarFlexion = DesignVar(0);
+        AnyVar SubtalarEversion = DesignVar(0);
+        /////////////////////////////////////////
+        
+        // The following should not be changed
+        AnyFolder &SideBodyModelRef=.....BodyModelRef.Right;
+        AnyFolder &SideBodyInterfaceRef = .....BodyModelRef.Interface.Right;
+        AnyInt nStep = 1;
+        #include "KneeFlexionIsometricStrengthStudy.any"
+        AnyString OutputFileName =  "JointStrength_LegTD_Right_KneeFlexion.csv";      
+        Model.Drivers = {
+          AnyKinEqSimpleDriver LegDriver= {
+            AnyKinMeasure &ref = .LegMeasure;
+            DriverPos = {90,5,...HipExternalRotation,...RangeOfAngle,0,...SubtalarEversion }*pi/180;
+            AnyFloat Mask = {0,0,0,1,0,0};
+            DriverVel = Mask*0;//{0,0,0,0,...RangeOfMotion[1]-...RangeOfMotion[0],0}*pi/180/...Study.tEnd;  
+             Reaction.Type = {On,On,On,Off, On, On};
+            };        
+        };
+      };
+};

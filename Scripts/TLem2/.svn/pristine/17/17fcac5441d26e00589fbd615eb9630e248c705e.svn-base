@@ -1,0 +1,388 @@
+//// If you do not use the markers on the head, then please use the following driver
+// AnyKinEqSimpleDriver AnkleDriverRight={
+//    AnyKinMeasureOrg &ref2=...BodyModel.Interface.Right.SubTalarEversion;
+//    DriverPos = {0};  
+//    DriverVel={0};  
+//    
+//    Reaction.Type={Off};
+//  };
+// AnyKinEqSimpleDriver AnkleDriverLeft={
+//    AnyKinMeasureOrg &ref2=...BodyModel.Interface.Left.SubTalarEversion;
+//    DriverPos = {0};  
+//    DriverVel={0};  
+//    
+//    Reaction.Type={Off};
+//  };
+
+//If you do not use the markers on the trunk segment, then please use the following driver
+//AnyKinEqSimpleDriver PelvisThoraxDrv =
+//{
+//    AnyKinMeasure& ref0 = ...BodyModel.Interface.Trunk.PelvisThoraxExtension;
+//    AnyKinMeasure& ref1 = ...BodyModel.Interface.Trunk.PelvisThoraxLateralBending;
+//    AnyKinMeasure& ref2 = ...BodyModel.Interface.Trunk.PelvisThoraxRotation;
+//    DriverPos = pi/180*
+//    {
+//        .JntPos.PelvisThoraxExtension,
+//        .JntPos.PelvisThoraxLateralBending,
+//        .JntPos.PelvisThoraxRotation
+//    };
+//    DriverVel =  pi/180*
+//    {
+//        .JntVel.PelvisThoraxExtension,
+//        .JntVel.PelvisThoraxLateralBending,
+//        .JntVel.PelvisThoraxRotation
+//    };
+//    Reaction.Type = {Off, Off, Off};
+//};
+          /* ----------------------------------------------------------------
+Drivers for the model:
+
+-The pelvis is locked to the ground 
+-The remaining degrees of freedom are controlled by parameters in the mannequin.any file.
+-This file is a good way to get an overview of the dof in the full body model
+ all the dof in the body model is driven from this file.
+-In total 
+
+Soeren, March 1, 2006.
+----------------------------------------------------------------  */
+
+AnyFolder Drivers = {
+  
+  // Aliases for convenient referencing
+  AnyFolder &JntPos=..Mannequin.Posture;  
+//  AnyFolder &Thorax = ..HumanModel.Trunk.SegmentsThorax.ThoraxSeg;
+ // AnyFolder &ref=Main.Model.HumanModel.BodyModel.Trunk;
+  
+  
+  // ************************************
+  // Drivers for attaching the pelvis to the global reference system
+  // ************************************  
+
+ AnyKinEqSimpleDriver PelvisGroundDriver ={
+    AnyKinLinear lin ={
+      AnyFixedRefFrame &ref1 =....EnvironmentModel.GlobalRef;
+      AnySeg &ref2 =Main.Studies.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg;
+    };
+    
+    AnyKinRotational rot ={
+      AnyFixedRefFrame &ref1 =....EnvironmentModel.GlobalRef;
+      AnySeg &ref2 =Main.Studies.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg;
+      Type=RotAxesAngles;
+    };
+  DriverPos = {0,0,0,0,0,0};
+    DriverVel = {0,0,0,0,0,0};        
+    Reaction.Type={On,On,On,On,On,On};
+  };
+
+ 
+  
+  // ************************************
+  // Drivers for the spine
+  // ************************************
+  
+  //Neck driver 
+    AnyKinEqSimpleDriver NeckJntDriver = {
+    AnyRevoluteJoint &T12L1Joint = Main.Studies.HumanModel.BodyModel.Interface.Trunk.NeckJoint;
+       DriverPos = {0};
+    DriverVel = {0};    
+    Reaction.Type = {On};  
+
+  };
+  
+//Thorax pelvis rotation driver
+
+
+  AnyKinEqSimpleDriver  PostureDriver ={
+    AnyKinMeasureOrg &Ref2 = Main.Studies.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;        
+    AnyKinMeasureOrg &Ref3 = Main.Studies.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;   
+    AnyKinMeasureOrg &Ref1 = Main.Studies.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
+   
+    DriverPos = {0,0,0};
+    DriverVel = {0,0,0};    
+    Reaction.Type = {On,On,On};  
+  };  
+
+  
+  
+  // ************************************
+  // Drivers for the right arm
+  // ************************************
+
+  
+//  //Sterno clavicular joint driver
+//  AnyKinEqInterPolDriver SCDriverRight ={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Right.SternoClavicularProtraction;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Right.SternoClavicularElevation;
+//    AnyKinMeasureOrg &ref3 =...HumanModel.Interface.Right.SternoClavicularAxialRotation;
+//    Data = pi/180*{
+//      .JntPos.Right.SternoClavicularProtraction,
+//      .JntPos.Right.SternoClavicularElevation,
+//      .JntPos.Right.SternoClavicularAxialRotation
+//    };
+//   T=.JntPos.Right.SternoClavicularTime;
+//    Type=PiecewiseLinear;
+//    
+//
+//    Reaction.Type={Off,Off,Off};
+//  };
+//  
+//  
+//  //Glenohumeral joint 
+//  AnyKinEqInterPolDriver GHDriverRight={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Right.GlenohumeralAbduction;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Right.GlenohumeralFlexion;
+//    AnyKinMeasureOrg &ref3 =...HumanModel.Interface.Right.GlenohumeralExternalRotation;
+//
+//     Data=pi/180*{
+//      .JntPos.Right.GlenohumeralAbduction,  //GH joint
+//      .JntPos.Right.GlenohumeralFlexion,  //GH joint
+//      .JntPos.Right.GlenohumeralExternalRotation  //GH joint
+//     };
+// T=.JntPos.Right.GlenohumeralTime;
+//    Type=PiecewiseLinear;
+//    
+//     Reaction.Type={Off,Off,Off};
+//  };
+//
+//  
+//  //Elbow flexion driver  
+//  AnyKinEqInterPolDriver ElbowFlexionDriverRight={
+//    AnyKinMeasureOrg  &Elbow =...HumanModel.Interface.Right.ElbowFlexion;
+//    Data=pi/180*{.JntPos.Right.ElbowFlexion};  
+// T=.JntPos.Right.ElbowFlexionTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off};
+//  };
+//  
+//  //Elbow pronation driver
+//  AnyKinEqInterPolDriver ElbowPronationDriverRight={
+//    AnyKinMeasureOrg &Elbow =...HumanModel.Interface.Right.ElbowPronation;
+//    Data = pi/180*{.JntPos.Right.ElbowPronation };  
+//
+// T=.JntPos.Right.ElbowPronationTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off};
+//  };
+//
+//  //Wrist driver 
+//  AnyKinEqInterPolDriver WristDriverRight ={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Right.WristFlexion;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Right.WristAbduction;
+//    Data = pi/180*{
+//         .JntPos.Right.WristFlexion,
+//         .JntPos.Right.WristAbduction
+//       };
+//
+//     T=.JntPos.Right.WristTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off,Off};
+//  };
+//
+//  
+//
+//  // ************************************
+//  // Drivers for the left arm
+//  // ************************************
+//  
+//  //Sterno clavicular joint driver
+//  AnyKinEqInterPolDriver SCDriverLeft ={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Left.SternoClavicularProtraction;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Left.SternoClavicularElevation;
+//    AnyKinMeasureOrg &ref3 =...HumanModel.Interface.Left.SternoClavicularAxialRotation;
+//    
+//    Data = pi/180*{
+//      .JntPos.Left.SternoClavicularProtraction,
+//      .JntPos.Left.SternoClavicularElevation,
+//      .JntPos.Left.SternoClavicularAxialRotation
+//    };
+//    
+// T=.JntPos.Left.SternoClavicularTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off,Off,Off};
+//  };
+//  
+//  //Glenohumeral joint driver
+//  AnyKinEqInterPolDriver GHDriverLeft={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Left.GlenohumeralAbduction;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Left.GlenohumeralFlexion;
+//    AnyKinMeasureOrg &ref3 =...HumanModel.Interface.Left.GlenohumeralExternalRotation;
+//    Data=pi/180*{
+//      .JntPos.Left.GlenohumeralAbduction,  //GH joint
+//      .JntPos.Left.GlenohumeralFlexion,  //GH joint
+//      .JntPos.Left.GlenohumeralExternalRotation  //GH joint
+//    };    
+// T=.JntPos.Left.GlenohumeralTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off,Off,Off};
+//  };
+//  
+//  //Elbow flexion driver
+//  AnyKinEqInterPolDriver ElbowFEDriverLeft={
+//  AnyKinMeasureOrg  &Elbow =...HumanModel.Interface.Left.ElbowFlexion;
+//    Data=pi/180*{.JntPos.Left.ElbowFlexion};  
+// T=.JntPos.Left.ElbowFlexionTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off};
+//  };
+//
+//  //Elbow pronation driver 
+//  AnyKinEqInterPolDriver ElbowPSDriverLeft={
+//    AnyKinMeasureOrg &Elbow =...HumanModel.Interface.Left.ElbowPronation;
+//    Data= pi/180*{.JntPos.Left.ElbowPronation };  
+// T=.JntPos.Left.ElbowPronationTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off};
+//  };
+//  
+//  
+//  //Wrist driver
+//  AnyKinEqInterPolDriver WristDriverLeft ={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Left.WristFlexion;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Left.WristAbduction;
+//    Data = pi/180*{
+//         .JntPos.Left.WristFlexion,
+//         .JntPos.Left.WristAbduction};
+//
+// T=.JntPos.Left.WristTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off,Off};
+//  };
+//  
+//  
+// 
+//  // ************************************
+//  // Drivers for the right leg
+//  // ************************************
+//  
+//   //Hip driver 
+//  AnyKinEqInterPolDriver HipDriverRight={
+//    AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Right.HipFlexion;
+//    AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Right.HipExternalRotation;
+//    AnyKinMeasureOrg &ref3 =...HumanModel.Interface.Right.HipAbduction;
+//    Data= pi/180*{
+//      .JntPos.Right.HipFlexion,
+//      .JntPos.Right.HipExternalRotation,
+//      .JntPos.Right.HipAbduction
+//    };    
+// T=.JntPos.Left.HipTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off,Off,Off};
+//  
+//  };
+//   
+//  //Knee driver
+//  AnyKinEqInterPolDriver KneeDriverRight={
+//    AnyKinMeasureOrg  &Knee = ...HumanModel.Interface.Right.KneeFlexion;
+//    Data=pi/180*{.JntPos.Right.KneeFlexion};  
+// T=.JntPos.Left.KneeTime;
+//    Type=PiecewiseLinear;
+//    
+//    Reaction.Type={Off};
+//  };
+//  
+//  //Ankle driver
+//  AnyKinEqInterPolDriver AnkleDriverRight={
+//    AnyKinMeasureOrg &ref1=...HumanModel.Interface.Right.AnklePlantarFlexion;
+//    AnyKinMeasureOrg &ref2=...HumanModel.Interface.Right.AnkleEversion;
+//    Data = pi/180*{.JntPos.Right.AnklePlantarFlexion,.JntPos.Right.AnkleEversion};  
+// T=.JntPos.Left.AnkleTime;
+//    Type=PiecewiseLinear;
+//    
+//    
+//    Reaction.Type={Off,Off};
+//  };
+//  
+
+  // ************************************
+  // Drivers for the Left leg
+  // ************************************
+  
+  //Left hip driver
+
+
+    AnyKinEqSimpleDriver   HipDriverLeft={
+    AnyKinMeasureOrg &ref1 = Main.Studies.HumanModel.BodyModel.Interface.Left.HipFlexion;
+    AnyKinMeasureOrg &ref2 = Main.Studies.HumanModel.BodyModel.Interface.Left.HipExternalRotation;
+    AnyKinMeasureOrg &ref3 = Main.Studies.HumanModel.BodyModel.Interface.Left.HipAbduction;
+    DriverPos = {0,0,0};
+    DriverVel = {0,0,0};    
+    Reaction.Type = {On,On,On};  
+
+  };
+  
+  //Knee driver
+    AnyKinEqSimpleDriver  KneeDriverLeft={
+    AnyKinMeasureOrg &Knee = Main.Studies.HumanModel.BodyModel.Interface.Left.KneeFlexion;
+    DriverPos = {0};
+    DriverVel = {90*pi/180};     
+    Reaction.Type = {On};  
+  };
+  
+
+  
+ 
+//Ankle driver
+    AnyKinEqSimpleDriver AnkleDriverLeft={
+    AnyKinMeasureOrg &ref1= Main.Studies.HumanModel.BodyModel.Interface.Left.AnklePlantarFlexion;
+    AnyKinMeasureOrg &ref2= Main.Studies.HumanModel.BodyModel.Interface.Left.SubTalarEversion;
+    DriverPos = {0,0};
+    DriverVel = {0,0};    
+    Reaction.Type = {On,On};  
+
+  };
+  
+  
+    AnyKinEqSimpleDriver   HipDriverRight={
+    AnyKinMeasureOrg &ref1 = Main.Studies.HumanModel.BodyModel.Interface.Right.HipFlexion;
+    AnyKinMeasureOrg &ref2 = Main.Studies.HumanModel.BodyModel.Interface.Right.HipExternalRotation;
+    AnyKinMeasureOrg &ref3 = Main.Studies.HumanModel.BodyModel.Interface.Right.HipAbduction;
+    DriverPos = {0*pi/180,0*pi/180,0};
+    DriverVel = {-90*pi/180,0,0};    
+    Reaction.Type = {On,On,On};  
+
+  };
+  
+  //Knee driver
+    AnyKinEqSimpleDriver  KneeDriverRight={
+    AnyKinMeasureOrg &Knee = Main.Studies.HumanModel.BodyModel.Interface.Right.KneeFlexion;
+      DriverPos = {0*pi/180};
+    DriverVel = {0*pi/180};    
+    Reaction.Type = {On};  
+  };
+  
+
+     AnyKinEqSimpleDriver  PatellaDriverRight={
+    AnyKinMeasureOrg &Knee = Main.Studies.HumanModel.BodyModel.Interface.Right.PatellaFlexion;
+      DriverPos = {-65*pi/180};
+    DriverVel = {0*135*pi/180};    
+    Reaction.Type = {On};  
+  };
+
+      AnyKinEqSimpleDriver  PatellaDriverLeft={
+    AnyKinMeasureOrg &Knee = Main.Studies.HumanModel.BodyModel.Interface.Left.PatellaFlexion;
+      DriverPos = {-65*pi/180};
+    DriverVel = {-90*pi/180};     
+    Reaction.Type = {On};  
+  };
+
+//Ankle driver
+    AnyKinEqSimpleDriver AnkleDriverRight={
+    AnyKinMeasureOrg &ref1= Main.Studies.HumanModel.BodyModel.Interface.Right.AnklePlantarFlexion;
+    AnyKinMeasureOrg &ref2= Main.Studies.HumanModel.BodyModel.Interface.Right.SubTalarEversion;
+    DriverPos = {20*pi/180,0};
+    DriverVel = {-60*pi/180,0};    
+    Reaction.Type = {On,On};  
+
+  };
+  
+};//Drivers
+

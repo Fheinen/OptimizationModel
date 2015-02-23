@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\HipFlexorEccStrength.txt"
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,7.315423290756040e+001
+1.000000000000000e+000,7.294515690992053e+001
+2.000000000000000e+000,7.271324799898163e+001
+3.000000000000000e+000,7.244470680427547e+001
+4.000000000000000e+000,7.212808957712551e+001
+5.000000000000000e+000,7.176407319228485e+001
+6.000000000000000e+000,7.133592533844077e+001
+7.000000000000000e+000,7.083507843868709e+001
+8.000000000000000e+000,7.026317699845001e+001
+9.000000000000000e+000,6.957440310989955e+001
+1.000000000000000e+001,6.874251175576571e+001
+1.100000000000000e+001,6.774342983355213e+001
+1.200000000000000e+001,6.651290362502512e+001
+1.300000000000000e+001,6.651290362502512e+001
+1.400000000000000e+001,6.494408993806142e+001
+1.500000000000000e+001,6.284063197235938e+001
+1.600000000000000e+001,5.983794056147323e+001

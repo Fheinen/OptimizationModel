@@ -1,0 +1,38 @@
+//This will calibrate the Hip flexion of the right leg
+
+AnyFolder RightLegHipFlexCalibration={
+    AnyVar Sign = 1;
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    AnyFolder &PsoasMajorRef= Main.HumanModel.BodyModel.Trunk.MusclesSpineRight;//.HumanFolderRef.Trunk.MusclesSpineRight;
+    #include "HipFlexorsCal.any"
+  };
+  
+    //This will run calibration2 on the right leg 
+  AnyFolder RightLegHipExCalibration={
+    AnyVar Sign = 1;
+    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+    #include "HipExtensorCal.any"
+  };
+  
+  
+    //This will run calibration3 on the right leg 
+//  AnyFolder RightLegHipAbducCalibration={
+//    AnyVar Sign = 1;
+//    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+//    #include "HipAbductionCal.any"
+//  };
+//  
+//  //  This will run calibration4 on the right leg 
+//  AnyFolder RightLegHipAdducCalibration={
+//    AnyVar Sign = 1;
+//    AnyFolder &SideHumanFolderRef=.HumanFolderRef.Right; 
+//    #include "HipAdductionCal.any"
+//  };
+  
+  CalibrationSequence = { 
+    AnyOperation &HipFlexorCalRight = .RightLegHipFlexCalibration.LegCalibrationStudy1.FiberAndTendonLengthAdjustment;
+    AnyOperation &HipExtensorCalRight = .RightLegHipExCalibration.LegCalibrationStudy2.FiberAndTendonLengthAdjustment;
+//    AnyOperation &HipAbductionCalRight = .RightLegHipAbducCalibration.LegCalibrationStudy3.FiberAndTendonLengthAdjustment;
+//    AnyOperation &HipAdductionCalRight = .RightLegHipAdducCalibration.LegCalibrationStudy4.FiberAndTendonLengthAdjustment;
+
+  };

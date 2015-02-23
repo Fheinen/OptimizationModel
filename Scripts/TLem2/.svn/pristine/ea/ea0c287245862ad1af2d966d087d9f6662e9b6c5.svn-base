@@ -1,0 +1,1039 @@
+AnyBodyWorkspace = 
+  {
+    LoadedMainFile = "..\GaitLowerExtremity.main.any";
+    ActiveLayoutNumber = 0;
+    AssitantDialogPosition = {-0.8050743, -0.8093607, 0.5996287, 0.5993151};
+    ObjectDescriptionDialogPosition = {0, 0, 0, 0};
+    COperationDocument = 
+    {
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0.65, 1, 0.35};
+              RightExpandedSize = {0, 0.65, 1.5, 0.35};
+              ZOrderNumber = 11;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0.65, 1, 0.35};
+              RightExpandedSize = {0, 0.65, 1.5, 0.35};
+              ZOrderNumber = 0;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0.65, 1, 0.35};
+              RightExpandedSize = {0, 0.65, 1.5, 0.35};
+              ZOrderNumber = 0;
+            };
+        };
+    };
+    CTreeDocument = 
+    {
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 182;
+          SelectionName = "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left.Foot.STLScaleFunction.ScaleMat";
+          TreeExpansions = 
+            {
+              "Main",
+              "Main.Studies",
+              "Main.Studies.InverseDynamicStudy",
+              "Main.Studies.HumanModel.BodyModel",
+              "Main.Studies.HumanModel.BodyModel.Right.Leg",
+              "Main.Studies.HumanModel.BodyModel.Right",
+              "Main.Studies.HumanModel.BodyModel.Right.Leg.ModelParameters",
+              "Main.Studies.HumanModel.BodyModel.Right.Leg.ModelParameters.Foot",
+              "Main.Studies.HumanModel",
+              "Main.Studies.HumanModel.Scaling",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Right",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Right.Foot",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Right.Foot.ScaleFunction",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left.Foot",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left.Foot.ScaleFunction",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left.Foot.STLScaleFunction",
+              "Main.Studies.HumanModel.Scaling.GeometricalScaling.Right.Foot.STLScaleFunction"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {3, 1, 1};
+        };
+      OperationTreeViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "Main.InverseDynamicAnalysisSequence";
+          TreeExpansions = 
+            {
+              "Main",
+              "Main.Studies",
+              "Main.Studies.MotionOptimization",
+              "Main.Studies.InverseDynamicStudy"
+            };
+          HideDeprecated = On;
+        };
+      ProjectTreeViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = ;
+          HideDeprecated = On;
+        };
+      ProjectTaskViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+          SelectionName = "";
+        };
+      ProjectModelViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+          SelectionName = "";
+        };
+      ProjectChartViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+          SelectionName = "";
+        };
+      ProjectDefaultViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+          SelectionName = "";
+        };
+      EmptyViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+        };
+      ObjectDescriptionViewData = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          PaneWidth = 0;
+          SelectionName = "Main.Studies.HumanModel.Scaling.GeometricalScaling.Left.Foot.STLScaleFunction.ScaleMat";
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = RightExpanded;
+              NormalizedSize = {0, 0, 0.2, 0.6500655};
+              RightExpandedSize = {0, 0, 0.3765664, 0.6500655};
+              ZOrderNumber = 7;
+            };
+          Layout2 = 
+            {
+              SizingStatus = RightExpanded;
+              NormalizedSize = {0, 0, 0.2, 0.65};
+              RightExpandedSize = {0, 0, 0.3, 0.65};
+              ZOrderNumber = 12;
+            };
+          Layout3 = 
+            {
+              SizingStatus = RightExpanded;
+              NormalizedSize = {0, 0, 0.2, 0.65};
+              RightExpandedSize = {0, 0, 0.3, 0.65};
+              ZOrderNumber = 12;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_1 = 
+    {
+      File = "..\GaitLowerExtremity.main.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 50;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1266332, 0.2883065, 0.6984925, 1};
+              RightExpandedSize = {0.1266332, 0.2883065, 1.05, 1};
+              ZOrderNumber = 8;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.3, 0, 0.7, 1};
+              RightExpandedSize = {0.3, 0, 1.05, 1};
+              ZOrderNumber = 11;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.3, 0, 0.7, 1};
+              RightExpandedSize = {0.3, 0, 1.05, 1};
+              ZOrderNumber = 11;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_6 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\Seg.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 1;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = On;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 1375;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {3, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.4824121, 0.8689516, 0.6964824, 0.875};
+              RightExpandedSize = {0.4824121, 0.8689516, 1.05, 0.875};
+              ZOrderNumber = 6;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.2104745, 0.1945525, 0.7, 1};
+              RightExpandedSize = {0.2104745, 0.1945525, 1.05, 1};
+              ZOrderNumber = 10;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.2104745, 0.1945525, 0.7, 1};
+              RightExpandedSize = {0.2104745, 0.1945525, 1.05, 1};
+              ZOrderNumber = 10;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_8 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\TLEM2.0\ModelParameters.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 418;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {-0.6603015, 0.1350806, 0.7929648, 1.302419};
+              RightExpandedSize = {-0.6603015, 0.1350806, 1.05, 1.302419};
+              ZOrderNumber = 10;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1746643, 0.2723735, 0.7, 1};
+              RightExpandedSize = {0.1746643, 0.2723735, 1.05, 1};
+              ZOrderNumber = 9;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1746643, 0.2723735, 0.7, 1};
+              RightExpandedSize = {0.1746643, 0.2723735, 1.05, 1};
+              ZOrderNumber = 9;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_2 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\LegMoments.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 91;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {-0.2130653, 0.5342742, 0.7005025, 1};
+              RightExpandedSize = {-0.2130653, 0.5342742, 1.05, 1};
+              ZOrderNumber = 1;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3919292, 1.05, 1};
+              ZOrderNumber = 8;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3919292, 1.05, 1};
+              ZOrderNumber = 8;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_4 = 
+    {
+      File = "..\ExtraDrivers.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {-0.2649955, 0.3366935, 0.6991943, 1};
+              RightExpandedSize = {-0.2649955, 0.3366935, 1.05, 1};
+              ZOrderNumber = 0;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1030439, 0.4322518, 0.7, 1};
+              RightExpandedSize = {0.1030439, 0.4322518, 1.05, 1};
+              ZOrderNumber = 7;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1030439, 0.4322518, 0.7, 1};
+              RightExpandedSize = {0.1030439, 0.4322518, 1.05, 1};
+              ZOrderNumber = 7;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_5 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\TLEM2.0\ModelSegmentParameters.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 67;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.07878245, 0.3151202, 0.7, 1};
+              RightExpandedSize = {0.07878245, 0.3151202, 1.05, 1};
+              ZOrderNumber = 2;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3905171, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3905171, 1.05, 1};
+              ZOrderNumber = 6;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3905171, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3905171, 1.05, 1};
+              ZOrderNumber = 6;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_7 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\MusPar.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 1223;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Minimized;
+              NormalizedSize = {-0.01809045, 0.4778226, 0.7005025, 0.9979839};
+              RightExpandedSize = {-0.01809045, 0.4778226, 1.05, 0.9979839};
+              ZOrderNumber = 3;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3919292, 1.05, 1};
+              ZOrderNumber = 5;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.120949, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.120949, 0.3919292, 1.05, 1};
+              ZOrderNumber = 5;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_10 = 
+    {
+      File = "..\ModelSetup.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 288;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {-0.2030151, 0.2399194, 0.6974874, 1};
+              RightExpandedSize = {-0.2030151, 0.2399194, 1.05, 1};
+              ZOrderNumber = 4;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1187536, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.1187536, 0.3919292, 1.05, 1};
+              ZOrderNumber = 4;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1187536, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.1187536, 0.3919292, 1.05, 1};
+              ZOrderNumber = 4;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_3 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\Scaling\ScalingLengthMassFat.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 253;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Minimized;
+              NormalizedSize = {0.1005025, 0.3991935, 0.6984925, 1};
+              RightExpandedSize = {0.1005025, 0.3991935, 1.05, 1};
+              ZOrderNumber = 5;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1187536, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.1187536, 0.3919292, 1.05, 1};
+              ZOrderNumber = 3;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1187536, 0.3919292, 0.7, 1};
+              RightExpandedSize = {0.1187536, 0.3919292, 1.05, 1};
+              ZOrderNumber = 3;
+            };
+        };
+    };
+    CScriptDocument CScriptDocument_11 = 
+    {
+      File = "..\..\..\..\Body\AAUHuman\LegTLEM\TLEM2.0\ModelJointParameters.any";
+      ModelTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          TreeExpansions = 
+            {
+              "Main"
+            };
+          HideDeprecated = On;
+        };
+      FileTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          SelectionName = "";
+          SystemDefinitionsSelected = 0;
+          TreeExpansions = 
+            {
+              BranchOwnerNames = ;
+              BranchMemberNames = ;
+              IncludeLineNums = ;
+            };
+        };
+      ClassTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          ClassTreeExpanded = Off;
+          ClassListExpanded = Off;
+          TreeExpansions = ;
+        };
+      ScriptViewProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 191;
+        };
+      TabBarViewProperties = 
+        {
+          SelectedViewTabId = {0, 0, 0};
+        };
+      GlobalFunctionsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      GlobalsTreeProperties = 
+        {
+          HScrollPos = 0;
+          VScrollPos = 0;
+          TreeExpansions = ;
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.1246231, 0.1955645, 0.8090452, 1.435484};
+              RightExpandedSize = {0.1246231, 0.1955645, 1.05, 1.435484};
+              ZOrderNumber = 9;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.09865307, 0.4322518, 0.7, 1};
+              RightExpandedSize = {0.09865307, 0.4322518, 1.05, 1};
+              ZOrderNumber = 2;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0.09865307, 0.4322518, 0.7, 1};
+              RightExpandedSize = {0.09865307, 0.4322518, 1.05, 1};
+              ZOrderNumber = 2;
+            };
+        };
+    };
+    CModelViewDocument CModelViewDocument_1 = 
+    {
+      ModelViewData = 
+        {
+          LastValidModel = On;
+        };
+      ModelViewProperties = 
+        {
+          ViewPoint = 
+            {
+              FocalDist = 1.370127;
+              FocalHeight = 1.277801;
+              Near = 0.01;
+              Far = 1000;
+              Perspective = Off;
+              Pos = {0.05473879, 0.1390613, -0.3953882};
+              EulerPar = {-0.7269106, 0.04546627, 0.6824684, 0.06140781};
+              LookAtDist = 1.370127;
+            };
+          Viewer = 
+            {
+              OrthograficEyeDistAdd = 1000;
+              ShowRefFrame = Off;
+              ShowTrackBall = On;
+              ShowFocalPlane = Off;
+            };
+          Scene = 
+            {
+              BackgroundColor = {0.9, 0.9, 0.94};
+            };
+          OldRenderEngineOnOff = Off;
+          CameraViewOnOff = Off;
+          CameraName = "";
+        };
+      Frame = 
+        {
+          Layout1 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0, 0.52, 1};
+              RightExpandedSize = {0, 0, 0.78, 1};
+              ZOrderNumber = 12;
+            };
+          Layout2 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0, 0.52, 1};
+              RightExpandedSize = {0, 0, 0.78, 1};
+              ZOrderNumber = 1;
+            };
+          Layout3 = 
+            {
+              SizingStatus = Normalized;
+              NormalizedSize = {0, 0, 0.52, 1};
+              RightExpandedSize = {0, 0, 0.78, 1};
+              ZOrderNumber = 1;
+            };
+        };
+    };
+  };

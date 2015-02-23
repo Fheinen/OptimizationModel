@@ -1,0 +1,120 @@
+
+
+AnyFolder SubTalarCal={
+  
+  AnyFolder &Pelvis = ..HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &LegSegSide = .SideHumanFolderRef.Leg.Seg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &JointsCal2 = .SideHumanFolderRef.Leg.Jnt; 
+    AnyFolder &InterfaceRef = .SideHumanFolderRef.Leg.InterfaceFolder; 
+
+  AnyFixedRefFrame ground = {
+    AnyRefNode node = { 
+      ARel=..Pelvis.Axes0;
+      sRel=..Pelvis.r0;
+    };
+  };
+  
+  AnyRevoluteJoint PelvisGround={
+    AnyRefFrame &Ground = .ground.node;
+    AnySeg &Sacrum= ...HumanFolderRef.Trunk.SegmentsLumbar.PelvisSeg; 
+
+    Axis=z;
+  };
+  
+  AnyKinEqSimpleDriver PelvisGroundRot = {
+    AnyRevoluteJoint &Jnt = .PelvisGround;
+    DriverPos = {0};
+    DriverVel = {0};
+    Reaction.Type = {Off}; 
+  };
+  
+  //////////////////////////////////////////Inversion/Eversion calibration//////////////////////////////////////
+  
+  AnyKinEqSimpleDriver HipAbductionAdduction =  {
+    AnyKinMeasureOrg &Hip1 = .InterfaceRef.HipAbduction;    
+    MeasureOrganizer = {0};
+    DriverPos = {0};
+    DriverVel = {0};
+    Reaction.Type = {Off};
+   };
+  
+   AnyKinEqSimpleDriver HipFlexionExtension = 
+   {
+     AnyKinMeasureOrg &Hip2 = .InterfaceRef.HipFlexion;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+
+   AnyKinEqSimpleDriver HipInternalExternal = 
+   {
+     AnyKinMeasureOrg &Hip3 = .InterfaceRef.HipExternalRotation;    
+     MeasureOrganizer = {0};
+     DriverPos = {0};
+     DriverVel = {0};
+     Reaction.Type = {Off};
+     };
+  
+
+  
+  AnyKinEqInterPolDriver Knee = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.KneeFlexion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{0,0}}*pi/180;
+    Reaction.Type = {Off};
+  };
+  
+  
+  AnyKinEqInterPolDriver Ankle = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.AnklePlantarFlexion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{0,0}}*pi/180;
+    Reaction.Type = {Off}; 
+  };
+
+  AnyKinEqInterPolDriver Subtalar = {
+    AnyKinMeasureOrg &Hinge = .InterfaceRef.SubTalarEversion;
+    MeasureOrganizer = {0};
+    Type = PiecewiseLinear;
+    T = {0,1};
+    Data = {{30,-30}}*pi/180;
+    Reaction.Type = {Off}; 
+  };
+
+ 
+  
+  //AnyFolder &MuscleParCal6 =.SideHumanFolderRef.Leg.MusPar;
+  
+  AnyFolder Mus = { 
+    AnyFolder &mus1  = ..SideHumanFolderRef.Leg.Mus.PeroneusBrevis1;
+    AnyFolder &mus2  = ..SideHumanFolderRef.Leg.Mus.PeroneusBrevis2;
+    AnyFolder &mus3  = ..SideHumanFolderRef.Leg.Mus.PeroneusBrevis3;
+//    AnyFolder &mus4  = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus1;
+//    AnyFolder &mus5  = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus2;
+//    AnyFolder &mus6  = ..SideHumanFolderRef.Leg.Mus.PeroneusLongus3;
+//    AnyFolder &mus7  = ..SideHumanFolderRef.Leg.Mus.PeroneusTertius1;
+//    AnyFolder &mus8  = ..SideHumanFolderRef.Leg.Mus.PeroneusTertius2;
+//    AnyFolder &mus9  = ..SideHumanFolderRef.Leg.Mus.PeroneusTertius3; 
+  };
+  
+};
+
+
+
+// The study: Operations to be performed on the model
+AnyBodyCalibrationStudy AnkleCalibrationStudy3 = {
+  AnyFolder &ref=.SubTalarCal; 
+ nStep = 2;
+//  tStart = 0;
+//  tEnd = 3;
+   InitialConditions.SolverType = KinSolOverDeterminate;
+    RmaxMuscleFiber = {1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2};
+    RminMuscleFiber = {0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5};
+//  FiberAndTendonLengthAdjustment.CalibrateTendonAtMaxForceOnOff = Off;
+};
+

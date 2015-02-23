@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\HipExtensorEccStrength.txt"
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,3.309596422495516e+002
+1.000000000000000e+000,3.302562333177768e+002
+2.000000000000000e+000,3.294092946076342e+002
+3.000000000000000e+000,3.283849888065683e+002
+4.000000000000000e+000,3.270881964214091e+002
+5.000000000000000e+000,3.254809252605531e+002
+6.000000000000000e+000,3.235402800098320e+002
+7.000000000000000e+000,3.212672528230836e+002
+8.000000000000000e+000,3.186122871547204e+002
+9.000000000000000e+000,3.154612182567855e+002
+1.000000000000000e+001,3.116773574113625e+002
+1.100000000000000e+001,3.070448366444015e+002
+1.200000000000000e+001,3.012229364563844e+002
+1.300000000000000e+001,3.012229364563844e+002
+1.400000000000000e+001,2.936503108841797e+002
+1.500000000000000e+001,2.833254158664616e+002
+1.600000000000000e+001,2.682384606123515e+002

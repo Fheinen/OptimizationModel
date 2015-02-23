@@ -1,0 +1,4 @@
+  #ifdef ANYBODY_PATH_MAINFILEDIR
+    #path ANYBODY_PATH_OUTPUT "<ANYBODY_PATH_MAINFILEDIR>/"
+  #endif
+  #include "../libdef.any"

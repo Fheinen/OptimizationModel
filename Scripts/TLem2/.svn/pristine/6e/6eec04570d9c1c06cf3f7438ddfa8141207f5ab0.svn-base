@@ -1,0 +1,91 @@
+
+AnyFolder Model = {
+  // Model parts included in the moment arm study
+  AnyFolder &ThoraxRef = .....HumanFolderRef.Trunk.SegmentsThorax.ThoraxSeg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &ArmSegSideRef = .SideHumanFolderRef.ShoulderArm.Seg; //This is a reference to the folder which holds the human part of the model
+  AnyFolder &ArmJntsRef =  .SideHumanFolderRef.ShoulderArm.Jnt;
+  AnyFolder &ArmMusRef = .SideHumanFolderRef.ShoulderArm.Mus;
+  AnyFolder &SpineMusRef = .SideTrunkMusRef;
+  
+  AnyFixedRefFrame ground = {
+    AnyRefNode node = { 
+      ARel=..ThoraxRef.Axes0;
+      sRel=..ThoraxRef.r0;
+    };
+  };
+  
+  AnyFolder Drivers = {
+    AnyVar AngularVelocity = (..RangeOfMotion[1]-..RangeOfMotion[0])*pi/180;
+    AnyKinMeasureOrg ArmMeasure = {
+      AnyKinMeasure &SCProtraction= ...SideHumanInterfaceRef.SternoClavicularProtraction;
+      AnyKinMeasure &SCElevation= ...SideHumanInterfaceRef.SternoClavicularElevation;
+      AnyKinMeasure &SCAxialRotation= ...SideHumanInterfaceRef.SternoClavicularAxialRotation;
+      AnyKinMeasure &GHFlexion= ...SideHumanInterfaceRef.GlenohumeralFlexion;
+      AnyKinMeasure &GHAbduction= ...SideHumanInterfaceRef.GlenohumeralAbduction;
+      AnyKinMeasure &GHExternalRotation= ...SideHumanInterfaceRef.GlenohumeralExternalRotation;
+      AnyKinMeasure &ElbowFlexion= ...SideHumanInterfaceRef.ElbowFlexion;
+      AnyKinMeasure &ElbowPronation= ...SideHumanInterfaceRef.ElbowPronation;
+      AnyKinMeasure &WristFlexion= ...SideHumanInterfaceRef.WristFlexion;
+      AnyKinMeasure &WristAbduction= ...SideHumanInterfaceRef.WristAbduction;  
+    };
+    AnyStdJoint PelvisGround={
+      AnyRefFrame &Ground = ..ground.node;
+      AnyRefFrame &Sacrum= ..ThoraxRef; 
+    };
+
+
+  };// Drivers
+};// Model
+
+ 
+AnyKinStudy Study = {
+  Gravity = {0,0,0};
+  nStep = 40;
+  InitialConditions.SolverType = KinSolOverDeterminate;
+  AnyFolder &Model = .Model;
+  
+  AnyFolder MuscleStrengthCalculations = {
+    AnyFolder Abscissa = { 
+      AnyVar JointAngle =  not(not(..Model.Drivers.ArmDriver.DriverVel))*..Model.Drivers.ArmMeasure.Pos'*180/pi  ;    
+    };
+
+#define ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM(name) AnyVar name = ( .Model.ArmMusRef.name.Strength);    
+    #include "armmuscles_for_output.any"
+#undef ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM 
+  };
+   
+  AnyFolder PennationAngleCalculations = {
+    AnyFolder Abscissa = { 
+      AnyVar JointAngle =  not(not(..Model.Drivers.ArmDriver.DriverVel))*..Model.Drivers.ArmMeasure.Pos'*180/pi  ;    
+    };
+
+#define ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM(name) AnyVar name = ( .Model.ArmMusRef.name.PennationAngle * 180/pi);    
+    #include "armmuscles_for_output.any"
+#undef ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM 
+  };
+  
+  AnyFolder MomentArmCalculations = {
+    AnyFolder Abscissa = { 
+      AnyVar JointAngle =  not(not(..Model.Drivers.ArmDriver.DriverVel))*..Model.Drivers.ArmMeasure.Pos'*180/pi  ;    
+    };
+
+#define ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM(name) AnyVar name = ( -1*.Model.ArmMusRef.name.LmtDot/.Model.Drivers.AngularVelocity);    
+    #include "armmuscles_for_output.any"
+#undef ARMMUSCLES_FOR_OUTPUT_EXPRESSION_ARM 
+
+  };
+};
+
+AnyOperationMacro MacroCmd = 
+{
+
+  MacroStr = {"operation " + CompleteNameOf(&.Study.Kinematics),
+    "run"
+#ifdef OUTPUT_SAVE_PATH
+    ,
+    "classoperation " + CompleteNameOf(&.Study.Output) + strquote("Save data") 
+     + " --type=" + strquote("Deep") +" --file=" + strquote(
+     OUTPUT_SAVE_PATH + .OutputFileName + ".anydata.h5")
+#endif
+   };
+ };

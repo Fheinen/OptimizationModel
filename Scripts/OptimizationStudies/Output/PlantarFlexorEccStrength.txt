@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\PlantarFlexorEccStrength.txt"
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,2.678611685995052e+002
+1.000000000000000e+000,2.677735476925471e+002
+2.000000000000000e+000,2.676769635257073e+002
+3.000000000000000e+000,2.675699653921510e+002
+4.000000000000000e+000,2.674505348761444e+002
+5.000000000000000e+000,2.673165520104201e+002
+6.000000000000000e+000,2.671653145179437e+002
+7.000000000000000e+000,2.669927342836893e+002
+8.000000000000000e+000,2.667941749820298e+002
+9.000000000000000e+000,2.665638104719229e+002
+1.000000000000000e+001,2.655522015851916e+002
+1.100000000000000e+001,2.627811755144157e+002
+1.200000000000000e+001,2.589524945546609e+002
+1.300000000000000e+001,2.589524945546609e+002
+1.400000000000000e+001,2.532935917367863e+002
+1.500000000000000e+001,2.440079825845529e+002
+1.600000000000000e+001,2.261754916681540e+002

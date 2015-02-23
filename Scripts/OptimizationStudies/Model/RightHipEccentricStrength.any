@@ -1,0 +1,69 @@
+AnyFolder EccentricStrength = {
+          
+      AnyFolder HipExtension = {
+        
+        // Change the following variables to adjust the joint strength study
+        AnyVector RangeOfMotion = DesignVar({130,0});
+        AnyVar RangeOfVelocity = DesignVar (60);
+        AnyVar ROM = abs((RangeOfMotion[1]-RangeOfMotion[0]));
+        AnyVar OptimumJointAngle = DesignVar(0);
+        AnyVar StartAngle = (OptimumJointAngle/2)+OptimumJointAngle;
+        AnyVar EndAngle = OptimumJointAngle-(OptimumJointAngle/2);
+        AnyVar HipFlexion = DesignVar(0);
+        AnyVar HipAbduction = DesignVar(0);
+        AnyVar HipExternalRotation = DesignVar(0);
+        AnyVar KneeFlexion = DesignVar(90);
+        AnyVar AnklePlantarFlexion = DesignVar(0);
+        AnyVar SubtalarEversion = DesignVar(0);
+        /////////////////////////////////////////
+        
+        // The following should not be changed
+        AnyFolder &SideBodyModelRef=.....BodyModelRef.Right;
+        AnyFolder &SideBodyInterfaceRef = .....BodyModelRef.Interface.Right;
+        AnyInt nStep = 32;
+        #include "HipExtensorEccentricStrengthStudy.any"
+        AnyString OutputFileName =  "JointStrength_LegTD_Right_HipExtension.csv";      
+        Model.Drivers = {
+          AnyKinEqSimpleDriver LegDriver= {
+            AnyKinMeasure &ref = .LegMeasure;
+            DriverPos = {0,...HipAbduction,...HipExternalRotation,...KneeFlexion,...AnklePlantarFlexion,...SubtalarEversion }*pi/180;
+            DriverVel = {...RangeOfVelocity,0,0,0,0,0}*pi/180;  
+            Reaction.Type = {Off,On,On,On, On, On};
+            };        
+        };
+      };       
+      
+      
+      AnyFolder HipFlexion = {
+        
+        // Change the following variables to adjust the joint strength study
+        AnyVector RangeOfMotion = DesignVar({0,130});
+        AnyVar RangeOfVelocity = DesignVar (60);
+        AnyVar ROM = abs((RangeOfMotion[1]-RangeOfMotion[0]));
+        AnyVar OptimumJointAngle = DesignVar(0);
+        AnyVar StartAngle = (OptimumJointAngle/2)+OptimumJointAngle;
+        AnyVar EndAngle = OptimumJointAngle-(OptimumJointAngle/2);
+        AnyVar HipFlexion = DesignVar(130);
+        AnyVar HipAbduction = DesignVar(0);
+        AnyVar HipExternalRotation = DesignVar(0);
+        AnyVar KneeFlexion = DesignVar(90);
+        AnyVar AnklePlantarFlexion = DesignVar(0);
+        AnyVar SubtalarEversion = DesignVar(0);
+        /////////////////////////////////////////
+        
+        // The following should not be changed
+        AnyFolder &SideBodyModelRef=.....BodyModelRef.Right;
+        AnyFolder &SideBodyInterfaceRef = .....BodyModelRef.Interface.Right;
+        AnyInt nStep = 32;
+        #include "HipFlexorEccentricStrengthStudy.any"
+        AnyString OutputFileName =  "JointStrength_LegTD_Right_HipFlexion.csv";      
+        Model.Drivers = {
+          AnyKinEqSimpleDriver LegDriver= {
+            AnyKinMeasure &ref = .LegMeasure;
+            DriverPos = {130,...HipAbduction,...HipExternalRotation,...KneeFlexion,...AnklePlantarFlexion,...SubtalarEversion }*pi/180;
+            DriverVel = {-...RangeOfVelocity,0,0,0,0,0}*pi/180;  
+            Reaction.Type = {Off,On,On,On, On, On};
+            };        
+        };
+      };
+};

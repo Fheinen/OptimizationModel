@@ -1,0 +1,121 @@
+#include "../libdef.any"
+#define EVALUATE_MOMENT_ARMS 1
+#define BM_SCALING CONST_SCALING_UNIFORM 
+//LENGTHMASSFAT
+//#define TLEM_VERSION "2.0"
+//#define TLEM_MORPHOLOGY 2
+#define MUSCLE_MODELVERSION 1
+
+#define Subject4
+#define RATIOANALYSISONOFF 0
+
+Main = {
+  
+  #include "Model\BodyPartsSetup.any"
+  #path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
+  #path BM_SCALING_ANTHRO_FILE "Model\ScalingStandard.any"
+  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  #include "<ANYBODY_PATH_BODY>\HumanModel.any"
+  
+  AnyFolder &BodyModelRef = HumanModel.BodyModel;
+  #include "Model\MuscleParameterVectors.any"
+  #include "Model\MuscleParameterDesignVars.any"
+    
+
+  AnyFolder Studies = {
+    AnyFolder Calibrations = {
+      AnyFolder &HumanFolderRef = ..Main.HumanModel.BodyModel;
+      #include "Model/AnkleCalibration.any"
+      #include "Model/HipCalibration.any"
+      #include "Model/KneeCalibration.any"
+      AnyOperationSequence CalibrationSequence ={};
+
+    };
+    AnyFolder AnkleCalibration = {
+      AnyFolder &HumanFolderRef = ..Main.HumanModel.BodyModel;
+      #include "Model/AnkleCalibration.any"
+      AnyOperationSequence CalibrationSequence ={};
+    };
+      AnyFolder HipCalibration = {
+        AnyFolder &HumanFolderRef = ..Main.HumanModel.BodyModel;
+        #include "Model/HipCalibration.any"
+        AnyOperationSequence CalibrationSequence = {};
+      };
+//      
+      AnyFolder KneeCalibration = {
+        AnyFolder &HumanFolderRef = ..Main.HumanModel.BodyModel;
+        #include "Model/KneeCalibration.any"
+        AnyOperationSequence CalibrationSequence = {};
+      };
+      
+    AnyFolder EvaluateAnkleStrength = {
+      #include "Model/EvaluateAnkleStrength.any"
+    };
+    
+    AnyFolder EvaluateKneeStrength = {
+      #include "Model/EvaluateKneeStrength.any"
+    };
+    
+    AnyFolder EvaluateHipStrength = {
+      #include "Model/EvaluateHipStrength.any"
+    };
+    
+    AnyFolder ParameterStudies = {
+      #include "Model/ParameterStudies.any"
+    };
+  };  
+  
+  #if RATIOANALYSISONOFF ==1
+  AnyOperationSequence RunApplication1 = {
+    AnyOperation &Initialisation = Main.Studies.Calibrations.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions;
+    AnyOperationMacro updateExpression = {MacroStr = { "classoperation Main"+ strquote("Update Values")};};
+    AnyOperation &CalibrationOld = Main.HumanModel.Calibration.CalibrationSequence;
+//    AnyOperation &PlantarFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.ParameterStudy;
+    AnyOperation &DorsiFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &KneeFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &KneeExtensorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &HipFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &HipExtensorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.ParameterStudy;
+  };
+  #else
+  AnyOperationSequence RunApplication1 = {
+    AnyOperation &SetDesignValues = Main.DesignVars.SetDesignVars.SetDesignVarsR1; // Scaling on subject 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    AnyOperation &Initialisation = Main.Studies.Calibrations.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions;
+    AnyOperationMacro updateExpression = {MacroStr = { "classoperation Main"+ strquote("Update Values")};};
+//    AnyOperation &CalibrationOld = Main.HumanModel.Calibration.CalibrationSequence; 
+    AnyOperation &Calibration1 = Main.Studies.AnkleCalibration.CalibrationSequence;
+//    AnyOperation &Calibration2 = Main.Studies.KneeCalibration.CalibrationSequence;
+//    AnyOperation &Calibration3 = Main.Studies.HipCalibration.CalibrationSequence;
+
+  };   
+  AnyOperationSequence RunApplication2 = { 
+//    AnyOperation &PlantarFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &PlantarFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.ConcentricStrength.ParameterStudy;
+//    AnyOperation &PlantarFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &DorsiFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &DorsiFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.ConcentricStrength.ParameterStudy;
+    AnyOperation &DorsiFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &KneeFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &KneeFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.ConcentricStrength.ParameterStudy;
+//    AnyOperation &KneeFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &KneeExtensorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &KneeExtensorConcStrengthParameterStudy = Main.Studies.ParameterStudies.KneeExtensorMuscles.ConcentricStrength.ParameterStudy;
+//    AnyOperation &KneeExtensorEccStrengthParameterStudy = Main.Studies.ParameterStudies.KneeExtensorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &HipFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &HipFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.HipFlexorMuscles.ConcentricStrength.ParameterStudy;
+//    AnyOperation &HipFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.HipFlexorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &HipExtensorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.HipExtensorMuscles.IsometricStrength.ParameterStudy;
+//    AnyOperation &HipExtensorConcStrengthParameterStudy = Main.Studies.ParameterStudies.HipExtensorMuscles.ConcentricStrength.ParameterStudy;
+//    AnyOperation &HipExtensorEccStrengthParameterStudy = Main.Studies.ParameterStudies.HipExtensorMuscles.EccentricStrength.ParameterStudy;
+
+  };
+  #endif
+  
+
+  
+    
+
+
+
+    
+}; //Main

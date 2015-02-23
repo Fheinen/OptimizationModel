@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\KneeFlexorEccStrength.txt"
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,5.808158875109219e+001
+1.000000000000000e+000,5.786739945483399e+001
+2.000000000000000e+000,5.762967485932037e+001
+3.000000000000000e+000,5.736839335384301e+001
+4.000000000000000e+000,5.707732509332607e+001
+5.000000000000000e+000,5.673883178416622e+001
+6.000000000000000e+000,5.636214740846958e+001
+7.000000000000000e+000,5.594356494590014e+001
+8.000000000000000e+000,5.546656655412620e+001
+9.000000000000000e+000,5.491728828571512e+001
+1.000000000000000e+001,5.427687796678465e+001
+1.100000000000000e+001,5.351891574222701e+001
+1.200000000000000e+001,5.260494531565693e+001
+1.300000000000000e+001,5.260494531565693e+001
+1.400000000000000e+001,5.147619242961029e+001
+1.500000000000000e+001,5.003664299285970e+001
+1.600000000000000e+001,4.811339819776816e+001

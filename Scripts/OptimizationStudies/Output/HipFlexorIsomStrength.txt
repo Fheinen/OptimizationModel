@@ -1,0 +1,36 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength
+Operation: Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.FileName = "..\Output\HipFlexorIsomStrength.txt"
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.HipFlexorMuscles.IsometricStrength.Outputfile.Strength
+0.000000000000000e+000,5.669258362058164e+001
+1.000000000000000e+000,4.812550795792251e+001
+2.000000000000000e+000,3.829371047402229e+001
+3.000000000000000e+000,2.883101257925463e+001
+4.000000000000000e+000,2.125149551680588e+001
+5.000000000000000e+000,1.620644095617876e+001
+6.000000000000000e+000,1.353665457270295e+001
+7.000000000000000e+000,1.191250542388110e+001
+8.000000000000000e+000,1.069884796133379e+001
+9.000000000000000e+000,9.680030673043842e+000
+1.000000000000000e+001,8.473341945960145e+000

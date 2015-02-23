@@ -1,0 +1,6 @@
+load "D:\MyDocuments\PhD\AnyBodyTechnology\NewSR\AMMRV1.6TLEMsafe\AMMR-public\Application\Examples\C3DProject\MotionAndParamOptimization.Main.any"
+classoperation Main.Studies.ParameterIdentification "Load design" --file="D:\MyDocuments\PhD\AnyBodyTechnology\GRFPCAmodel\Application\ADL\C3DProject\MyC3DData\HealthySubject_002\OptimizedParameters-Cad3-wa.txt" 
+classoperation Main "Update Values"
+operation Main.Studies.MotionOptimization.Kinematics 
+run
+exit

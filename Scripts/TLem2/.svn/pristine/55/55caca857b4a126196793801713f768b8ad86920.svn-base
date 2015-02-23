@@ -1,0 +1,103 @@
+// 2.0
+AnyFolder &PelvisSegRef = Pelvis;
+PelvisSegRef = {
+  AnyVar MassStandard = 10.65; 
+  // There is not yet a scaling implemented for the pelvis inertia
+  AnyVec3 Jii = {0.0221,0.01,0.0221}; //Taken from SimpleSpineModel 
+  AnyVec3 Jij = {0,0,0};
+  AnyVec3 sCoM = {0.038, -0.050, 0.000000};
+  AnyVar PelvisWidth = 0.16;
+  AnyVec3 RASIS =  {0,   0,  0.117745962516916};
+  AnyVec3 LASIS =  {0,   0,  -0.117745962516916};
+  AnyVec3 LPSIS = {-0.122561837063861, 0.000306671656215,  -0.033147522608211};
+  AnyVec3 RPSIS = {-0.123209523983012,  -0.000306671656215, 0.037348261488187};
+
+};
+
+AnyFolder &ThighSegRef = Thigh;
+ThighSegRef = {
+  AnyVec3 sCoM = {0.0101,-0.1596,-0.0150}*.TF';
+  AnyVar KneeWidth =  0.0975;
+  AnyVar MassStandard = 7; //11.54; // kg, Klein Horsman dataset
+  AnyVar LengthStandard = vnorm(..Seg.Thigh.StdPar.HipJoint-..Seg.Thigh.StdPar.KneeJoint);
+  AnyVar Density = 1000;
+  
+  AnyVar Length = vnorm(..Seg.Thigh.KneeJoint.sRel-..Seg.Thigh.HipJoint.sRel);
+  AnyVar Radius = (..Seg.Thigh.Mass/(pi*Length*Density))^0.5;
+  AnyVar Ixx = 0.25*..Seg.Thigh.Mass*Radius*Radius + 1/12*..Seg.Thigh.Mass*Length*Length;
+  AnyVar Iyy = 0.5*..Seg.Thigh.Mass*Radius*Radius;
+  AnyVar Izz = Ixx;
+  AnyMat33 JM=..Seg.Thigh.ScalingNode.ARel*{{Ixx,0,0},{0,Iyy,0},{0,0,Izz}}*..Seg.Thigh.ScalingNode.ARel';
+  AnyVec3 Jii = {JM[0][0], JM[1][1], JM[2][2]};
+  AnyVec3 Jij = {JM[1][0], JM[2][1], JM[2][0]};
+
+};
+
+AnyFolder &PatellaSegRef = Patella;
+PatellaSegRef = {
+AnyVar MassStandard = 0;  
+  AnyVar LengthStandard = 0;
+  AnyVar Density = 1000;
+  AnyVar Ixx = 0;
+  AnyVar Iyy = 0;
+  AnyVar Izz = Ixx;
+  AnyVec3 Jii = {Ixx, Iyy, Izz};
+  AnyVec3 Jij = {0,0,0};
+};
+
+AnyFolder &ShankSegRef = Shank;
+ShankSegRef = {
+  AnyVar MassStandard = 4.00;
+  AnyVar Density = 1000;
+  AnyVar LengthStandard = vnorm(..Seg.Shank.StdPar.KneeJoint-..Seg.Shank.StdPar.AnkleJoint); 
+  AnyVec3 sCoM = {0.0088,0.2339,-0.0086}*.TF';
+  AnyVar AnkleWidth =  0.0753;
+  
+  AnyVar Length = vnorm(..Seg.Shank.KneeJoint.sRel-..Seg.Shank.AnkleJoint.sRel);
+  AnyVar Radius = (..Seg.Shank.Mass/(pi*Length*..StandardParameters.Shank.Density))^0.5;
+  AnyVar Ixx = 0.25*..Seg.Shank.Mass*Radius*Radius + 1/12*..Seg.Shank.Mass*Length*Length;
+  AnyVar Iyy = 0.5*..Seg.Shank.Mass*Radius*Radius;
+  AnyVar Izz = Ixx; 
+  AnyMat33 JM=..Seg.Shank.ScalingNode.ARel*{{Ixx,0,0},{0,Iyy,0},{0,0,Izz}}*..Seg.Shank.ScalingNode.ARel';
+  AnyVec3 Jii = {JM[0][0], JM[1][1], JM[2][2]};
+  AnyVec3 Jij = {JM[1][0], JM[2][1], JM[2][0]};
+  
+};
+
+AnyFolder &TalusSegRef = Talus;
+TalusSegRef = {
+  AnyVar MassStandard = 0.2*1.3;
+  AnyVar Density = 1000;
+//  AnyVar LengthStandard = vnorm(.Talus.SubTalarJoint-.Talus.AnkleJoint);
+//  AnyVar Length = vnorm(.Talus.SubTalarJoint-.Talus.AnkleJoint);
+
+    AnyVar LengthStandard = 0.133*vnorm(..Seg.Foot.StdPar.BigToeNode-..Seg.Foot.StdPar.HeelNode);
+  AnyVar Length = 0.133*vnorm(..Seg.Foot.BigToeNode.sRel-..Seg.Foot.HeelNode.sRel); 
+
+  AnyVec3 sCoM = (..Seg.Talus.StdPar.SubTalarJoint + ..Seg.Talus.StdPar.AnkleJoint)/2;
+  /// kg, 20% of Klein Horsman dataset Mass of Foot (% calculated from bone volume ratio);
+  AnyVar Ixx = 2/5 * ..Seg.Talus.Mass * (vnorm(0.5*(..Seg.Talus.AnkleJoint.sRel - ..Seg.Talus.MedialMalleolus.sRel)))^2;
+  AnyVar Iyy = Ixx;
+  AnyVar Izz = Ixx;
+  AnyVec3 Jii = {Ixx, Iyy, Izz};
+  AnyVec3 Jij = {0,0,0};
+
+};
+
+AnyFolder &FootSegRef = Foot;
+FootSegRef = {
+  
+  AnyVar MassStandard = 0.8*1.3;
+  AnyVar LengthStandard = vnorm(..Seg.Foot.StdPar.BigToeNode-..Seg.Foot.StdPar.HeelNode);
+  AnyVar Density = 1000;
+  AnyVec3 sCoM = {0.0261, -0.0665,0.0159}*.TF';
+  
+  AnyVar Length = vnorm(..Seg.Foot.BigToeNode.sRel-..Seg.Foot.HeelNode.sRel); 
+  AnyVar Radius = (..Seg.Foot.Mass/(pi*Length*Density))^0.5;
+  AnyVar Ixx = 0.25*..Seg.Foot.Mass*Radius*Radius + 1/12*..Seg.Foot.Mass*Length*Length;
+  AnyVar Iyy = 0.5*..Seg.Foot.Mass*Radius*Radius;
+  AnyVar Izz = Ixx;
+  AnyMat33 JM=..Seg.Foot.ScalingNode.ARel*{{Iyy,0,0},{0,Ixx,0},{0,0,Izz}}*..Seg.Foot.ScalingNode.ARel';
+  AnyVec3 Jii = {JM[0][0], JM[1][1], JM[2][2]};
+  AnyVec3 Jij = {JM[1][0], JM[2][1], JM[2][0]};
+};

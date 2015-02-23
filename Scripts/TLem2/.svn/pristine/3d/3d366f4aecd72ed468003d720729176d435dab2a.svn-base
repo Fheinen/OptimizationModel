@@ -1,0 +1,10 @@
+  AnyFileVar FilenameThigh = "femur";
+//AnyFileVar FilenameShank = "tibia";
+AnyFileVar FilenameShank = "shank";
+
+AnyFileVar FilenamePelvis = "pelvis";
+//AnyFileVar FilenameFoot = "subtalar";
+AnyFileVar FilenameFoot = "foot2";
+
+AnyFileVar FilenamePatella = "patella";
+AnyFileVar FilenameTalus = "talus";

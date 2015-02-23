@@ -1,0 +1,42 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength
+Operation: Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.FileName = "..\Output\DorsiFlexorEccStrength.txt"
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.IterationStep,Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.Outputfile.Strength
+0.000000000000000e+000,4.979593793157650e+001
+1.000000000000000e+000,4.967809412858671e+001
+2.000000000000000e+000,4.952286531383425e+001
+3.000000000000000e+000,4.932843275543166e+001
+4.000000000000000e+000,4.910847880278457e+001
+5.000000000000000e+000,4.885763021438516e+001
+6.000000000000000e+000,4.856889237398906e+001
+7.000000000000000e+000,4.823298859179143e+001
+8.000000000000000e+000,4.783735634828391e+001
+9.000000000000000e+000,4.736452516350109e+001
+1.000000000000000e+001,4.678951176833824e+001
+1.100000000000000e+001,4.607526876382925e+001
+1.200000000000000e+001,4.516444083796969e+001
+1.300000000000000e+001,4.516444083796969e+001
+1.400000000000000e+001,4.396331244119307e+001
+1.500000000000000e+001,4.230781918128615e+001
+1.600000000000000e+001,3.988595202034562e+001

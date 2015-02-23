@@ -1,0 +1,89 @@
+//AnyFolder CurrentRValues = {
+//    AnyFloat ExtensorDigitorumLongus1Par = .musref.ExtensorDigitorumLongus1.RValue;
+//    AnyFloat ExtensorDigitorumLongus2Par = .musref.ExtensorDigitorumLongus2.RValue;
+//    AnyFloat ExtensorDigitorumLongus3Par = .musref.ExtensorDigitorumLongus3.RValue;
+//    AnyFloat ExtensorHallucisLongus1Par = .musref.ExtensorHallucisLongus1.RValue;
+//    AnyFloat ExtensorHallucisLongus2Par = .musref.ExtensorHallucisLongus2.RValue;
+//    AnyFloat ExtensorHallucisLongus3Par = .musref.ExtensorHallucisLongus3.RValue;
+//    AnyFloat FlexorDigitorumLongus1Par = .musref.FlexorDigitorumLongus1.RValue;
+//    AnyFloat FlexorDigitorumLongus2Par = .musref.FlexorDigitorumLongus2.RValue;
+//    AnyFloat FlexorDigitorumLongus3Par = .musref.FlexorDigitorumLongus3.RValue;
+//    AnyFloat FlexorHallucisLongus1Par = .musref.FlexorHallucisLongus1.RValue;
+//    AnyFloat FlexorHallucisLongus2Par = .musref.FlexorHallucisLongus2.RValue;
+//    AnyFloat FlexorHallucisLongus3Par = .musref.FlexorHallucisLongus3.RValue;
+//    AnyFloat GastrocnemiusMedialis1Par = .musref.GastrocnemiusMedialis1.RValue;
+//    AnyFloat GastrocnemiusLateralis1Par = .musref.GastrocnemiusLateralis1.RValue;
+//    AnyFloat PeroneusBrevis1Par = .musref.PeroneusBrevis1.RValue;
+//    AnyFloat PeroneusBrevis2Par = .musref.PeroneusBrevis2.RValue;
+//    AnyFloat PeroneusBrevis3Par = .musref.PeroneusBrevis3.RValue;
+//    AnyFloat PeroneusLongus1Par = .musref.PeroneusLongus1.RValue;
+//    AnyFloat PeroneusLongus2Par = .musref.PeroneusLongus2.RValue;
+//    AnyFloat PeroneusLongus3Par = .musref.PeroneusLongus3.RValue;
+//    AnyFloat PeroneusTertius1Par = .musref.PeroneusTertius1.RValue;
+//    AnyFloat PeroneusTertius2Par = .musref.PeroneusTertius2.RValue;
+//    AnyFloat PeroneusTertius3Par = .musref.PeroneusTertius3.RValue;
+//    AnyFloat SoleusMedialis1Par = .musref.SoleusMedialis1.RValue;
+//    AnyFloat SoleusMedialis2Par = .musref.SoleusMedialis2.RValue;
+//    AnyFloat SoleusMedialis3Par = .musref.SoleusMedialis3.RValue;
+//    AnyFloat SoleusLateralis1Par = .musref.SoleusLateralis1.RValue;
+//    AnyFloat SoleusLateralis2Par = .musref.SoleusLateralis2.RValue;
+//    AnyFloat SoleusLateralis3Par = .musref.SoleusLateralis3.RValue;
+//    AnyFloat TibialisAnterior1Par = .musref.TibialisAnterior1.RValue;
+//    AnyFloat TibialisAnterior2Par = .musref.TibialisAnterior2.RValue;
+//    AnyFloat TibialisAnterior3Par = .musref.TibialisAnterior3.RValue;
+//    AnyFloat TibialisPosteriorMedialis1Par = .musref.TibialisPosteriorMedialis1.RValue;
+//    AnyFloat TibialisPosteriorMedialis2Par = .musref.TibialisPosteriorMedialis2.RValue;
+//    AnyFloat TibialisPosteriorMedialis3Par = .musref.TibialisPosteriorMedialis3.RValue;
+//    AnyFloat TibialisPosteriorLateralis1Par = .musref.TibialisPosteriorLateralis1.RValue;
+//    AnyFloat TibialisPosteriorLateralis2Par = .musref.TibialisPosteriorLateralis2.RValue;
+//    AnyFloat TibialisPosteriorLateralis3Par = .musref.TibialisPosteriorLateralis3.RValue;
+//};
+//
+//AnyFolder &musref = Main.HumanModel.BodyModel.Right.Leg.Mus;
+//  #ifndef RVALUE_CALCULATIONS
+//  #define RVALUE_CALCULATIONS
+//  // ADD RVALUE CALCULATIONS TO THE MUSCLES.
+//  #define R_VALUE = {AnyFloat RValue = Lm/(.MusMdl.Lfbar*cos(PennationAngle));};
+//
+//musref.ExtensorDigitorumLongus1 R_VALUE 
+//musref.ExtensorDigitorumLongus2 R_VALUE 
+//musref.ExtensorDigitorumLongus3 R_VALUE 
+//musref.ExtensorHallucisLongus1 R_VALUE 
+//musref.ExtensorHallucisLongus2 R_VALUE 
+//musref.ExtensorHallucisLongus3 R_VALUE 
+//musref.FlexorDigitorumLongus1 R_VALUE 
+//musref.FlexorDigitorumLongus2 R_VALUE 
+//musref.FlexorDigitorumLongus3 R_VALUE 
+//musref.FlexorHallucisLongus1 R_VALUE 
+//musref.FlexorHallucisLongus2 R_VALUE 
+//musref.FlexorHallucisLongus3 R_VALUE 
+//musref.GastrocnemiusMedialis1 R_VALUE 
+//musref.GastrocnemiusLateralis1 R_VALUE 
+//musref.PeroneusBrevis1 R_VALUE 
+//musref.PeroneusBrevis2 R_VALUE 
+//musref.PeroneusBrevis3 R_VALUE 
+//musref.PeroneusLongus1 R_VALUE 
+//musref.PeroneusLongus2 R_VALUE 
+//musref.PeroneusLongus3 R_VALUE 
+//musref.PeroneusTertius1 R_VALUE 
+//musref.PeroneusTertius2 R_VALUE 
+//musref.PeroneusTertius3 R_VALUE 
+//musref.SoleusMedialis1 R_VALUE 
+//musref.SoleusMedialis2 R_VALUE 
+//musref.SoleusMedialis3 R_VALUE 
+//musref.SoleusLateralis1 R_VALUE 
+//musref.SoleusLateralis2 R_VALUE 
+//musref.SoleusLateralis3 R_VALUE 
+//musref.TibialisAnterior1 R_VALUE 
+//musref.TibialisAnterior2 R_VALUE 
+//musref.TibialisAnterior3 R_VALUE 
+//musref.TibialisPosteriorMedialis1 R_VALUE
+//musref.TibialisPosteriorMedialis2 R_VALUE
+//musref.TibialisPosteriorMedialis3 R_VALUE
+//musref.TibialisPosteriorLateralis1 R_VALUE
+//musref.TibialisPosteriorLateralis2 R_VALUE
+//musref.TibialisPosteriorLateralis3 R_VALUE
+//#endif
+//
+//
+//

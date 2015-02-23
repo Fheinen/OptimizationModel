@@ -1,0 +1,10 @@
+load "Optimization.main.any"
+classoperation Main.DesignVars.ta_rmin "Set Value" --value="0.1"
+classoperation Main.DesignVars.ta_rmax "Set Value" --value="1.1"
+classoperation Main.DesignVars.LocalStrengthFactorDorsiFlexors "Set Value" --value="0.6"
+operation Main.RunApplication1
+run
+operation Main.RunApplication2
+run
+classoperation Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Output.Strength.Val "Dump All" 
+exit

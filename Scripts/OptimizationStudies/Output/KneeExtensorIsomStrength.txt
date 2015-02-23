@@ -1,0 +1,36 @@
+---- AnyBody Output File ---------------------------------
+Study: Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength
+Operation: Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.ParameterStudy
+----------------------------------------------------------
+Constants (Name = Value): 
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.FileName = "..\Output\KneeExtensorIsomStrength.txt"
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Digits = 15
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Width = 22
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.Style = ScientificNumber
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.NumberFormat.FormatStr = "%22.15e"
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Search = 
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.SepSign = ","
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.LineSepSign = ""
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Header.TitleSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Header.ConstSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Header.VarSectionOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Header.ColumnNamesOnOff = On
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Header.LinePrefix = ""
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.ConstSectionSaveOptionsOnOff = On
+----------------------------------------------------------
+Variables (Column# Name): 
+col0  Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.IterationStep
+col1  Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Strength
+----------------------------------------------------------
+Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.KneeExtensorMuscles.IsometricStrength.Outputfile.Strength
+0.000000000000000e+000,1.800614873271761e+001
+1.000000000000000e+000,3.575241558660061e+001
+2.000000000000000e+000,5.734995306693453e+001
+3.000000000000000e+000,7.594031513171277e+001
+4.000000000000000e+000,8.735672090574447e+001
+5.000000000000000e+000,8.763331217537559e+001
+6.000000000000000e+000,7.945093659227742e+001
+7.000000000000000e+000,7.000525653855026e+001
+8.000000000000000e+000,6.189467777417334e+001
+9.000000000000000e+000,5.613274417176962e+001
+1.000000000000000e+001,4.935747773336904e+001

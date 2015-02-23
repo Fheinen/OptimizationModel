@@ -1,0 +1,202 @@
+/* -------------------------------------------------------------------------------------------
+This file implements a subject-specific scaling law based on morhped bone surfaces
+
+TLEMsafe Vincenzo Carbone 7-2-2013
+------------------------------------------------------------------------------------------- */
+
+Scaling = 
+{  
+  AnyFolder SubjectSpecificScaling = 
+  {     
+    // Selection of the appropriate law depending on the included leg
+    // **************************************************************
+    
+    
+      #if RIGHT_LEG_TD == 1
+      
+      AnyFolder Right =
+      {
+        
+        AnyFolder Shank = 
+        {
+          
+          AnyFunTransform3DSTL TLEMtoSubjectSpecificSTL= 
+          {
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenameShankMorphing;
+            ScaleXYZ0 = {0.001, 0.001, 0.001};
+            FileName1 = Main.TrialSpecificData.TibiaSTL;
+            ScaleXYZ1 = {1, 1, 1};
+            NumPoints = 2000;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          };
+        
+        };
+        
+        AnyFolder Thigh = 
+        {
+          
+          AnyFunTransform3DSTL TLEMtoSubjectSpecificSTL= 
+          {
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenameThighMorphing;
+            ScaleXYZ0 = {0.001, 0.001, 0.001};
+            FileName1 = Main.TrialSpecificData.FemurSTL;
+            ScaleXYZ1 = {1, 1, 1};
+            NumPoints = 2000;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          }; 
+          
+        };
+      
+        AnyFolder Pelvis = 
+        {
+          
+          AnyFunTransform3DLin TLEMtoSubjectSpecificSTL= 
+          {
+            PreTransforms = 
+            {
+              &.TLEMCTtoHS1stl
+            };
+            ScaleMat = {{1,0,0}, {0,1,0}, {0,0,1}}; //.ARel;
+            Offset = {0,0,-0.008};//-.sRel;
+          };
+
+          AnyFunTransform3DSTL TLEMCTtoHS1stlpre =
+          {
+            //PreTransforms = {&.TLEMtoHS1rbf};
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            //FileName0 = "Cad3_Tibia_ISB.stl";
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenamePelvisMorphing;
+            ScaleXYZ0 = {0.001, 0.001, 0.001};
+            FileName1 = Main.TrialSpecificData.PelvisSTL;
+            ScaleXYZ1 = {1, 1, 1};
+            NumPoints = 1000;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          }; 
+    
+          AnyFunTransform3DLin TLEMCTtoHS1stl= 
+          {
+            PreTransforms = {&.TLEMCTtoHS1stlpre};
+            ScaleMat =  {{ 0.8192, 0, -0.5736}, {0, 1, 0}, { 0.5736, 0,  0.8192}};
+            Offset = {0.0, 0.0, 0.0};
+          }; 
+        };
+      
+      }; // Right
+    
+      #endif
+    
+      #if LEFT_LEG_TD == 1
+      
+      AnyFolder Left =
+      { 
+        AnyFolder Shank = 
+        {
+          AnyFunTransform3DSTL TLEMtoSubjectSpecificSTL= 
+          {
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenameShankMorphing;
+            ScaleXYZ0 = {0.001, 0.001, -0.001};
+            FileName1 = Main.TrialSpecificData.TibiaSTL;
+            ScaleXYZ1 = {1, 1, -1};
+            NumPoints = 500;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          };
+
+        };
+        
+        AnyFolder Thigh = 
+        {  
+          AnyFunTransform3DSTL TLEMtoSubjectSpecificSTL= 
+          {
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenameThighMorphing;
+            ScaleXYZ0 = {0.001, 0.001, -0.001};
+            FileName1 = Main.TrialSpecificData.FemurSTL;
+            ScaleXYZ1 = {1, 1, -1};
+            NumPoints = 500;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          }; 
+
+        };
+        
+        AnyFolder Pelvis = 
+        {
+                
+          AnyFunTransform3DLin TLEMtoSubjectSpecificSTL= 
+          {
+            PreTransforms = 
+            {
+              &.TLEMCTtoHS1stl
+            };
+            ScaleMat = {{1,0,0}, {0,-1,0}, {0,0,-1}}; //.ARel;
+            Offset = {0,0,-1*-0.008};//-.sRel;
+          };
+
+          AnyFunTransform3DSTL TLEMCTtoHS1stlpre =
+          {
+            //PreTransforms = {&.TLEMtoHS1rbf};
+            RBFDef.Type = RBF_MultiQuadratic;
+            RBFDef.Param = 0.2;
+            //FileName0 = "Cad3_Tibia_ISB.stl";
+            FileName0 = Main.Studies.HumanModel.BodyModel.Right.Leg.Seg.STL.FilenamePelvisMorphing;
+            ScaleXYZ0 = {0.001, 0.001, -0.001};
+            FileName1 = Main.TrialSpecificData.PelvisSTL;
+            ScaleXYZ1 = {1, 1, -1};
+            NumPoints = 1000;
+            UseClosestPointMatchingOnOff = Off;
+            BoundingBox.ScaleXYZ = {2, 2, 2};
+            BoundingBox.DivisionFactorXYZ = 2*{1, 1, 1};
+            BoundingBoxOnOff = On;
+          }; 
+    
+          AnyFunTransform3DLin TLEMCTtoHS1stl= 
+          {
+            PreTransforms = {&.TLEMCTtoHS1stlpre};
+            ScaleMat =  {{ 0.8192, 0, -1*-0.5736}, {0, 1, 0}, { -1*0.5736, 0,  0.8192}};
+            Offset = {0.0, 0.0, 0.0};
+          }; 
+        };
+      }; // Left
+    
+      #endif
+
+  };
+  
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
