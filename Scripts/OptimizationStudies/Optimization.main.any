@@ -1,10 +1,10 @@
 #include "../libdef.any"
 #define EVALUATE_MOMENT_ARMS 1
-#define BM_SCALING CONST_SCALING_UNIFORM 
+#define BM_SCALING CONST_SCALING_LENGTHMASSFAT 
 //LENGTHMASSFAT
-//#define TLEM_VERSION "2.0"
-//#define TLEM_MORPHOLOGY 2
-#define MUSCLE_MODELVERSION 1
+#define TLEM_VERSION "2.0"
+#define TLEM_MORPHOLOGY 2
+#define MUSCLE_MODELVERSION 2
 
 #define Subject4
 #define RATIOANALYSISONOFF 0
@@ -79,7 +79,7 @@ Main = {
   };
   #else
   AnyOperationSequence RunApplication1 = {
-    AnyOperation &SetDesignValues = Main.DesignVars.SetDesignVars.SetDesignVarsR1; // Scaling on subject 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    AnyOperation &SetDesignValues = Main.DesignVars.SetDesignVars.SetDesignVarsR1; // Scaling on subject 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     AnyOperation &Initialisation = Main.Studies.Calibrations.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions;
     AnyOperationMacro updateExpression = {MacroStr = { "classoperation Main"+ strquote("Update Values")};};
 //    AnyOperation &CalibrationOld = Main.HumanModel.Calibration.CalibrationSequence; 
@@ -92,9 +92,9 @@ Main = {
 //    AnyOperation &PlantarFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.IsometricStrength.ParameterStudy;
 //    AnyOperation &PlantarFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.ConcentricStrength.ParameterStudy;
 //    AnyOperation &PlantarFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.PlantarFlexorMuscles.EccentricStrength.ParameterStudy;
-//    AnyOperation &DorsiFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy;
+    AnyOperation &DorsiFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.ParameterStudy;
 //    AnyOperation &DorsiFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.ConcentricStrength.ParameterStudy;
-    AnyOperation &DorsiFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.ParameterStudy;
+//    AnyOperation &DorsiFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.DorsiFlexorMuscles.EccentricStrength.ParameterStudy;
 //    AnyOperation &KneeFlexorIsomStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.IsometricStrength.ParameterStudy;
 //    AnyOperation &KneeFlexorConcStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.ConcentricStrength.ParameterStudy;
 //    AnyOperation &KneeFlexorEccStrengthParameterStudy = Main.Studies.ParameterStudies.KneeFlexorMuscles.EccentricStrength.ParameterStudy;

@@ -130,7 +130,7 @@ AnyFolder ExtensorDigitorumLongus = {
 };
 AnyFolder ExtensorHallucisLongus = {
     AnyString Muscle = "Ext. hal. long.";///<Descriptive name for the muscle, e.g. for plotting
-    AnyFloat Pennationangle = 14.370;//9.4;///<Pennation angle of the muscle fibers (degres)
+    AnyFloat Pennationangle = 9.4;//14.370/<Pennation angle of the muscle fibers (degres)
     AnyFloat VolumeMuscleBelly = DesignVar(36.269);///<
     AnyFloat OptimalFiberlength = 5.982;///<Optimal working length of the muscle fiber (cm)
     AnyFloat TotalTendonLength = 17.800;///<The total tendon length (cm)
@@ -140,7 +140,7 @@ AnyFolder ExtensorHallucisLongus = {
 };
 AnyFolder FlexorDigitorumLongus = {
     AnyString Muscle = "Flex. dig. long.";///<Descriptive name for the muscle, e.g. for plotting
-    AnyFloat Pennationangle = 28.450;//13.6;///<Pennation angle of the muscle fibers (degres)
+    AnyFloat Pennationangle = 13.6;//28.450/<Pennation angle of the muscle fibers (degres)
     AnyFloat VolumeMuscleBelly = DesignVar(25.284);///<
     AnyFloat OptimalFiberlength = 3.835;///<Optimal working length of the muscle fiber (cm)
     AnyFloat TotalTendonLength = 16.600;///<The total tendon length (cm)
@@ -151,7 +151,7 @@ AnyFolder FlexorDigitorumLongus = {
 /// The fiber length value have been corrected compared to the original data set. (Optimum fiber length Ward et al 2009
 AnyFolder FlexorHallucisLongus = {
     AnyString Muscle = "Flex. hal. long.";///<Descriptive name for the muscle, e.g. for plotting
-    AnyFloat Pennationangle = 30.090;//16.9;///<Pennation angle of the muscle fibers (degres)
+    AnyFloat Pennationangle = 16.9;//30.090;/<Pennation angle of the muscle fibers (degres)
     AnyFloat VolumeMuscleBelly = DesignVar(161.501);///<
     AnyFloat OptimalFiberlength = 5.200;///<Optimal working length of the muscle fiber (cm)
     AnyFloat TotalTendonLength = 23.400;///<The total tendon length (cm)

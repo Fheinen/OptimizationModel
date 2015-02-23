@@ -23,12 +23,12 @@ from anypytools.abcutils import AnyPyProcess
  
 from ExperimentalData import ExpData
 
-nDesVar = 6
+nDesVar = 7
 np.save('nDesVar',nDesVar)
 
 def run_model(DesignVars):
     ''' Ruturns the x,y potions for the tip of the A frame '''
-    folder = 'C:/Users/Frederik Heinen/Documents/Scripts/OptimizationStudies'    
+    folder = 'C:/Users/fh/Documents/GitHub/OptimizationModel/Scripts/OptimizationStudies'    
     app = AnyPyProcess(anybodycon_path = 'C:/Program Files/AnyBody Technology/AnyBody.6.0/AnyBodyCon.exe', ignore_errors = ['ERROR(OBJ.MCH.MUS6)'])
     macro = [['load "Optimization.main.any"',
         'classoperation Main.DesignVars.ta_rmin "Set Value" --value={:12f}'.format(DesignVars[0]),
