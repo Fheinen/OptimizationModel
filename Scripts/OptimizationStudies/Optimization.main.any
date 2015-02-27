@@ -79,9 +79,9 @@ Main = {
   };
   #else
   AnyOperationSequence RunApplication1 = {
-//    AnyOperation &SetDesignValues = Main.DesignVars.SetDesignVars.SetDesignVarsR1; // Scaling on subject 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    AnyOperation &SetDesignValues = Main.DesignVars.SetDesignVars.SetDesignVarsR1; // Scaling on subject 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     AnyOperation &Initialisation = Main.Studies.Calibrations.RightAnkleCalibration1.AnkleCalibrationStudy1.InitialConditions;
-    AnyOperationMacro updateExpression = {MacroStr = { "classoperation Main"+ strquote("Update Values")};};
+//    AnyOperationMacro updateExpression = {MacroStr = { "classoperation Main"+ strquote("Update Values")};};
 //    AnyOperation &CalibrationOld = Main.HumanModel.Calibration.CalibrationSequence; 
     AnyOperation &Calibration1 = Main.Studies.AnkleCalibration.CalibrationSequence;
 //    AnyOperation &Calibration2 = Main.Studies.KneeCalibration.CalibrationSequence;

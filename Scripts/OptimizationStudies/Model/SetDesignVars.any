@@ -2,8 +2,8 @@
     // L_BFGS_B [(0.2,0.9),(1,1.7)] - Counter 72
     AnyOperationMacro SetDesignVarsR1 = {
       MacroStr = {
-      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), //0.58167
-      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("1.2"), //1.28007
+      "classoperation Main.DesignVars.ta_rmin"+strquote("Set Value") + "--value="+strquote("0.7"), //0.58167
+      "classoperation Main.DesignVars.ta_rmax"+strquote("Set Value") + "--value="+strquote("0.8"), //1.28007
       "classoperation Main.DesignVars.edl_rmin"+strquote("Set Value") + "--value="+strquote("0.1"),//0.66193 
       "classoperation Main.DesignVars.edl_rmax"+strquote("Set Value") + "--value="+strquote("1.2"), //1.34633
       "classoperation Main.DesignVars.ehl_rmin"+strquote("Set Value") + "--value="+strquote("0.1"), //0.54867

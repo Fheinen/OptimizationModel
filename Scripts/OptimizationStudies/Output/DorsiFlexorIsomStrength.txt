@@ -23,6 +23,9 @@ col0  Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Iterati
 col1  Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Strength
 ----------------------------------------------------------
 Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.IterationStep,Main.Studies.ParameterStudies.DorsiFlexorMuscles.IsometricStrength.Outputfile.Strength
-0.000000000000000e+000,1.498041222580326e+001
-0.000000000000000e+000,1.498041222580326e+001
-0.000000000000000e+000,1.498042467773057e+001
+0.000000000000000e+000,8.100044893281735e+000
+1.000000000000000e+000,1.029440364187807e+001
+2.000000000000000e+000,1.207379369847188e+001
+3.000000000000000e+000,1.561437150829380e+001
+4.000000000000000e+000,2.228610698311393e+001
+5.000000000000000e+000,2.280449767528586e+001
